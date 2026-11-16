@@ -16,7 +16,7 @@ import numpy as np, openpyxl
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); SRC = os.path.join(ROOT, "data"); OUT = os.path.join(ROOT, "docs", "assets"); os.makedirs(OUT, exist_ok=True)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); SRC = os.path.join(ROOT, "data"); OUT = os.path.join(ROOT, "page", "assets"); os.makedirs(OUT, exist_ok=True)
 
 def sheet_jv(ws):  # identical to scripts/make_figures.py
     rows = list(ws.iter_rows(values_only=True)); param = None; data = []; sm = {}

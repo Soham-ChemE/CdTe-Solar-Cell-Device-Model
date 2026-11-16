@@ -1,5 +1,7 @@
 # Claims audit: SCAPS-1D solar cell README and live page
 
+> **Archived (November 2026).** This audit checked that the README matched the SCAPS-1D exports; it did not check the input files behind them. The input-file audit found that the 27.99 % headline came from input-file settings and corrects it to 18.2 % (18.9 % without the Cs₂BiAgI₆ layer): see the correction in [`../README.md`](../README.md) and [`docs/FORENSICS.md`](../../../docs/FORENSICS.md).
+
 Every number in `README.md` and `docs/index.html` traced to the SCAPS-1D batch export and script that produce it, re-run on
 2026-11-04 on a clean clone (`./reproduce.sh`; Python 3.13, numpy 2.5, openpyxl 3.1, matplotlib 3.11). Metrics are the
 `Voc = / Jsc = / FF = / eta =` rows SCAPS writes into each export, cross-checked by `scripts/make_figures.py` against P_max

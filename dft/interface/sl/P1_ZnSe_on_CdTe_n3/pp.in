@@ -1,0 +1,11 @@
+&inputpp
+  prefix = 'P1_ZnSe_on_CdTe_n3'
+  outdir = './tmp'
+  filplot = 'vbh.pp'
+  plot_num = 11
+/
+&plot
+  iflag = 3
+  output_format = 6
+  fileout = 'vbh.cube'
+/

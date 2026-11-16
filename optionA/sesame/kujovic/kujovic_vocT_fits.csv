@@ -1,0 +1,9 @@
+hyp,description,slope_hi_mVK,intercept_hi_eV,slope_lo_mVK,intercept_lo_eV,Voc_298_mV,lo_over_hi_slope,n_converged
+measured,Kujovic JVT (S1 Fig. 3d),-1.69816,1.35716,-0.739788,1.08758,850.339,0.43564,
+a,back barrier 0.655 eV (metal 5.155 eV),-1.62182,1.33767,0.309406,0.75914,835.979,-0.190777,11
+b,ohmic (flat-band) back,-2.12651,1.51877,-1.87266,1.43739,882.161,0.880625,11
+c,ohmic back + S_front 1e5 cm/s,-2.14585,1.44537,-1.92972,1.37718,803.326,0.899279,11
+d,back barrier 0.655 eV + S_front 1e5 cm/s,-1.93718,1.3715,0.389906,0.67096,776.519,-0.201275,11
+e,ohmic back + front spike dEc +0.30 eV,-2.01158,1.48862,-6.89969,2.79911,886.639,3.42998,11
+a055,extra: back barrier 0.55 eV,-2.1104,1.51286,0.177125,0.893142,879.936,-0.0839298,11
+a050,extra: back barrier 0.50 eV,-2.12494,1.51808,-0.454125,1.07994,881.785,0.213712,11

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500" role="img" aria-label="CdTe solar cells, a passivated cliff not a spike: the conduction-band step at the ZnO/CdSeTe front of the 21.4 percent cell switches between the published +0.10 eV spike, excluded at delta chi-squared of at least 447, and the best-fit -0.30 eV cliff with an interface recombination velocity of about 5 cm/s, next to the headline numbers">
+<style>
+.t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.eb{font-size:15px;font-weight:700;letter-spacing:2.4px;fill:#a78bfa}
+.h{font-size:56px;font-weight:800;fill:#e6edf3;letter-spacing:-1.6px}
+.sub{font-size:21px;fill:#8b98a9}
+.big{font-size:33px;font-weight:800;fill:#22d3ee;letter-spacing:-.5px}
+.small{font-size:16.5px;fill:#8b98a9}
+.foot{font-size:14.5px;fill:#5b6676}
+.lay{font-size:14px;font-weight:600;fill:#8b98a9}
+.lab{font-size:15px;font-weight:700}
+.note{font-size:13px;fill:#8b98a9}
+.st{opacity:0;animation:cycle 16s infinite}.s1{animation-delay:4s}.s2{animation-delay:8s}.s3{animation-delay:12s}
+@keyframes cycle{0%,22%{opacity:1}25%,97%{opacity:0}100%{opacity:1}}
+.spike{animation:spk 8s infinite}.cliff{animation:clf 8s infinite}
+@keyframes spk{0%,38%{opacity:1}48%,90%{opacity:0}100%{opacity:1}}
+@keyframes clf{0%,38%{opacity:0}48%,90%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.st,.spike,.cliff{animation:none}.s0,.cliff{opacity:1}.spike{opacity:0}}
+</style>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fde68a"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f97316"/></marker>
+<linearGradient id="abs" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f59e0b" stop-opacity=".16"/><stop offset="1" stop-color="#f59e0b" stop-opacity=".07"/></linearGradient>
+</defs>
+<rect width="1600" height="500" fill="#0b1220"/>
+<g class="t">
+<text x="72" y="92" class="eb">CdTe DEVICE MODELLING · SCAPS-1D + NIST SESAME + DFT</text>
+<text x="72" y="160" class="h">A passivated cliff,</text><text x="72" y="222" class="h">not a spike.</text>
+<text x="72" y="264" class="sub">Calibrated, cross-validated model of the 21.4 % ZnO/CdSeTe/CdTe solar cell</text>
+<g class="st s0"><text x="72" y="326" class="big">Δχ² ≥ 447</text><text x="72" y="358" class="small">the published +0.10 eV spike, excluded under every S bound and fluctuation prior</text></g>
+<g class="st s1"><text x="72" y="326" class="big">−0.30 eV cliff · S ≈ 5 cm/s</text><text x="72" y="358" class="small">best fit at the ZnO front; a cliff of at least about −0.26 eV is required</text></g>
+<g class="st s2"><text x="72" y="326" class="big">25.4 % in SCAPS and Sesame</text><text x="72" y="358" class="small">conservative design, against 17.9 % for the calibrated baseline</text></g>
+<g class="st s3"><text x="72" y="326" class="big">≈ 1 mV</text><text x="72" y="358" class="small">SCAPS–Sesame agreement, including the new interface-state model</text></g>
+<text x="72" y="452" class="foot">Calibration target: Kujović et al., Adv. Funct. Mater. 34, 2312528 (2024), data digitised from the published figures</text>
+
+<!-- band diagram -->
+<g transform="translate(0,10)">
+<rect x="905" y="70" width="60" height="390" fill="#60a5fa" opacity=".10"/>
+<rect x="965" y="70" width="80" height="390" fill="#34d399" opacity=".08"/>
+<rect x="1045" y="70" width="415" height="390" fill="url(#abs)"/>
+<rect x="1460" y="70" width="44" height="390" fill="#94a3b8" opacity=".14"/>
+<text x="935" y="92" class="lay" text-anchor="middle">FTO</text>
+<text x="1005" y="92" class="lay" text-anchor="middle">ZnO</text>
+<text x="1252" y="92" class="lay" text-anchor="middle">As-doped CdSeTe → CdTe</text>
+<text x="1482" y="92" class="lay" text-anchor="middle">back</text>
+<!-- light -->
+<g stroke="#fde68a" stroke-width="2.4" fill="none"><path d="M846,150 L896,150" marker-end="url(#ah)"/><path d="M846,200 L896,200" marker-end="url(#ah)"/><path d="M846,250 L896,250" marker-end="url(#ah)"/></g>
+<text x="871" y="134" class="note" text-anchor="middle" style="fill:#fde68a">light</text>
+<!-- Fermi level -->
+<path d="M905,338 L1504,338" stroke="#5b6676" stroke-width="1.6" stroke-dasharray="6 6" fill="none"/>
+<text x="1500" y="330" class="note" text-anchor="end">E<tspan dy="4" font-size="10">F</tspan></text>
+<!-- FTO conduction band (degenerate) -->
+<path d="M905,330 L965,330" stroke="#60a5fa" stroke-width="3.5" fill="none"/>
+<!-- absorber bands: graded gap 1.41 eV front to 1.50 eV back, front band bending -->
+<path d="M1045,262 C1105,262 1150,182 1230,178 L1460,172" stroke="#f59e0b" stroke-width="3.5" fill="none"/>
+<path d="M1045,432 C1105,432 1150,352 1230,350 L1460,352" stroke="#f59e0b" stroke-width="3.5" fill="none"/>
+<text x="1452" y="160" class="note" text-anchor="end">conduction band</text>
+<text x="1452" y="378" class="note" text-anchor="end">valence band</text>
+<!-- spike state: published model -->
+<g class="spike">
+<path d="M965,322 L1045,250" stroke="#34d399" stroke-width="3.5" fill="none"/>
+<path d="M1045,250 L1045,262" stroke="#f97316" stroke-width="3" fill="none"/>
+<circle cx="1045" cy="250" r="6" fill="#f97316"/>
+<text x="1062" y="232" class="lab" style="fill:#f97316">+0.10 eV spike (published model)</text>
+<text x="1062" y="252" class="note">Δχ² ≈ 589 · its best S ≈ 4 × 10⁵ cm/s</text>
+<path d="M1043,254 C1010,300 1010,390 1041,428" stroke="#f97316" stroke-width="2" stroke-dasharray="4 4" fill="none" marker-end="url(#ar)" opacity=".85"/>
+</g>
+<!-- cliff state: best fit -->
+<g class="cliff">
+<path d="M965,322 L1045,298" stroke="#34d399" stroke-width="3.5" fill="none"/>
+<path d="M1045,262 L1045,298" stroke="#34d399" stroke-width="3" fill="none"/>
+<circle cx="1045" cy="298" r="6" fill="#34d399"/>
+<text x="1062" y="292" class="lab" style="fill:#34d399">−0.30 eV cliff (best fit)</text>
+<text x="1062" y="312" class="note">passivated interface, S ≈ 5 cm/s</text>
+<path d="M1041,303 C1020,340 1020,392 1041,426" stroke="#34d399" stroke-width="2" stroke-dasharray="4 4" fill="none" marker-end="url(#ag)" opacity=".85"/>
+</g>
+<text x="1062" y="452" class="note">interface recombination: ZnO conduction band → absorber valence band</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,63 @@
+# Claims, evidence and caveats
+
+Every headline claim in `README.md` and on the live page (`docs/index.html`), the file that holds its evidence, and
+what limits it. The README states results; this file is where their limits are written down. Numbers are model
+outputs unless marked as measured. Checked on 2026-11-16 against the committed CSVs; `python scripts/make_figures.py`
+regenerates `docs/figures/F1`–`F7` pixel-identically from them.
+
+## Claims
+
+| # | Claim | Evidence | Caveats |
+|---|---|---|---|
+| 1 | The +0.10 eV spike of the published model is excluded: Δχ² ≈ 590 without fluctuations; with fluctuations refitted the best spike stays at Δχ² = 447–514 for every S bound (none, ≥ 1, ≥ 10 cm/s), with and without the σ prior. | `optionA/sesame/kujovic/ident/ident_profile.csv` (+0.10 eV: Δχ² 588.9 at φ_b = 0.50 eV); `optionA/sesame/kujovic/fluct/fluct_profile_Sbound.csv`, `fluct/README.md`; F1, F3 | Holds within this model class (one effective interface level, a fixed-energy back metal, the stated temperature model). The fluctuation pipeline uses a coarser voltage grid that changes χ² of poor fits by up to about 40 %; the exclusion does not depend on it. It also survives inflating σ until χ²/dof = 1 (Δχ² = 176) and a ±0.04 eV intercept shift from dE_g/dT. |
+| 2 | A cliff of at least about −0.26 eV is required; best fit ΔE_c = −0.30 eV, S = 10^0.72 ≈ 5 cm/s, φ_b = 0.50 eV, X = 0.55 sun, χ² = 21.7 for 12 dof; 68 % and 95 % intervals −0.324 to −0.288 and −0.335 to −0.277 eV. | `ident/ident_summary.csv`, `ident/ident_profile.csv`, `ident/ridge_points.csv`; F1, F2 | The intervals are formal (σ = 0). Temperature-model systematics not in χ² (dE_g/dT, the equal split of the gap shift between band edges, the ZnO affinity following the absorber) shift the intercept by about ±0.04 eV and the best cliff by a similar amount. χ²/dof = 1.8 (p ≈ 0.04): a modestly poor fit; the largest residual is the 1-sun FF (77.8 % against 80.48 %, compared at R_s = 0). |
+| 3 | S is about 5 cm/s, a passivated interface. | `ident/ident_summary.csv` (S pinned to 10^0.26–10^1.00 cm/s along the 95 % valley) | S is an effective parameter of a single-level, mid-gap, equal-capture interface model, not a measured velocity. It is below every measured value found for related interfaces (< 100 cm/s for MgZnO/CdSeTe, < 200 cm/s quoted for MgZnO contacts, 26 cm/s by cathodoluminescence on SnO₂/ZnO, all upper bounds). The robust quantity is the S–ΔE_c ridge, i.e. the interface saturation current. |
+| 4 | The close-space-sublimated XPS cliff (−0.32 eV, Liu et al. 2022) lies inside the 68 % region; the MOCVD value (−0.22 eV) is disfavoured. | `ident/ident_profile.csv` (−0.22 eV: Δχ² 59.9; 33 with σ inflated) | The XPS values come from separate films, not from the device stack. "Disfavoured within this temperature model", not excluded outright. |
+| 5 | S, ΔE_c and the fluctuation width are degenerate; the back barrier is not robust. | `fluct/README.md` (sections 2 and 4), `fluct/fluct_profile.csv`, `fluct/fluct_C_phib.csv`; F3 | With S unbounded the minimum slides to −0.46 eV, S ≈ 0.08 cm/s, σ = 60 meV, flat within Δχ² ≈ 7 from −0.30 to −0.50 eV; only a physical bound on S or an independent σ closes it. An ohmic back contact with σ = 60 meV reaches χ² = 26.0 (evaluated at one point, so an upper bound) against 19.3 with a 0.50 eV barrier. The parallel-domain model is the maximum-effect limit of fluctuations (domains do not exchange carriers). |
+| 6 | One shared S ≈ 10⁵ cm/s reproduces the best-cell V_oc of the Cu-doped MgZnO series; at equal cliff the As-doped interface is about 3–200× cleaner (15–200× with a shared optical J_sc scaling); doping does not rescue a ZnO front. | `optionA/sesame/pandey_oneS/oneS_fits.csv`, `oneS_profiles.csv`, `oneS_summary.csv`, `oneS_NAscan.csv`, `pandey_oneS/README.md`; F4 | The claim is confined to V_oc. The fit does not reproduce the x = 0 best-cell FF (67.7 % against 62.8 %), the average cells, or the low-temperature kink of the x = 0 J-V. The best x = 0 cell is the least degraded of a wide spread (best 12.2 %, average 8.0 %), so its S is a lower bound. Only the cliffed x = 0 cell pins S; the Mg cells only cap it. Both S values are effective parameters from different stacks. |
+| 7 | Conservative design: 25.43 % (1015.0 mV) in Sesame and 25.36 % (1014.3 mV) in SCAPS with B = 10⁻¹⁰ cm³/s, R_s 0.45 and R_sh 2500 Ω cm²; baseline 17.87 % with the same penalties; 23.7–25.4 % across three calibration branches. | `optionA/sesame/design/design_penalties.csv`, `design_results.csv`; `optionA/scaps_design_conservative_RsRsh.csv` (SCAPS summary lines); F5 | Model numbers. The fluctuation-heavy branch sets the low end (σ = 60 meV caps V_oc at 949 mV). The EQE-anchored projection for the real cell (19.51 % × η/η_baseline) is 26.4–27.8 %; it is a projection, not a simulation. The calibrated baseline itself cannot be cross-checked in SCAPS, which does not reach V_oc for the cliffed cell under light. No conservative design exceeds 90 % of the detailed-balance V_oc (1031.8 mV). |
+| 8 | Removing the cliff is the dominant lever (+4.2–4.3 points); no spike is needed; it holds while S < ~50 cm/s. | `design/design_results.csv` (rows 1a–1g) | At ΔE_c = 0, S = 521 cm/s costs 1.3 points and 5210 cm/s 3.2 points. |
+| 9 | After the cliff, the back contact is the bottleneck (58 % of the recombination at V_oc at ΔE_c = 0, 82–88 % in the combined designs). | `design/README.md` | A real electron reflector needs a conduction-band barrier layer, which was not simulated. |
+| 10 | SCAPS and Sesame agree to about 1 mV, including the interface-state model. | `optionA/scaps_if_xcheck.csv`, `optionA/scaps_if_dark.csv` (ratio 0.959–0.976 for J ≥ 10⁻³ mA/cm²), `optionA/sesame/validation.csv`, `optionA/sesame/kujovic/kujovic_validation.csv`, `optionA/scaps_znse_xcheck.csv`, `benchmark/`; F6 | Under light, SCAPS converged only for the spike case of the interface-state check; the three cliff cases did not converge at short circuit, so the cliff regime of the best fit is cross-validated in the dark only. The remaining 2.5–4 % current offset is systematic (Sesame below SCAPS), plausibly drift-diffusion against thermionic transport at the abrupt interface; not isolated. |
+| 11 | ZnSe/CdTe ΔE_c = +0.55 ± 0.3 eV (DFT natural offset), consistent with Wei and Zunger (1998, +0.56 to +0.60 eV). | `dft/interface/results.csv`, `dft/interface/README.md` | Mean of PBE+SOC (+0.58 eV) and its HSE06-corrected variant (+0.52 eV); the uncertainty is dominated by the volume correction at 13 % lattice misfit (±0.23 eV). Method validation is mixed: CdS/CdTe ΔE_v +0.73 eV against 0.65–0.94 eV measured, ZnTe/CdTe +0.11 eV against −0.1 eV by XPS (0.2 eV too positive). Li et al. (2009) give about +0.04 eV; the only measurement implies ΔE_c ≥ 1.0 eV. The value is not new. |
+| 12 | On the calibrated absorber a ZnSe front collapses between +0.40 and +0.55 eV; SCAPS confirms (969.6 vs 970.0 mV at +0.30 eV). | `optionA/sesame/kujovic/znse/znse_results.csv`, `znse_collapse.csv`, `optionA/scaps_znse_xcheck.csv`; F7 | The model cannot reproduce the intact USF ZnSe cells' V_oc of 400–550 mV, and its absorber is not 1990s CdTe. A Kraut-method XPS measurement on ZnSe/CdSeTe would settle the offset. |
+| 13 | Capstone correction: 27.99 % → 18.2 % (18.9 % without Cs₂BiAgI₆). | `docs/FORENSICS.md`, `forensics/forensics_results.csv` | The 18.2 % is not a calibrated result: one bulk defect, no interface defects, an ideal 5.55 eV nickel contact, ZnSe still on CdS absorption data, no R_s/R_sh. Its role is to show the size and direction of each setup error. |
+| 14 | Digitisation error is far below the data uncertainty. | `data/kujovic_family/README.md` (accuracy section), `data/kujovic_family/curves/*.json` | J-V: 0.0006 mA/cm² and 0.010 mV against the thesis vertices; raster check about 0.4 mV. |
+| 15 | First device-level reanalysis of the 21.4 % cell. | Literature search, November 2026: none of the 37 works citing the cell (OpenAlex) remodels it. | "To our knowledge". The inference logic is not new (Brandt et al. 2017; Swartz et al. 2019; Nardone et al. 2025), nor is the principle that low S makes a cliff tolerable (Ablekim et al. 2018; Nardone et al. 2025). Nardone et al. have what this work lacks: an offset measured on the device. |
+
+## Wider limitations
+
+- **One cell, digitised data.** All conclusions rest on one record-class cell and on data read from published figures.
+  The V_oc(T) data are plotted markers, the champion cell has no reported diode parameters, and the authors' SCAPS
+  input file is not public.
+- **J-V against EQE current.** The measured J-V current exceeds the EQE-integrated current by 9.9 % for the champion
+  cell (4.3–9.9 % across three papers on the same absorber family). Calibration uses the EQE-integrated current
+  (27.69 mA/cm²) as the J_sc target. Spectral mismatch, EQE without bias and aperture definition are plausible benign
+  explanations that the raw data would settle.
+- **Two measurement set-ups.** The V_oc(T) stage gives 847–851 mV at 297–298 K against 875.5 mV under the simulator,
+  so the light level of the stage is a free factor X, fitted at 0.55 sun. That is an assumption raw temperature-dependent
+  J-V data would test.
+- **Ce-ZnO series inconclusive.** With a free light level per cell the model gives a cliff-to-spike trend, but the
+  x = 0.087 cell then sits at the 5-sun bound; with one shared light level the trend disappears. Its 1.61 eV activation
+  energy exceeds the model's bulk intercept (about 1.52 eV), so the absorber temperature model, or a back-contact
+  contribution, is missing physics (`optionA/ceseries/`).
+- **ZnO doping in the device is uncertain.** Anneal and CdCl₂ raise it by about four orders of magnitude in films; a
+  passivated cliff makes buffer charge unimportant, but a buffer-doping sweep inside the identifiability model has not
+  been run.
+- **An aggressive design is not cross-validated.** ΔE_c = 0, today's S, 1 µs, N_A ×10 and an ohmic back reach 26.26 %
+  in Sesame with the same penalties, but the SCAPS run of that design returned V_oc = 768.6 mV against 1054.4 mV in
+  Sesame (both without resistive penalties), unresolved. It is reported as Sesame-only and is not a headline.
+- **What would close the valley:** photoemission on a cleaved ZnO/CdSeTe device, an independent σ measurement in this
+  absorber, and intensity-resolved V_oc(T) on the same cell.
+
+## Language
+
+The published model of the 21.4 % cell is compared with the measured data under the same rules applied to this
+model. The comparison concerns a modelling assumption (the front offset, which the authors themselves listed as
+still to be measured); it says nothing about the measurements, which this work relies on throughout.
+
+## Not in this repository
+
+SCAPS-1D and every SCAPS-bundled input or derivative (`scaps/README.md`), raw SCAPS outputs, source PDFs and their
+extracted texts, figure overlays containing crops of published figures, DFT pseudopotentials and scratch files, and the
+manuscript, which is in preparation.

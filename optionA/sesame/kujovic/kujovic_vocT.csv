@@ -1,0 +1,78 @@
+hyp,description,T_K,status,Voc_V,Jsc,FF,eta,back,Eg_front,Eg_back,seconds,ramp_variant
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),216,ok,0.826139,26.7408,70.7917,15.639,Schottky 5.155,1.4436,1.52235,47.3,1
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),232,ok,0.830588,26.9348,70.4584,15.7628,Schottky 5.155,1.4372,1.51595,12.4,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),248,ok,0.83604,27.1677,70.0586,15.9126,Schottky 5.155,1.4308,1.50955,12.1,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),265,ok,0.84007,27.4177,69.7493,16.0652,Schottky 5.155,1.424,1.50275,11.6,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),282,ok,0.8405,27.6789,69.6468,16.2027,Schottky 5.155,1.4172,1.49595,11,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),298,ok,0.835979,27.87,69.8317,16.2699,Schottky 5.155,1.4108,1.48955,10.2,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),316,ok,0.822643,28.1065,70.5511,16.3125,Schottky 5.155,1.4036,1.48235,9.9,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),326,ok,0.810469,28.2601,71.257,16.3207,Schottky 5.155,1.3996,1.47835,9.8,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),336,ok,0.79513,28.4026,72.1399,16.2919,Schottky 5.155,1.3956,1.47435,9.3,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),345,ok,0.779122,28.5238,73.0048,16.2242,Schottky 5.155,1.392,1.47075,9.2,
+a,back barrier 0.655 eV (metal fixed at 5.155 eV),355,ok,0.75959,28.668,73.9029,16.0931,Schottky 5.155,1.388,1.46675,8.6,
+a050,extra: back barrier 0.50 eV,216,ok,0.980027,26.7657,74.6546,19.5827,Schottky 5.31,1.4436,1.52235,14.9,0
+a050,extra: back barrier 0.50 eV,232,ok,0.978217,26.9587,74.8148,19.7298,Schottky 5.31,1.4372,1.51595,22.6,0
+a050,extra: back barrier 0.50 eV,248,ok,0.965495,27.1909,75.8079,19.9016,Schottky 5.31,1.4308,1.50955,15.9,0
+a050,extra: back barrier 0.50 eV,265,ok,0.941001,27.4401,77.6545,20.0513,Schottky 5.31,1.424,1.50275,12.7,0
+a050,extra: back barrier 0.50 eV,282,ok,0.911694,27.7002,79.5249,20.0833,Schottky 5.31,1.4172,1.49595,12.4,0
+a050,extra: back barrier 0.50 eV,298,ok,0.881785,27.8894,80.594,19.8201,Schottky 5.31,1.4108,1.48955,11.7,0
+a050,extra: back barrier 0.50 eV,316,ok,0.846157,28.1227,80.6723,19.1969,Schottky 5.31,1.4036,1.48235,11.3,0
+a050,extra: back barrier 0.50 eV,326,ok,0.825603,28.2743,80.3483,18.756,Schottky 5.31,1.3996,1.47835,11.4,0
+a050,extra: back barrier 0.50 eV,336,ok,0.804533,28.4146,79.8729,18.2593,Schottky 5.31,1.3956,1.47435,10.2,0
+a050,extra: back barrier 0.50 eV,345,ok,0.785172,28.5339,79.3587,17.7796,Schottky 5.31,1.392,1.47075,9.6,0
+a050,extra: back barrier 0.50 eV,355,ok,0.763301,28.6763,78.7179,17.2303,Schottky 5.31,1.388,1.46675,9.9,0
+a055,extra: back barrier 0.55 eV,216,ok,0.931081,26.7581,73.4785,18.3064,Schottky 5.26,1.4436,1.52235,17.4,0
+a055,extra: back barrier 0.55 eV,232,ok,0.934875,26.9514,73.2109,18.4464,Schottky 5.26,1.4372,1.51595,15.2,0
+a055,extra: back barrier 0.55 eV,248,ok,0.936749,27.1839,73.0978,18.614,Schottky 5.26,1.4308,1.50955,14.9,0
+a055,extra: back barrier 0.55 eV,265,ok,0.928313,27.4333,73.7489,18.7814,Schottky 5.26,1.424,1.50275,14,0
+a055,extra: back barrier 0.55 eV,282,ok,0.907029,27.6941,75.3115,18.9178,Schottky 5.26,1.4172,1.49595,15,0
+a055,extra: back barrier 0.55 eV,298,ok,0.879936,27.8846,77.1035,18.9186,Schottky 5.26,1.4108,1.48955,13.7,0
+a055,extra: back barrier 0.55 eV,316,ok,0.845457,28.1196,78.6675,18.7024,Schottky 5.26,1.4036,1.48235,11.8,0
+a055,extra: back barrier 0.55 eV,326,ok,0.825176,28.2721,79.0605,18.4444,Schottky 5.26,1.3996,1.47835,11.6,0
+a055,extra: back barrier 0.55 eV,336,ok,0.804266,28.4129,79.0904,18.0734,Schottky 5.26,1.3956,1.47435,9.5,0
+a055,extra: back barrier 0.55 eV,345,ok,0.784992,28.5326,78.8702,17.6652,Schottky 5.26,1.392,1.47075,17.4,0
+a055,extra: back barrier 0.55 eV,355,ok,0.763181,28.6751,78.4283,17.1635,Schottky 5.26,1.388,1.46675,8.6,0
+b,ohmic (flat-band) back,216,ok,1.03332,26.7914,85.8095,23.7556,Ohmic 5.0,1.4436,1.52235,12.8,
+b,ohmic (flat-band) back,232,ok,1.0021,26.9805,85.4439,23.1017,Ohmic 5.0,1.4372,1.51595,12.8,
+b,ohmic (flat-band) back,248,ok,0.973395,27.2092,84.8245,22.466,Ohmic 5.0,1.4308,1.50955,12,
+b,ohmic (flat-band) back,265,ok,0.943342,27.4547,84.0417,21.7661,Ohmic 5.0,1.424,1.50275,11.1,
+b,ohmic (flat-band) back,282,ok,0.912516,27.7118,83.1897,21.0366,Ohmic 5.0,1.4172,1.49595,10.8,
+b,ohmic (flat-band) back,298,ok,0.882161,27.8993,82.3402,20.2653,Ohmic 5.0,1.4108,1.48955,9.4,
+b,ohmic (flat-band) back,316,ok,0.846358,28.1318,81.322,19.3624,Ohmic 5.0,1.4036,1.48235,8.9,
+b,ohmic (flat-band) back,326,ok,0.825765,28.2834,80.7197,18.8525,Ohmic 5.0,1.3996,1.47835,8.8,
+b,ohmic (flat-band) back,336,ok,0.804676,28.4237,80.0886,18.3178,Ohmic 5.0,1.3956,1.47435,8.5,
+b,ohmic (flat-band) back,345,ok,0.785309,28.5432,79.4937,17.8187,Ohmic 5.0,1.392,1.47075,8.1,
+b,ohmic (flat-band) back,355,ok,0.763439,28.6858,78.7999,17.257,Ohmic 5.0,1.388,1.46675,8,
+c,ohmic back + S_front 1e5 cm/s,216,ok,0.960601,26.7501,85.8838,22.0689,Ohmic 5.0,1.4436,1.52235,12.4,
+c,ohmic back + S_front 1e5 cm/s,232,ok,0.929016,26.9382,85.2714,21.34,Ohmic 5.0,1.4372,1.51595,12,
+c,ohmic back + S_front 1e5 cm/s,248,ok,0.89885,27.1657,84.4801,20.6283,Ohmic 5.0,1.4308,1.50955,11.4,
+c,ohmic back + S_front 1e5 cm/s,265,ok,0.866983,27.41,83.5494,19.8547,Ohmic 5.0,1.424,1.50275,10.5,
+c,ohmic back + S_front 1e5 cm/s,282,ok,0.834652,27.6656,82.5572,19.0634,Ohmic 5.0,1.4172,1.49595,9.8,
+c,ohmic back + S_front 1e5 cm/s,298,ok,0.803326,27.8516,81.5775,18.2521,Ohmic 5.0,1.4108,1.48955,9.1,
+c,ohmic back + S_front 1e5 cm/s,316,ok,0.76687,28.0822,80.4117,17.317,Ohmic 5.0,1.4036,1.48235,8.5,
+c,ohmic back + S_front 1e5 cm/s,326,ok,0.746042,28.2328,79.7293,16.7933,Ohmic 5.0,1.3996,1.47835,8.2,
+c,ohmic back + S_front 1e5 cm/s,336,ok,0.724763,28.3721,79.0171,16.2483,Ohmic 5.0,1.3956,1.47435,7.8,
+c,ohmic back + S_front 1e5 cm/s,345,ok,0.705239,28.4906,78.3473,15.7421,Ohmic 5.0,1.392,1.47075,7.7,
+c,ohmic back + S_front 1e5 cm/s,355,ok,0.683187,28.6322,77.5669,15.173,Ohmic 5.0,1.388,1.46675,7.4,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,216,ok,0.755407,26.6897,69.3474,13.9815,Schottky 5.155,1.4436,1.52235,17.2,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,232,ok,0.760965,26.8834,68.6074,14.0352,Schottky 5.155,1.4372,1.51595,13.4,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,248,ok,0.767884,27.116,67.7623,14.1094,Schottky 5.155,1.4308,1.50955,12.4,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,265,ok,0.775219,27.3655,66.8746,14.1869,Schottky 5.155,1.424,1.50275,11.1,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,282,ok,0.77998,27.6261,66.1812,14.2606,Schottky 5.155,1.4172,1.49595,10.8,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,298,ok,0.776519,27.8167,66.1323,14.2847,Schottky 5.155,1.4108,1.48955,10.6,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,316,ok,0.757605,28.0526,67.2453,14.2915,Schottky 5.155,1.4036,1.48235,10.5,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,326,ok,0.741129,28.2059,68.3283,14.2835,Schottky 5.155,1.3996,1.47835,9.7,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,336,ok,0.722144,28.348,69.572,14.2423,Schottky 5.155,1.3956,1.47435,8.8,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,345,ok,0.703714,28.4689,70.7049,14.165,Schottky 5.155,1.392,1.47075,8.7,
+d,back barrier 0.655 eV + S_front 1e5 cm/s,355,ok,0.682312,28.6127,71.8348,14.0242,Schottky 5.155,1.388,1.46675,8.5,
+e,ohmic back + front spike dEc +0.30 eV,216,ok,1.30833,26.7857,55.1426,19.3244,Ohmic 5.0,1.4436,1.52235,18.2,0
+e,ohmic back + front spike dEc +0.30 eV,232,ok,1.19928,26.9781,62.6203,20.2603,Ohmic 5.0,1.4372,1.51595,14.7,
+e,ohmic back + front spike dEc +0.30 eV,248,ok,1.08754,27.208,69.5817,20.5891,Ohmic 5.0,1.4308,1.50955,12.9,
+e,ohmic back + front spike dEc +0.30 eV,265,ok,0.957604,27.454,78.1931,20.5571,Ohmic 5.0,1.424,1.50275,8.8,
+e,ohmic back + front spike dEc +0.30 eV,282,ok,0.916242,27.7114,79.9284,20.294,Ohmic 5.0,1.4172,1.49595,11.7,
+e,ohmic back + front spike dEc +0.30 eV,298,ok,0.886639,27.899,80.2498,19.8509,Ohmic 5.0,1.4108,1.48955,10.6,
+e,ohmic back + front spike dEc +0.30 eV,316,ok,0.852545,28.1317,80.1359,19.2194,Ohmic 5.0,1.4036,1.48235,11.1,
+e,ohmic back + front spike dEc +0.30 eV,326,ok,0.833069,28.2835,79.8883,18.8234,Ohmic 5.0,1.3996,1.47835,12.4,
+e,ohmic back + front spike dEc +0.30 eV,336,ok,0.813143,28.4241,79.5274,18.381,Ohmic 5.0,1.3956,1.47435,10.3,
+e,ohmic back + front spike dEc +0.30 eV,345,ok,0.794826,28.5437,79.1203,17.9502,Ohmic 5.0,1.392,1.47075,9.1,
+e,ohmic back + front spike dEc +0.30 eV,355,ok,0.774094,28.6866,78.5911,17.452,Ohmic 5.0,1.388,1.46675,8.8,

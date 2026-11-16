@@ -1,11 +1,9 @@
-<p align="center"><a href="https://soham-cheme.github.io/Perovskite-Solar-Cell-SCAPS1D-Optimization/"><img src="docs/assets/hero.svg" alt="ZnSe/CdTe thin-film cell in SCAPS-1D: simulated efficiency of ten electron-transport layers as bars growing in order, next to the headline numbers" width="100%"></a></p>
+# 2025 capstone (archived): ZnSe/CdTe thin-film cell in SCAPS-1D
 
-<p align="center"><b><a href="https://soham-cheme.github.io/Perovskite-Solar-Cell-SCAPS1D-Optimization/">Open the live page</a></b> · scroll-driven 3D: the layer stack closing, the band alignment lighting up, the ten-ETL sweep rising behind it, and every figure as an interactive 3D scene</p>
-
-<div align="center">
-
-
-</div>
+> [!IMPORTANT]
+> **Correction (November 2026).** The 27.99 % headline of this study came from input-file settings rather than from the device: a defect-free, effectively undoped CdTe absorber at a 1.6 eV band gap, with CdTe absorption data applied to other layers. With those settings corrected, the same FTO / ZnSe / CdTe / Cs₂BiAgI₆ / Ni cell gives **18.2 %**, and **18.9 %** without the Cs₂BiAgI₆ layer. The re-run of all 12 original input files, step by step, is in [`docs/FORENSICS.md`](../../docs/FORENSICS.md). The tables below keep the values as originally reported, for the record.
+>
+> This forensic re-run started the project that now lives at the top of this repository: [calibrated, cross-validated modelling of a 21.4 % CdSeTe/CdTe cell](../../README.md).
 
 <div align="center">
 
@@ -14,7 +12,7 @@
 [![Patents](https://img.shields.io/badge/Design%20patents-2%20granted%20%C2%B7%201%20utility%20under%20review-b45309?style=flat-square)](#patents)
 [![Report](https://img.shields.io/badge/Capstone%20report-50%20pages-b45309?style=flat-square)](Project_Report.pdf)
 [![Reproducible](https://img.shields.io/badge/figures-regenerated%20from%20raw%20SCAPS%20exports-b45309?style=flat-square)](scripts/make_figures.py)
-[![Audit](https://img.shields.io/badge/claims-audited%20in%20docs%2FCLAIMS.md-b45309?style=flat-square)](docs/CLAIMS.md)
+[![Audit](https://img.shields.io/badge/claims-audited%20in%20page%2FCLAIMS.md-b45309?style=flat-square)](page/CLAIMS.md)
 
 **Soham Kavathekar** · Suved Malokar · Sowmyan Nagaraj
 B.Tech Chemical Engineering capstone, Vellore Institute of Technology, April 2025 · Guide: Dr. Dharmendra Kumar Bal
@@ -23,17 +21,17 @@ B.Tech Chemical Engineering capstone, Vellore Institute of Technology, April 202
 
 ---
 
-## Results first
+## The study (as reported, April 2025)
 
-**Replace the toxic CdS buffer in a CdTe thin-film cell with ZnSe, screen ten electron-transport layers and nine back-contact metals in SCAPS-1D, and the lead-free double perovskite Cs₂BiAgI₆ with a nickel contact gives a simulated power-conversion efficiency of 27.99 %.**
+**Replace the toxic CdS buffer in a CdTe thin-film cell with ZnSe, then screen ten electron-transport layers and nine back-contact metals in SCAPS-1D.** The headline efficiency of this screen is corrected in the box above.
 
-**Built** the FTO / ZnSe / CdTe stack in SCAPS-1D with a non-toxic ZnSe window, **screened** ten electron-transport layers and nine back-contact metals in a six-parameter design of experiments, **identified** Cs₂BiAgI₆ with a nickel contact as the optimum at a simulated 27.99 %, and **characterised** its thickness and temperature behaviour. Every number below is read directly from the SCAPS-1D batch exports in [`data/`](data/), every figure is regenerated from them by [`scripts/make_figures.py`](scripts/make_figures.py), and `./reproduce.sh` does it in one command; the claim-by-claim audit is in [`docs/CLAIMS.md`](docs/CLAIMS.md). The exports are the source of record; the reconciliation with the April 2025 report is in [`docs/CLAIMS.md`](docs/CLAIMS.md).
+**Built** the FTO / ZnSe / CdTe stack in SCAPS-1D with a non-toxic ZnSe window, **screened** ten electron-transport layers and nine back-contact metals in a six-parameter design of experiments, **identified** Cs₂BiAgI₆ with a nickel contact as the optimum of the screen, and **characterised** its thickness and temperature behaviour. Every number below is read directly from the SCAPS-1D batch exports in [`data/`](data/), every figure is regenerated from them by [`scripts/make_figures.py`](scripts/make_figures.py), and `./reproduce.sh` does it in one command; the claim-by-claim audit is in [`page/CLAIMS.md`](page/CLAIMS.md). The exports are the source of record; the reconciliation with the April 2025 report is in [`page/CLAIMS.md`](page/CLAIMS.md).
 
-## Results at a glance
+## Results at a glance (as reported)
 
 | Result | Value | Source |
 |---|---|---|
-| Best simulated cell: FTO 0.4 / ZnSe 0.025 / CdTe 3 / Cs₂BiAgI₆ 2 µm / Ni | **PCE 27.99 %**, V<sub>OC</sub> 1.207 V, J<sub>SC</sub> 25.96 mA cm⁻², FF 89.28 % | `data/Cs2BiAgI6 DATA POINTS.xlsx`, sheet ETL VARY at 2.0 µm |
+| Best simulated cell: FTO 0.4 / ZnSe 0.025 / CdTe 3 / Cs₂BiAgI₆ 2 µm / Ni | PCE 27.99 % as reported (V<sub>OC</sub> 1.207 V, J<sub>SC</sub> 25.96 mA cm⁻², FF 89.28 %); **18.2 % after the correction above** | `data/Cs2BiAgI6 DATA POINTS.xlsx`, sheet ETL VARY at 2.0 µm |
 | Ten electron-transport layers screened, 0.4 to 2.0 µm each | Cs₂BiAgI₆ 27.99 > C₆₀ 27.50 > PC₁₆BM 23.41 > Cu₂O 22.63 > CuO 20.56 > Sb₂Se₃ 20.50 > TiO₂ 13.99 > WO₃ 8.11 > PCBM 0.25 ≈ WS₂ 0.25 % | `data/*DATA POINTS.xlsx`, `data/scaps_metrics.json` |
 | Nine back-contact metals, work function 4.3 to 5.9 eV | efficiency tracks φ until the hole barrier closes near 5.4 eV; Ni (5.55 eV) 27.99 %, Pt 28.44 %, Se 28.45 %, Al 5.26 % | report table (`Project_Report.pdf`), plotted by `scripts/make_figures.py` |
 | Six-parameter design of experiments | ETL material, ETL / CdTe / ZnSe / FTO thickness, temperature, back-contact metal, swept one at a time | the workbooks above |
@@ -221,20 +219,20 @@ For a p-type absorber the metal has to line up with the valence band. In this pa
 
 ## Scope and assumptions
 
-SCAPS-1D is a one-dimensional planar drift-diffusion model with literature input parameters, so the study's product is the ranking of ten electron-transport layers and nine metals for a ZnSe/CdTe junction, the thickness trade-offs of each layer and the temperature derating of the optimum stack; the 27.99 % figure is the simulated ceiling for this parameter set, and Cs₂BiAgI₆ as an ETL on CdTe is the experiment the study motivates.
+SCAPS-1D is a one-dimensional planar drift-diffusion model with literature input parameters, so the study's product is the ranking of ten electron-transport layers and nine metals for a ZnSe/CdTe junction, the thickness trade-offs of each layer and the temperature derating of the optimum stack; the headline efficiency of this parameter set is corrected in the box at the top of this page (18.2 %, and 18.9 % without the Cs₂BiAgI₆ layer; see [`docs/FORENSICS.md`](../../docs/FORENSICS.md)).
 
 ## How to run
 
 ```bash
-git clone https://github.com/Soham-ChemE/Perovskite-Solar-Cell-SCAPS1D-Optimization.git
-cd Perovskite-Solar-Cell-SCAPS1D-Optimization
+git clone https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model.git
+cd CdTe-Solar-Cell-Device-Model/archive/2025-capstone
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-./reproduce.sh        # scripts/make_figures.py + docs/build_assets.py: figures, data/scaps_metrics.json, live-page assets
-python docs/build_assets.py --snap --qa --lighthouse   # static fallbacks for the 3D body scenes, both-theme screenshots, Lighthouse
+./reproduce.sh        # scripts/make_figures.py + page/build_assets.py: figures, data/scaps_metrics.json, archived page assets
+python page/build_assets.py --snap --qa --lighthouse   # static fallbacks for the 3D body scenes, both-theme screenshots, Lighthouse
 ```
 
-`scripts/make_figures.py` reads the eleven SCAPS batch exports in `data/` (one workbook per ETL, sheets `ETL VARY DP1..5` for the thickness points, plus the CdTe, ZnSe and FTO sweeps in the Cs₂BiAgI₆ workbook and a six-sheet temperature workbook), pulls the `Voc = / Jsc = / FF = / eta =` rows SCAPS writes into each sheet, cross-checks η against P<sub>max</sub> from the sweep, writes `data/scaps_metrics.json` and draws the five figures in `figures/`. The tables in this README are generated from the same JSON. No SCAPS-1D installation is needed to reproduce them. To view the live page locally, open `docs/index.html` in a browser; it needs no build step.
+`scripts/make_figures.py` reads the eleven SCAPS batch exports in `data/` (one workbook per ETL, sheets `ETL VARY DP1..5` for the thickness points, plus the CdTe, ZnSe and FTO sweeps in the Cs₂BiAgI₆ workbook and a six-sheet temperature workbook), pulls the `Voc = / Jsc = / FF = / eta =` rows SCAPS writes into each sheet, cross-checks η against P<sub>max</sub> from the sweep, writes `data/scaps_metrics.json` and draws the five figures in `figures/`. The tables in this README are generated from the same JSON. No SCAPS-1D installation is needed to reproduce them. The original live page is archived in `page/`; open `page/index.html` in a browser to view it locally (no build step).
 
 ## Patents
 
@@ -255,7 +253,7 @@ Certificates: [`PATENT 1.pdf`](PATENT%201.pdf), [`PATENT 2.pdf`](PATENT%202.pdf)
 | `data/*.xlsx` | raw SCAPS-1D batch exports: one workbook per ETL (thickness sweeps; the Cs₂BiAgI₆ workbook also holds the CdTe, ZnSe and FTO sweeps) and the temperature study |
 | `data/scaps_metrics.json` | every metric used in this README, machine-readable |
 | `scripts/make_figures.py` | regenerates the figures and the JSON from the exports |
-| `docs/` | live page (`index.html`, `build_assets.py`), claims audit (`CLAIMS.md`) |
+| `page/` | the original live page (`index.html`, `build_assets.py`) and its claims audit (`CLAIMS.md`), archived |
 | `reproduce.sh`, `requirements.txt` | one-command reproduction |
 | `figures/` | device stack, band diagram, ETL screening, thickness sweeps, temperature, back contact |
 | `Project_Report.pdf` | full capstone thesis (April 2025) |
@@ -269,7 +267,7 @@ Certificates: [`PATENT 1.pdf`](PATENT%201.pdf), [`PATENT 2.pdf`](PATENT%202.pdf)
   title  = {Optimisation of a ZnSe/CdTe thin-film solar cell with screened electron-transport layers and back contacts in SCAPS-1D},
   year   = {2025},
   note   = {B.Tech Chemical Engineering capstone, Vellore Institute of Technology; guide Dr. Dharmendra Kumar Bal},
-  url    = {https://github.com/Soham-ChemE/Perovskite-Solar-Cell-SCAPS1D-Optimization}
+  url    = {https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/tree/main/archive/2025-capstone}
 }
 ```
 

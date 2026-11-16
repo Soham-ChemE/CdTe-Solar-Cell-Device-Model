@@ -1,0 +1,511 @@
+
+     Program PWSCF v.7.6 starts on 16Nov2026 at  0:33: 0 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       4 processor cores
+     Number of MPI processes:                 4
+     Threads/MPI process:                     1
+
+     MPI processes distributed on     1 nodes
+     0 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from scf.in
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  4
+
+     K-points division:     npool     =       4
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum        1099    1099    313                24045    24045    3839
+
+     Using Slab Decomposition
+
+
+
+     bravais-lattice index     =            2
+     lattice parameter (alat)  =      11.5292  a.u.
+     unit-cell volume          =     383.1243 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            2
+     number of electrons       =        36.00
+     number of Kohn-Sham states=           26
+     kinetic-energy cutoff     =      60.0000  Ry
+     charge density cutoff     =     240.0000  Ry
+     scf convergence threshold =      1.0E-10
+     mixing beta               =       0.7000
+     number of iterations used =            8  plain     mixing
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+     celldm(1)=  11.529219  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (  -0.500000   0.000000   0.500000 )  
+               a(2) = (   0.000000   0.500000   0.500000 )  
+               a(3) = (  -0.500000   0.500000   0.000000 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = ( -1.000000 -1.000000  1.000000 )  
+               b(2) = (  1.000000  1.000000  1.000000 )  
+               b(3) = ( -1.000000  1.000000 -1.000000 )  
+
+
+     PseudoPot. # 1 for Zn read from file:
+     /Users/thegreat/Documents/MATLAB/cdte-device-model/dft/pseudo/sr/Zn.upf
+     MD5 check sum: 9b7be680307954c2706c150df658ede8
+     Pseudo is Norm-conserving + core correction, Zval = 20.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of 1326 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+
+     PseudoPot. # 2 for Te read from file:
+     /Users/thegreat/Documents/MATLAB/cdte-device-model/dft/pseudo/sr/Te.upf
+     MD5 check sum: 3368f43c0236043475348b0373f3ab9d
+     Pseudo is Norm-conserving + core correction, Zval = 16.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of 1294 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+
+     atomic species   valence    mass     pseudopotential
+     Zn               20.00    65.38000     Zn( 1.00)
+     Te               16.00   127.60000     Te( 1.00)
+
+     24 Sym. Ops. (no inversion) found
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1        Zn     tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2        Te     tau(   2) = (  -0.2500000   0.2500000   0.2500000  )
+
+     number of k points=    29
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0039062
+        k(    2) = (  -0.1250000   0.1250000  -0.1250000), wk =   0.0312500
+        k(    3) = (  -0.2500000   0.2500000  -0.2500000), wk =   0.0312500
+        k(    4) = (  -0.3750000   0.3750000  -0.3750000), wk =   0.0312500
+        k(    5) = (   0.5000000  -0.5000000   0.5000000), wk =   0.0156250
+        k(    6) = (   0.0000000   0.2500000   0.0000000), wk =   0.0234375
+        k(    7) = (  -0.1250000   0.3750000  -0.1250000), wk =   0.0937500
+        k(    8) = (  -0.2500000   0.5000000  -0.2500000), wk =   0.0937500
+        k(    9) = (   0.6250000  -0.3750000   0.6250000), wk =   0.0937500
+        k(   10) = (   0.5000000  -0.2500000   0.5000000), wk =   0.0937500
+        k(   11) = (   0.3750000  -0.1250000   0.3750000), wk =   0.0937500
+        k(   12) = (   0.2500000   0.0000000   0.2500000), wk =   0.0468750
+        k(   13) = (   0.0000000   0.5000000   0.0000000), wk =   0.0234375
+        k(   14) = (  -0.1250000   0.6250000  -0.1250000), wk =   0.0937500
+        k(   15) = (   0.7500000  -0.2500000   0.7500000), wk =   0.0937500
+        k(   16) = (   0.6250000  -0.1250000   0.6250000), wk =   0.0937500
+        k(   17) = (   0.5000000   0.0000000   0.5000000), wk =   0.0468750
+        k(   18) = (   0.0000000   0.7500000   0.0000000), wk =   0.0234375
+        k(   19) = (   0.8750000  -0.1250000   0.8750000), wk =   0.0937500
+        k(   20) = (   0.7500000   0.0000000   0.7500000), wk =   0.0468750
+        k(   21) = (   0.0000000  -1.0000000   0.0000000), wk =   0.0117188
+        k(   22) = (  -0.2500000   0.5000000   0.0000000), wk =   0.0937500
+        k(   23) = (   0.6250000  -0.3750000   0.8750000), wk =   0.1875000
+        k(   24) = (   0.5000000  -0.2500000   0.7500000), wk =   0.0937500
+        k(   25) = (   0.7500000  -0.2500000   1.0000000), wk =   0.0937500
+        k(   26) = (   0.6250000  -0.1250000   0.8750000), wk =   0.1875000
+        k(   27) = (   0.5000000   0.0000000   0.7500000), wk =   0.0937500
+        k(   28) = (  -0.2500000  -1.0000000   0.0000000), wk =   0.0468750
+        k(   29) = (  -0.5000000  -1.0000000   0.0000000), wk =   0.0234375
+
+     Dense  grid:    24045 G-vectors     FFT dimensions: (  45,  45,  45)
+
+     Estimated max dynamical RAM per process >      36.78 MB
+
+     Estimated total dynamical RAM >     129.49 MB
+
+     Check: negative core charge=   -0.000023
+
+     Initial potential from superposition of free atoms
+
+     starting charge      35.9997, renormalised to      36.0000
+     Starting wfcs are   19 randomized atomic wfcs +    7 random wfcs
+
+     total cpu time spent up to now is        0.9 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  1.00E-02,  avg # of iterations =  5.2
+
+     Threshold (ethr) on eigenvalues was too large:
+     Diagonalizing with lowered threshold
+
+     Davidson diagonalization with overlap
+     ethr =  1.48E-04,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is        3.7 secs
+
+     total energy              =    -627.76809565 Ry
+     estimated scf accuracy    <       0.05440352 Ry
+
+     iteration #  2     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  1.51E-04,  avg # of iterations =  2.2
+
+     total cpu time spent up to now is        5.0 secs
+
+     total energy              =    -627.78334571 Ry
+     estimated scf accuracy    <       0.03101063 Ry
+
+     iteration #  3     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  8.61E-05,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is        6.2 secs
+
+     total energy              =    -627.79007450 Ry
+     estimated scf accuracy    <       0.00030633 Ry
+
+     iteration #  4     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  8.51E-07,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is        7.5 secs
+
+     total energy              =    -627.79008961 Ry
+     estimated scf accuracy    <       0.00002092 Ry
+
+     iteration #  5     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  5.81E-08,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is        8.7 secs
+
+     total energy              =    -627.79009601 Ry
+     estimated scf accuracy    <       0.00000208 Ry
+
+     iteration #  6     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  5.77E-09,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is        9.9 secs
+
+     total energy              =    -627.79009630 Ry
+     estimated scf accuracy    <       0.00000008 Ry
+
+     iteration #  7     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  2.19E-10,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is       11.1 secs
+
+     total energy              =    -627.79009632 Ry
+     estimated scf accuracy    <          2.3E-09 Ry
+
+     iteration #  8     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  6.51E-12,  avg # of iterations =  2.4
+
+     total cpu time spent up to now is       12.3 secs
+
+     total energy              =    -627.79009633 Ry
+     estimated scf accuracy    <          1.0E-09 Ry
+
+     iteration #  9     ecut=    60.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  2.91E-12,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is       13.5 secs
+
+     End of self-consistent calculation
+
+          k = 0.0000 0.0000 0.0000 (  2975 PWs)   bands (ev):
+
+  -117.9527 -71.9294 -71.9294 -71.9294 -28.0668 -28.0668 -28.0668 -28.0572
+   -28.0572  -3.5746   1.2939   1.2939   1.2939   1.5279   1.5279   8.2188
+     8.2188   8.2188   9.4612  12.6439  12.6439  12.6439  15.6097  17.9503
+    17.9503  18.9534
+
+          k =-0.1250 0.1250-0.1250 (  2996 PWs)   bands (ev):
+
+  -117.9527 -71.9332 -71.9316 -71.9316 -28.0676 -28.0676 -28.0675 -28.0600
+   -28.0600  -3.4685   1.3007   1.3007   1.3022   1.5173   1.5173   6.8631
+     8.0523   8.0523  10.2777  12.8179  12.9020  12.9020  16.4555  17.1560
+    17.1560  18.4416
+
+          k =-0.2500 0.2500-0.2500 (  2983 PWs)   bands (ev):
+
+  -117.9527 -71.9318 -71.9307 -71.9307 -28.0675 -28.0668 -28.0668 -28.0589
+   -28.0589  -3.1881   1.3240   1.3240   1.3571   1.5211   1.5211   5.1129
+     7.7134   7.7134  10.3422  13.2968  13.2968  14.1361  16.7916  16.9446
+    16.9446  19.4699
+
+          k =-0.3750 0.3750-0.3750 (  2989 PWs)   bands (ev):
+
+  -117.9527 -71.9358 -71.9300 -71.9300 -28.0687 -28.0662 -28.0662 -28.0597
+   -28.0597  -2.8629   1.3447   1.3447   1.5067   1.5204   1.5204   3.6987
+     7.4311   7.4311  10.1002  13.3507  13.3507  15.7001  16.6983  17.9414
+    17.9414  21.2505
+
+          k = 0.5000-0.5000 0.5000 (  2998 PWs)   bands (ev):
+
+  -117.9527 -71.9360 -71.9311 -71.9311 -28.0677 -28.0677 -28.0667 -28.0601
+   -28.0601  -2.7103   1.3483   1.3483   1.5188   1.5188   1.6752   3.0606
+     7.3254   7.3254  10.0008  13.3025  13.3025  15.8238  17.8315  19.3364
+    19.3364  20.3042
+
+          k = 0.0000 0.2500 0.0000 (  2986 PWs)   bands (ev):
+
+  -117.9527 -71.9311 -71.9311 -71.9309 -28.0672 -28.0672 -28.0659 -28.0604
+   -28.0588  -3.4329   1.2999   1.3103   1.3103   1.5169   1.5196   6.8652
+     7.7544   7.7544  10.7472  12.0629  13.3601  13.3601  16.0504  16.8153
+    18.1466  19.4159
+
+          k =-0.1250 0.3750-0.1250 (  2983 PWs)   bands (ev):
+
+  -117.9527 -71.9317 -71.9308 -71.9304 -28.0680 -28.0668 -28.0665 -28.0590
+   -28.0583  -3.2092   1.3130   1.3337   1.3435   1.5153   1.5271   5.5407
+     7.3666   7.3966  11.0736  12.2458  13.9515  13.9549  15.9046  17.8392
+    17.9484  19.3740
+
+          k =-0.2500 0.5000-0.2500 (  2997 PWs)   bands (ev):
+
+  -117.9527 -71.9349 -71.9329 -71.9305 -28.0691 -28.0673 -28.0673 -28.0597
+   -28.0595  -2.8925   1.3362   1.3518   1.4385   1.5257   1.5273   4.1295
+     6.9410   7.1128  10.9164  12.8517  14.0648  14.4669  17.1295  17.8636
+    18.6286  20.8637
+
+          k = 0.6250-0.3750 0.6250 (  3009 PWs)   bands (ev):
+
+  -117.9527 -71.9365 -71.9333 -71.9319 -28.0688 -28.0682 -28.0676 -28.0609
+   -28.0602  -2.6713   1.3498   1.3560   1.5029   1.5208   1.6614   3.2283
+     6.5893   7.0894  10.7891  12.9698  13.8410  15.8173  17.3433  18.8329
+    19.3566  20.2569
+
+          k = 0.5000-0.2500 0.5000 (  3005 PWs)   bands (ev):
+
+  -117.9527 -71.9361 -71.9329 -71.9316 -28.0692 -28.0686 -28.0672 -28.0601
+   -28.0596  -2.7229   1.3480   1.3532   1.5091   1.5165   1.6033   3.4424
+     6.4748   7.3007  10.8250  13.1428  13.6450  15.7876  17.4134  17.5485
+    19.1798  20.4800
+
+          k = 0.3750-0.1250 0.3750 (  3003 PWs)   bands (ev):
+
+  -117.9527 -71.9342 -71.9329 -71.9329 -28.0692 -28.0687 -28.0675 -28.0599
+   -28.0595  -3.0020   1.3281   1.3396   1.4023   1.5120   1.5277   4.5675
+     6.6653   7.6672  10.9850  13.3125  13.4243  14.3283  16.3342  17.5157
+    18.7042  20.2450
+
+          k = 0.2500 0.0000 0.2500 (  2984 PWs)   bands (ev):
+
+  -117.9527 -71.9320 -71.9318 -71.9292 -28.0686 -28.0666 -28.0664 -28.0590
+   -28.0584  -3.3034   1.3082   1.3215   1.3281   1.5178   1.5248   5.9297
+     7.2511   8.0055  10.8817  12.7308  13.0180  13.8216  16.2910  17.0740
+    17.5704  19.4694
+
+          k = 0.0000 0.5000 0.0000 (  2978 PWs)   bands (ev):
+
+  -117.9527 -71.9317 -71.9296 -71.9296 -28.0665 -28.0665 -28.0651 -28.0589
+   -28.0588  -3.0557   1.3233   1.3597   1.3597   1.5158   1.5325   5.2200
+     6.9247   6.9247  10.9032  11.8775  14.9354  14.9354  15.4447  18.7465
+    19.0642  20.8025
+
+          k =-0.1250 0.6250-0.1250 (  3005 PWs)   bands (ev):
+
+  -117.9527 -71.9359 -71.9324 -71.9321 -28.0686 -28.0683 -28.0671 -28.0610
+   -28.0596  -2.7937   1.3408   1.3779   1.4014   1.5327   1.5421   4.3033
+     6.3718   6.6347  10.9779  11.9615  14.6952  15.4343  17.2844  19.3242
+    19.7168  21.1519
+
+          k = 0.7500-0.2500 0.7500 (  3014 PWs)   bands (ev):
+
+  -117.9527 -71.9363 -71.9346 -71.9323 -28.0694 -28.0687 -28.0684 -28.0608
+   -28.0594  -2.5688   1.3539   1.3872   1.4611   1.5300   1.6667   3.5151
+     5.7257   6.6081  11.0553  13.0118  14.5971  15.2156  18.1310  19.5178
+    19.9587  20.5591
+
+          k = 0.6250-0.1250 0.6250 (  3015 PWs)   bands (ev):
+
+  -117.9527 -71.9356 -71.9349 -71.9328 -28.0692 -28.0687 -28.0678 -28.0607
+   -28.0601  -2.5429   1.3589   1.3779   1.4953   1.5147   1.7105   3.4068
+     5.3794   6.8518  11.2237  13.6209  14.7838  15.4969  16.6406  17.5716
+    19.9296  22.0451
+
+          k = 0.5000 0.0000 0.5000 (  3008 PWs)   bands (ev):
+
+  -117.9527 -71.9361 -71.9339 -71.9312 -28.0691 -28.0680 -28.0680 -28.0603
+   -28.0597  -2.7352   1.3567   1.3574   1.4825   1.5084   1.5680   3.9831
+     5.6245   7.2773  11.4407  13.7325  14.1541  14.2722  16.4099  18.1710
+    20.1384  20.5011
+
+          k = 0.0000 0.7500 0.0000 (  3010 PWs)   bands (ev):
+
+  -117.9527 -71.9366 -71.9325 -71.9325 -28.0689 -28.0689 -28.0663 -28.0606
+   -28.0604  -2.6119   1.3497   1.4055   1.4055   1.5342   1.5984   3.8581
+     6.2854   6.2854  10.4923  11.1485  16.7792  16.7792  17.0576  19.7037
+    21.1704  22.3455
+
+          k = 0.8750-0.1250 0.8750 (  3005 PWs)   bands (ev):
+
+  -117.9527 -71.9347 -71.9329 -71.9322 -28.0688 -28.0682 -28.0674 -28.0593
+   -28.0592  -2.4532   1.3621   1.4199   1.4358   1.5369   1.7100   3.4025
+     5.7537   6.2043  10.6831  11.4174  16.4463  16.9702  18.3845  19.9138
+    20.5538  21.3272
+
+          k = 0.7500 0.0000 0.7500 (  3004 PWs)   bands (ev):
+
+  -117.9527 -71.9342 -71.9341 -71.9310 -28.0683 -28.0681 -28.0677 -28.0591
+   -28.0590  -2.4255   1.3669   1.4097   1.4699   1.5278   1.7796   3.3345
+     5.1577   6.4183  10.8946  12.9738  15.9858  16.1536  16.6942  18.2701
+    21.7054  22.4864
+
+          k = 0.0000-1.0000 0.0000 (  3026 PWs)   bands (ev):
+
+  -117.9527 -71.9379 -71.9346 -71.9346 -28.0697 -28.0697 -28.0688 -28.0613
+   -28.0607  -2.4009   1.3523   1.4274   1.4274   1.5363   1.7358   3.2182
+     6.0522   6.0522  10.4899  10.6367  18.0662  18.0662  18.3636  20.5354
+    20.7527  20.7527
+
+          k =-0.2500 0.5000 0.0000 (  3001 PWs)   bands (ev):
+
+  -117.9527 -71.9345 -71.9327 -71.9322 -28.0685 -28.0685 -28.0673 -28.0600
+   -28.0599  -2.9639   1.3320   1.3527   1.3896   1.5135   1.5294   4.7267
+     6.4119   7.2462  11.5077  12.3164  13.7790  14.7107  16.4015  18.5644
+    19.0581  20.2885
+
+          k = 0.6250-0.3750 0.8750 (  3012 PWs)   bands (ev):
+
+  -117.9527 -71.9363 -71.9338 -71.9328 -28.0690 -28.0685 -28.0682 -28.0610
+   -28.0602  -2.6871   1.3533   1.3664   1.4688   1.5197   1.5942   3.7809
+     5.8824   6.8926  11.6142  12.8383  13.8705  15.2109  17.3089  18.5837
+    19.6744  20.7192
+
+          k = 0.5000-0.2500 0.7500 (  3026 PWs)   bands (ev):
+
+  -117.9527 -71.9371 -71.9349 -71.9349 -28.0695 -28.0693 -28.0691 -28.0615
+   -28.0607  -2.5608   1.3561   1.3696   1.4942   1.5122   1.7121   3.2981
+     5.7453   6.7215  11.5850  12.7994  14.5475  15.8655  16.5377  19.1018
+    19.5410  20.2922
+
+          k = 0.7500-0.2500 1.0000 (  3011 PWs)   bands (ev):
+
+  -117.9527 -71.9362 -71.9334 -71.9326 -28.0689 -28.0687 -28.0678 -28.0608
+   -28.0595  -2.5768   1.3579   1.3934   1.4370   1.5315   1.6331   3.7415
+     5.8365   6.2881  11.3779  11.8681  14.5725  16.7179  17.6647  19.5462
+    20.6546  21.3610
+
+          k = 0.6250-0.1250 0.8750 (  3015 PWs)   bands (ev):
+
+  -117.9527 -71.9356 -71.9346 -71.9329 -28.0691 -28.0688 -28.0683 -28.0601
+   -28.0597  -2.4474   1.3674   1.3996   1.4751   1.5190   1.7584   3.3916
+     5.3327   6.1474  11.6711  13.0125  14.3112  15.9352  17.3744  19.7017
+    20.4286  21.3568
+
+          k = 0.5000 0.0000 0.7500 (  3020 PWs)   bands (ev):
+
+  -117.9527 -71.9359 -71.9348 -71.9343 -28.0698 -28.0691 -28.0684 -28.0614
+   -28.0595  -2.4972   1.3663   1.3833   1.4909   1.5085   1.7229   3.4980
+     5.2204   6.4335  11.9104  13.5538  13.7961  15.9084  16.7213  18.1923
+    21.3575  21.5543
+
+          k =-0.2500-1.0000 0.0000 (  2998 PWs)   bands (ev):
+
+  -117.9527 -71.9336 -71.9320 -71.9317 -28.0680 -28.0677 -28.0674 -28.0587
+   -28.0584  -2.3984   1.3695   1.4216   1.4551   1.5345   1.7757   3.2817
+     5.7101   5.8251  11.3505  11.4717  16.2582  16.2644  18.7199  19.9421
+    20.6266  20.8682
+
+          k =-0.5000-1.0000 0.0000 (  3028 PWs)   bands (ev):
+
+  -117.9527 -71.9372 -71.9353 -71.9353 -28.0704 -28.0700 -28.0692 -28.0613
+   -28.0597  -2.3964   1.3706   1.4027   1.4914   1.4973   1.8007   3.3565
+     5.3994   5.6258  12.7394  13.0979  14.0516  14.4327  18.8267  19.9225
+    20.5589  21.0045
+
+     highest occupied, lowest unoccupied level (ev):     8.2188    9.4612
+
+!    total energy              =    -627.79009633 Ry
+     estimated scf accuracy    <          5.1E-12 Ry
+
+     The total energy is the sum of the following terms:
+     one-electron contribution =    -470.67149796 Ry
+     hartree contribution      =     242.45276890 Ry
+     xc contribution           =     -94.18133916 Ry
+     ewald contribution        =    -305.39002809 Ry
+
+     convergence has been achieved in   9 iterations
+
+     Writing all to output data dir ./tmp/b.save/ :
+     XML data file, charge density, pseudopotentials, collected wavefunctions
+
+     init_run     :      0.78s CPU      0.80s WALL (       1 calls)
+     electrons    :     11.97s CPU     12.64s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.38s CPU      0.39s WALL (       1 calls)
+     potinit      :      0.06s CPU      0.06s WALL (       1 calls)
+     hinit0       :      0.33s CPU      0.34s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :     10.04s CPU     10.66s WALL (      10 calls)
+     sum_band     :      1.62s CPU      1.65s WALL (      10 calls)
+     v_of_rho     :      0.29s CPU      0.31s WALL (      10 calls)
+     mix_rho      :      0.02s CPU      0.03s WALL (      10 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.13s CPU      0.14s WALL (     168 calls)
+     cegterg      :      8.91s CPU      9.51s WALL (      80 calls)
+
+     Called by *egterg:
+     cdiaghg      :      0.23s CPU      0.24s WALL (     279 calls)
+     h_psi        :      7.97s CPU      8.26s WALL (     295 calls)
+     g_psi        :      0.03s CPU      0.03s WALL (     207 calls)
+
+     Called by h_psi:
+     h_psi:calbec :      0.24s CPU      0.31s WALL (     295 calls)
+     vloc_psi     :      7.50s CPU      7.63s WALL (     295 calls)
+     add_vuspsi   :      0.21s CPU      0.28s WALL (     295 calls)
+
+     General routines
+     calbec       :      0.24s CPU      0.31s WALL (     295 calls)
+     fft          :      0.23s CPU      0.23s WALL (     101 calls)
+     ffts         :      0.01s CPU      0.01s WALL (      10 calls)
+     fftw         :      7.99s CPU      8.09s WALL (   12580 calls)
+
+     Parallel routines
+
+     PWSCF        :     12.81s CPU     13.53s WALL
+
+
+   This run was terminated on:   0:33:13  16Nov2026            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_OVERFLOW_FLAG IEEE_UNDERFLOW_FLAG

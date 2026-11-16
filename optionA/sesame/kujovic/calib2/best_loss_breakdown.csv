@@ -1,0 +1,4 @@
+tag,point,V,J,J_generated,bulk_SRH,front_interface,window_FTO_ZnO,back_contact_electrons,front_contact_holes,closure
+tau300ns_phi0.50_dEcm0.22_S3ep01,short circuit,0,27.0765,28.2196,0.00792961,6.38944e-06,1.00935,0.125811,2.03698e-06,7.10543e-15
+tau300ns_phi0.50_dEcm0.22_S3ep01,maximum power,0.728037,25.6489,28.2196,0.0165179,1.32674,1.04621,0.181185,2.03698e-06,1.06581e-14
+tau300ns_phi0.50_dEcm0.22_S3ep01,open circuit,0.867072,0.00192791,28.2196,0.0580061,26.6791,1.05653,0.424077,2.03698e-06,1.46719e-14

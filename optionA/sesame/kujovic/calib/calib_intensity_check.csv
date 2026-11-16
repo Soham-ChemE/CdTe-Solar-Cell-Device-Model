@@ -1,0 +1,4 @@
+tag,X_fit,rms_intensity_linearised_mV,rms_intensity_direct_mV,Voc298_direct_mV
+phi0.50_dEcm0.32_S1ep01,1.62551,10.3566,10.5618,848.046
+phi0.55_dEcm0.10_S1ep02,0.175638,27.4432,25.1751,857.562
+phi0.55_dEcm0.10_S1ep03,1.38883,8.96037,8.79305,857.235

@@ -1,0 +1,957 @@
+{
+ "fig3.2_ZnO_thickness_S1fig2_eta_pct_ticks": [
+  22.0,
+  21.0,
+  20.0,
+  19.0,
+  18.0
+ ],
+ "fig3.2_ZnO_thickness_S1fig2_eta_pct_axis_resid_pt": 0.024694824218848624,
+ "fig3.2_ZnO_thickness_S1fig2_eta_pct_units_per_pt": 0.036700497256598186,
+ "fig3.2_ZnO_thickness_S1fig2_Voc_mV_ticks": [
+  885.0,
+  880.0,
+  875.0,
+  870.0,
+  865.0,
+  860.0,
+  855.0
+ ],
+ "fig3.2_ZnO_thickness_S1fig2_Voc_mV_axis_resid_pt": 0.017656718959937732,
+ "fig3.2_ZnO_thickness_S1fig2_Voc_mV_units_per_pt": 0.2752222805532469,
+ "fig3.2_ZnO_thickness_S1fig2_Jsc_mA_cm2_ticks": [
+  31.0,
+  30.0,
+  29.0,
+  28.0
+ ],
+ "fig3.2_ZnO_thickness_S1fig2_Jsc_mA_cm2_axis_resid_pt": 2.1362302823350874e-05,
+ "fig3.2_ZnO_thickness_S1fig2_Jsc_mA_cm2_units_per_pt": 0.027522232257299915,
+ "fig3.2_ZnO_thickness_S1fig2_FF_pct_ticks": [
+  82.0,
+  80.0,
+  78.0,
+  76.0
+ ],
+ "fig3.2_ZnO_thickness_S1fig2_FF_pct_axis_resid_pt": 2.1362302307009974e-05,
+ "fig3.2_ZnO_thickness_S1fig2_FF_pct_units_per_pt": 0.05504446451459978,
+ "fig4.2_ZnO_dep_temperature_S2fig2_eta_pct_ticks": [
+  21.0,
+  20.0,
+  19.0,
+  18.0,
+  17.0,
+  16.0
+ ],
+ "fig4.2_ZnO_dep_temperature_S2fig2_eta_pct_axis_resid_pt": 0.01941769748234541,
+ "fig4.2_ZnO_dep_temperature_S2fig2_eta_pct_units_per_pt": 0.04586302257526386,
+ "fig4.2_ZnO_dep_temperature_S2fig2_Voc_mV_ticks": [
+  880.0,
+  860.0,
+  840.0,
+  820.0
+ ],
+ "fig4.2_ZnO_dep_temperature_S2fig2_Voc_mV_axis_resid_pt": 3.356933238317099e-05,
+ "fig4.2_ZnO_dep_temperature_S2fig2_Voc_mV_units_per_pt": 0.550444783843446,
+ "fig4.2_ZnO_dep_temperature_S2fig2_Jsc_mA_cm2_ticks": [
+  30.0,
+  29.0,
+  28.0,
+  27.0
+ ],
+ "fig4.2_ZnO_dep_temperature_S2fig2_Jsc_mA_cm2_axis_resid_pt": 2.1362303081521343e-05,
+ "fig4.2_ZnO_dep_temperature_S2fig2_Jsc_mA_cm2_units_per_pt": 0.0275222322572999,
+ "fig4.2_ZnO_dep_temperature_S2fig2_FF_pct_ticks": [
+  82.0,
+  80.0,
+  78.0,
+  76.0,
+  74.0,
+  72.0,
+  70.0,
+  68.0
+ ],
+ "fig4.2_ZnO_dep_temperature_S2fig2_FF_pct_axis_resid_pt": 0.019099974705477682,
+ "fig4.2_ZnO_dep_temperature_S2fig2_FF_pct_units_per_pt": 0.12841292711359756,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rs_ohm_cm2_ticks": [
+  1.2,
+  1.0,
+  0.8,
+  0.6,
+  0.4,
+  0.2,
+  0.0
+ ],
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rs_ohm_cm2_axis_resid_pt": 0.017646909215786197,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rs_ohm_cm2_units_per_pt": 0.011008891882435519,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rsh_ohm_cm2_ticks": [
+  8000.0,
+  6000.0,
+  4000.0,
+  2000.0,
+  0.0
+ ],
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rsh_ohm_cm2_axis_resid_pt": 0.024691772461031387,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_Rsh_ohm_cm2_units_per_pt": 73.40099862180048,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_J0_mA_cm2_ticks": [
+  1e-05,
+  1e-06,
+  1e-07,
+  1e-08,
+  1e-09,
+  1e-10
+ ],
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_J0_mA_cm2_axis_resid_pt": 0.0194188554281782,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_J0_mA_cm2_units_per_pt": 0.04586301706667284,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_n_ticks": [
+  2.4,
+  2.2,
+  2.0,
+  1.8,
+  1.6,
+  1.4,
+  1.2
+ ],
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_n_axis_resid_pt": 0.02644566127242903,
+ "fig4.3_ZnO_dep_temperature_diode_S2fig3_n_units_per_pt": 0.011006221624887388,
+ "fig4.8_ZnO_thickness_100C_S2fig6_eta_pct_ticks": [
+  21.0,
+  20.0,
+  19.0,
+  18.0,
+  17.0
+ ],
+ "fig4.8_ZnO_thickness_100C_S2fig6_eta_pct_axis_resid_pt": 0.024691772460983405,
+ "fig4.8_ZnO_thickness_100C_S2fig6_eta_pct_units_per_pt": 0.03670049931090019,
+ "fig4.8_ZnO_thickness_100C_S2fig6_Voc_mV_ticks": [
+  870.0,
+  860.0,
+  850.0,
+  840.0,
+  830.0,
+  820.0,
+  810.0,
+  800.0
+ ],
+ "fig4.8_ZnO_thickness_100C_S2fig6_Voc_mV_axis_resid_pt": 0.019110597247297308,
+ "fig4.8_ZnO_thickness_100C_S2fig6_Voc_mV_units_per_pt": 0.642064590568785,
+ "fig4.8_ZnO_thickness_100C_S2fig6_Jsc_mA_cm2_ticks": [
+  30.0,
+  29.0,
+  28.0
+ ],
+ "fig4.8_ZnO_thickness_100C_S2fig6_Jsc_mA_cm2_axis_resid_pt": 0.020589192707953726,
+ "fig4.8_ZnO_thickness_100C_S2fig6_Jsc_mA_cm2_units_per_pt": 0.01834815955234023,
+ "fig4.8_ZnO_thickness_100C_S2fig6_FF_pct_ticks": [
+  82.0,
+  81.0,
+  80.0,
+  79.0,
+  78.0,
+  77.0,
+  76.0,
+  75.0
+ ],
+ "fig4.8_ZnO_thickness_100C_S2fig6_FF_pct_axis_resid_pt": 0.01911050673828462,
+ "fig4.8_ZnO_thickness_100C_S2fig6_FF_pct_units_per_pt": 0.06420646205282401,
+ "fig5.3_CeZnO_cosputtered_eta_pct_ticks": [
+  20.0,
+  19.0,
+  18.0,
+  17.0,
+  16.0
+ ],
+ "fig5.3_CeZnO_cosputtered_eta_pct_axis_resid_pt": 0.024691772461080223,
+ "fig5.3_CeZnO_cosputtered_eta_pct_units_per_pt": 0.03670049931090017,
+ "fig5.3_CeZnO_cosputtered_Voc_mV_ticks": [
+  860.0,
+  850.0,
+  840.0,
+  830.0,
+  820.0,
+  810.0,
+  800.0
+ ],
+ "fig5.3_CeZnO_cosputtered_Voc_mV_axis_resid_pt": 0.017646909216078806,
+ "fig5.3_CeZnO_cosputtered_Voc_mV_units_per_pt": 0.5504445941217776,
+ "fig5.3_CeZnO_cosputtered_Jsc_mA_cm2_ticks": [
+  29.0,
+  28.0,
+  27.0
+ ],
+ "fig5.3_CeZnO_cosputtered_Jsc_mA_cm2_axis_resid_pt": 0.020589192708534692,
+ "fig5.3_CeZnO_cosputtered_Jsc_mA_cm2_units_per_pt": 0.018348159552340156,
+ "fig5.3_CeZnO_cosputtered_FF_pct_ticks": [
+  85.0,
+  80.0,
+  75.0,
+  70.0
+ ],
+ "fig5.3_CeZnO_cosputtered_FF_pct_axis_resid_pt": 2.746581451547051e-05,
+ "fig5.3_CeZnO_cosputtered_FF_pct_units_per_pt": 0.1376112075189835,
+ "fig5.9_CeZnO_compound_target_S3fig2_eta_pct_ticks": [
+  21.0,
+  20.0,
+  19.0,
+  18.0,
+  17.0,
+  16.0
+ ],
+ "fig5.9_CeZnO_compound_target_S3fig2_eta_pct_axis_resid_pt": 0.019423652197256894,
+ "fig5.9_CeZnO_compound_target_S3fig2_eta_pct_units_per_pt": 0.045863018443810084,
+ "fig5.9_CeZnO_compound_target_S3fig2_Voc_mV_ticks": [
+  860.0,
+  840.0,
+  820.0,
+  800.0
+ ],
+ "fig5.9_CeZnO_compound_target_S3fig2_Voc_mV_axis_resid_pt": 3.0517573217891603e-05,
+ "fig5.9_CeZnO_compound_target_S3fig2_Voc_mV_units_per_pt": 0.5504448069597014,
+ "fig5.9_CeZnO_compound_target_S3fig2_Jsc_mA_cm2_ticks": [
+  31.0,
+  30.0,
+  29.0,
+  28.0
+ ],
+ "fig5.9_CeZnO_compound_target_S3fig2_Jsc_mA_cm2_axis_resid_pt": 2.7465814257300175e-05,
+ "fig5.9_CeZnO_compound_target_S3fig2_Jsc_mA_cm2_units_per_pt": 0.027522241503796663,
+ "fig5.9_CeZnO_compound_target_S3fig2_FF_pct_ticks": [
+  82.0,
+  80.0,
+  78.0,
+  76.0,
+  74.0,
+  72.0,
+  70.0
+ ],
+ "fig5.9_CeZnO_compound_target_S3fig2_FF_pct_axis_resid_pt": 0.017656718959937735,
+ "fig5.9_CeZnO_compound_target_S3fig2_FF_pct_units_per_pt": 0.11008891222129874,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rs_ohm_cm2_ticks": [
+  0.8,
+  0.6,
+  0.4,
+  0.2,
+  0.0
+ ],
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rs_ohm_cm2_axis_resid_pt": 0.02469177246093196,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rs_ohm_cm2_units_per_pt": 0.0073400998621800445,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rsh_ohm_cm2_ticks": [
+  8000.0,
+  6000.0,
+  4000.0,
+  2000.0,
+  0.0
+ ],
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rsh_ohm_cm2_axis_resid_pt": 0.024691772460981847,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_Rsh_ohm_cm2_units_per_pt": 73.40099862180041,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_J0_mA_cm2_ticks": [
+  0.0001,
+  1e-05,
+  1e-06,
+  1e-07,
+  1e-08,
+  1e-09
+ ],
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_J0_mA_cm2_axis_resid_pt": 0.019417697481880648,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_J0_mA_cm2_units_per_pt": 0.045863022575263826,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_n_ticks": [
+  2.8,
+  2.6,
+  2.4,
+  2.2,
+  2.0,
+  1.8,
+  1.6,
+  1.4
+ ],
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_n_axis_resid_pt": 0.01910287739152224,
+ "fig5.10_CeZnO_compound_target_diode_S3fig3_n_units_per_pt": 0.012841292410580645,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_eta_pct_ticks": [
+  21.5,
+  21.0,
+  20.5,
+  20.0,
+  19.5,
+  19.0,
+  18.5,
+  18.0,
+  17.5
+ ],
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_eta_pct_axis_resid_pt": 0.027425130208311135,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_eta_pct_units_per_pt": 0.036703262534191504,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Voc_mV_ticks": [
+  890.0,
+  880.0,
+  870.0,
+  860.0,
+  850.0,
+  840.0
+ ],
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Voc_mV_axis_resid_pt": 0.019417697482174937,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Voc_mV_units_per_pt": 0.4586302257526399,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Jsc_mA_cm2_ticks": [
+  29.5,
+  29.0,
+  28.5,
+  28.0,
+  27.5
+ ],
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Jsc_mA_cm2_axis_resid_pt": 0.0246948242190497,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_Jsc_mA_cm2_units_per_pt": 0.01835024451218038,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_FF_pct_ticks": [
+  82.0,
+  80.0,
+  78.0,
+  76.0
+ ],
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_FF_pct_axis_resid_pt": 2.4414059882572707e-05,
+ "figA.1_ZnO_thickness_repeat_thicker_FTO_FF_pct_units_per_pt": 0.05504445064484961,
+ "fig3.3_JV_21p4pct_S1fig3a_xticks": [
+  -200.0,
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig3.3_JV_21p4pct_S1fig3a_yticks": [
+  40.0,
+  30.0,
+  20.0,
+  10.0,
+  0.0,
+  -10.0,
+  -20.0,
+  -30.0,
+  -40.0
+ ],
+ "fig3.3_JV_21p4pct_S1fig3a_resid_pt": [
+  0.026446870597053144,
+  0.041144476996568154
+ ],
+ "fig3.3_JV_21p4pct_S1fig3a_light_FoM": {
+  "Jsc_mA_cm2": 30.405036546804894,
+  "Voc_mV": 875.1572343950941,
+  "FF_pct": 80.59290971248934,
+  "eta_pct": 21.44511861505083,
+  "n_points": 219,
+  "Voc_method": "interpolated"
+ },
+ "fig3.4_EQE_21p4pct_S1fig3b_xticks": [
+  300.0,
+  400.0,
+  500.0,
+  600.0,
+  700.0,
+  800.0,
+  900.0,
+  1000.0
+ ],
+ "fig3.4_EQE_21p4pct_S1fig3b_yticks": [
+  100.0,
+  80.0,
+  60.0,
+  40.0,
+  20.0,
+  0.0
+ ],
+ "fig3.4_EQE_21p4pct_S1fig3b_resid_pt": [
+  0.03988709348507891,
+  0.02913380906175912
+ ],
+ "fig3.5_CV_21p4pct_S1fig3c_xticks": [
+  0.0,
+  0.1,
+  0.2,
+  0.3,
+  0.4
+ ],
+ "fig3.5_CV_21p4pct_S1fig3c_yticks": [
+  1e+17,
+  1e+16,
+  1000000000000000.0
+ ],
+ "fig3.5_CV_21p4pct_S1fig3c_resid_pt": [
+  0.03709716796877231,
+  0.03088378906283241
+ ],
+ "fig3.6_VocT_21p4pct_S1fig3d_xticks": [
+  0.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0,
+  250.0,
+  300.0,
+  350.0,
+  400.0
+ ],
+ "fig3.6_VocT_21p4pct_S1fig3d_yticks": [
+  1.4,
+  1.3,
+  1.2,
+  1.1,
+  1.0,
+  0.9,
+  0.8,
+  0.7
+ ],
+ "fig3.6_VocT_21p4pct_S1fig3d_resid_pt": [
+  0.04121738009984271,
+  0.02868196682259874
+ ],
+ "fig3.6_VocT_21p4pct_S1fig3d_Voc_refit_315_355K_intercept_V": 1.3571872027005696,
+ "fig3.6_VocT_21p4pct_S1fig3d_fit_line_intercept_V": 1.3586808830333101,
+ "fig3.10_SCAPS_vs_experiment_JV_xticks": [
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig3.10_SCAPS_vs_experiment_JV_yticks": [
+  0.0,
+  -5.0,
+  -10.0,
+  -15.0,
+  -20.0,
+  -25.0,
+  -30.0,
+  -35.0
+ ],
+ "fig3.10_SCAPS_vs_experiment_JV_resid_pt": [
+  0.00015098931173304408,
+  0.03961035278223762
+ ],
+ "fig3.10_SCAPS_vs_experiment_JV_simulation_FoM": {
+  "Jsc_mA_cm2": 30.805526983629,
+  "Voc_mV": 872.3241299228163,
+  "FF_pct": 79.47674098780078,
+  "eta_pct": 21.357311339786182,
+  "n_points": 45,
+  "Voc_method": "interpolated"
+ },
+ "fig3.10_SCAPS_vs_experiment_JV_experiment_FoM": {
+  "Jsc_mA_cm2": 30.409829643364866,
+  "Voc_mV": 875.6549850925126,
+  "FF_pct": 80.50672721558695,
+  "eta_pct": 21.437749090911904,
+  "n_points": 155,
+  "Voc_method": "interpolated"
+ },
+ "fig3.11_SCAPS_band_diagram_xticks": [
+  0.0,
+  1.0,
+  2.0,
+  3.0,
+  4.0
+ ],
+ "fig3.11_SCAPS_band_diagram_yticks": [
+  2.0,
+  1.0,
+  0.0,
+  -1.0,
+  -2.0,
+  -3.0,
+  -4.0
+ ],
+ "fig3.11_SCAPS_band_diagram_resid_pt": [
+  0.03709716796881174,
+  0.026464370498224938
+ ],
+ "fig3.12_SCAPS_Ec_vs_FTO_doping_xticks": [
+  2.5,
+  3.0,
+  3.5,
+  4.0
+ ],
+ "fig3.12_SCAPS_Ec_vs_FTO_doping_yticks": [
+  1.5,
+  1.0,
+  0.5,
+  0.0,
+  -0.5
+ ],
+ "fig3.12_SCAPS_Ec_vs_FTO_doping_resid_pt": [
+  0.027680477990279343,
+  0.03703613281255441
+ ],
+ "fig4.4_JV_dep_temperature_S2fig4a_xticks": [
+  -200.0,
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig4.4_JV_dep_temperature_S2fig4a_yticks": [
+  35.0,
+  30.0,
+  25.0,
+  20.0,
+  15.0,
+  10.0,
+  5.0,
+  0.0,
+  -5.0,
+  -10.0,
+  -15.0,
+  -20.0,
+  -25.0,
+  -30.0,
+  -35.0
+ ],
+ "fig4.4_JV_dep_temperature_S2fig4a_resid_pt": [
+  0.026446870597053144,
+  0.04316609700517193
+ ],
+ "fig4.4_JV_dep_temperature_S2fig4a_22C_solid_FoM": {
+  "Jsc_mA_cm2": 29.408518835074968,
+  "Voc_mV": 858.9065935136609,
+  "FF_pct": 79.3961125870978,
+  "eta_pct": 20.054799633673703,
+  "n_points": 203,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4_JV_dep_temperature_S2fig4a_100C_solid_FoM": {
+  "Jsc_mA_cm2": 29.607598161458355,
+  "Voc_mV": 876.5362428480447,
+  "FF_pct": 79.82714002254303,
+  "eta_pct": 20.71684543076159,
+  "n_points": 240,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4_JV_dep_temperature_S2fig4a_200C_solid_FoM": {
+  "Jsc_mA_cm2": 29.324154790101105,
+  "Voc_mV": 857.2438847254812,
+  "FF_pct": 78.40627910225723,
+  "eta_pct": 19.709733094683752,
+  "n_points": 255,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4_JV_dep_temperature_S2fig4a_300C_solid_FoM": {
+  "Jsc_mA_cm2": 29.74546172517495,
+  "Voc_mV": 857.725758270372,
+  "FF_pct": 78.34281429440391,
+  "eta_pct": 19.987953745580544,
+  "n_points": 219,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4_JV_dep_temperature_S2fig4a_400C_solid_FoM": {
+  "Jsc_mA_cm2": 29.25346586866357,
+  "Voc_mV": 858.7224577379377,
+  "FF_pct": 78.68744374507038,
+  "eta_pct": 19.76676437347421,
+  "n_points": 198,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4_JV_dep_temperature_S2fig4a_500C_solid_FoM": {
+  "Jsc_mA_cm2": 29.607598161458355,
+  "Voc_mV": 860.9079354625459,
+  "FF_pct": 78.7515022432446,
+  "eta_pct": 20.073298176191862,
+  "n_points": 208,
+  "Voc_method": "interpolated"
+ },
+ "fig4.4inset_EQE_100C_S2fig4a_xticks": [
+  300.0,
+  400.0,
+  500.0,
+  600.0,
+  700.0,
+  800.0,
+  900.0,
+  1000.0
+ ],
+ "fig4.4inset_EQE_100C_S2fig4a_yticks": [
+  100.0,
+  80.0,
+  60.0,
+  40.0,
+  20.0,
+  0.0
+ ],
+ "fig4.4inset_EQE_100C_S2fig4a_resid_pt": [
+  0.005521215894643219,
+  0.006980502990209031
+ ],
+ "fig4.6_CV_100C_S2fig4b_xticks": [
+  0.0,
+  0.1,
+  0.2,
+  0.3,
+  0.4,
+  0.5
+ ],
+ "fig4.6_CV_100C_S2fig4b_yticks": [
+  1e+17,
+  1e+16,
+  1000000000000000.0
+ ],
+ "fig4.6_CV_100C_S2fig4b_resid_pt": [
+  0.02906214487890601,
+  0.03088378906283241
+ ],
+ "fig4.7_interface_defect_density_S2fig5_xticks": [
+  0.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0,
+  500.0
+ ],
+ "fig4.7_interface_defect_density_S2fig5_yticks": [
+  1e+16,
+  1000000000000000.0,
+  100000000000000.0,
+  10000000000000.0
+ ],
+ "fig4.7_interface_defect_density_S2fig5_resid_pt": [
+  0.02905433019312113,
+  4.425048052756282e-05
+ ],
+ "fig5.5_JV_cosputtered_CeZnO_xticks": [
+  -200.0,
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig5.5_JV_cosputtered_CeZnO_yticks": [
+  30.0,
+  20.0,
+  10.0,
+  0.0,
+  -10.0,
+  -20.0,
+  -30.0
+ ],
+ "fig5.5_JV_cosputtered_CeZnO_resid_pt": [
+  0.026446870597053144,
+  0.026470912095285702
+ ],
+ "fig5.5_JV_cosputtered_CeZnO_ZnO_light_FoM": {
+  "Jsc_mA_cm2": 28.188129326998006,
+  "Voc_mV": 841.4475690045882,
+  "FF_pct": 82.13456724620488,
+  "eta_pct": 19.481360755792732,
+  "n_points": 181,
+  "Voc_method": "interpolated"
+ },
+ "fig5.5_JV_cosputtered_CeZnO_Ce0.050_light_FoM": {
+  "Jsc_mA_cm2": 28.262889640054564,
+  "Voc_mV": 839.5316731045359,
+  "FF_pct": 80.94209095274024,
+  "eta_pct": 19.205608309388914,
+  "n_points": 182,
+  "Voc_method": "interpolated"
+ },
+ "fig5.6_EQE_cosputtered_CeZnO_xticks": [
+  300.0,
+  400.0,
+  500.0,
+  600.0,
+  700.0,
+  800.0,
+  900.0,
+  1000.0
+ ],
+ "fig5.6_EQE_cosputtered_CeZnO_yticks": [
+  100.0,
+  80.0,
+  60.0,
+  40.0,
+  20.0,
+  0.0
+ ],
+ "fig5.6_EQE_cosputtered_CeZnO_resid_pt": [
+  0.03988709348507891,
+  0.029124948463329522
+ ],
+ "fig5.7_VocT_cosputtered_CeZnO_xticks": [
+  0.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0,
+  250.0,
+  300.0,
+  350.0,
+  400.0
+ ],
+ "fig5.7_VocT_cosputtered_CeZnO_yticks": [
+  1.7,
+  1.6,
+  1.5,
+  1.4,
+  1.3,
+  1.2,
+  1.1,
+  1.0,
+  0.9,
+  0.8,
+  0.7
+ ],
+ "fig5.7_VocT_cosputtered_CeZnO_resid_pt": [
+  0.0366705280401816,
+  0.03808806574620286
+ ],
+ "fig5.7_VocT_cosputtered_CeZnO_ZnO_refit_315_355K_intercept_V": 1.3578382873578991,
+ "fig5.7_VocT_cosputtered_CeZnO_ZnO_fit_line_intercept_V": 1.358692727860943,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.050_refit_315_355K_intercept_V": 1.4774171496746666,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.050_fit_line_intercept_V": 1.4780593255770564,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.078_refit_315_355K_intercept_V": 1.5084788643180036,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.078_fit_line_intercept_V": 1.5091363178935717,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.087_refit_315_355K_intercept_V": 1.6085177930955028,
+ "fig5.7_VocT_cosputtered_CeZnO_Ce0.087_fit_line_intercept_V": 1.6097739308213095,
+ "fig5.11a_JV_50nm_S3fig4a_xticks": [
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig5.11a_JV_50nm_S3fig4a_yticks": [
+  0.0,
+  -5.0,
+  -10.0,
+  -15.0,
+  -20.0,
+  -25.0,
+  -30.0,
+  -35.0
+ ],
+ "fig5.11a_JV_50nm_S3fig4a_resid_pt": [
+  0.019369141867543346,
+  0.019110506738107522
+ ],
+ "fig5.11a_JV_50nm_S3fig4a_ZnO_FoM": {
+  "Jsc_mA_cm2": 29.92690081250214,
+  "Voc_mV": 841.0400804862927,
+  "FF_pct": 79.29019159628983,
+  "eta_pct": 19.957121644914068,
+  "n_points": 258,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11a_JV_50nm_S3fig4a_Ce0.03_FoM": {
+  "Jsc_mA_cm2": 29.695630159286278,
+  "Voc_mV": 854.3167692420033,
+  "FF_pct": 79.44832912455256,
+  "eta_pct": 20.155623850803018,
+  "n_points": 335,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11a_JV_50nm_S3fig4a_Ce0.06_FoM": {
+  "Jsc_mA_cm2": 30.065530182321396,
+  "Voc_mV": 844.0102293595925,
+  "FF_pct": 76.69585225812395,
+  "eta_pct": 19.462044209163405,
+  "n_points": 326,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11a_JV_50nm_S3fig4a_Ce0.09_FoM": {
+  "Jsc_mA_cm2": 30.09362445881945,
+  "Voc_mV": 841.1856839597383,
+  "FF_pct": 76.5716328637552,
+  "eta_pct": 19.38359282271953,
+  "n_points": 241,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11b_JV_100nm_S3fig4b_xticks": [
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig5.11b_JV_100nm_S3fig4b_yticks": [
+  0.0,
+  -5.0,
+  -10.0,
+  -15.0,
+  -20.0,
+  -25.0,
+  -30.0,
+  -35.0
+ ],
+ "fig5.11b_JV_100nm_S3fig4b_resid_pt": [
+  0.019381352469839918,
+  0.019110506738107522
+ ],
+ "fig5.11b_JV_100nm_S3fig4b_ZnO_FoM": {
+  "Jsc_mA_cm2": 29.605263920613144,
+  "Voc_mV": 837.7091704246254,
+  "FF_pct": 79.88770163020332,
+  "eta_pct": 19.812630192599496,
+  "n_points": 331,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11b_JV_100nm_S3fig4b_Ce0.03_FoM": {
+  "Jsc_mA_cm2": 29.35260293056328,
+  "Voc_mV": 858.2412389272133,
+  "FF_pct": 77.74238761933645,
+  "eta_pct": 19.584562440456498,
+  "n_points": 275,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11b_JV_100nm_S3fig4b_Ce0.06_FoM": {
+  "Jsc_mA_cm2": 29.078183841833493,
+  "Voc_mV": 844.4737797098663,
+  "FF_pct": 77.68891346922378,
+  "eta_pct": 19.077106102728127,
+  "n_points": 304,
+  "Voc_method": "interpolated"
+ },
+ "fig5.11b_JV_100nm_S3fig4b_Ce0.09_FoM": {
+  "Jsc_mA_cm2": 29.617450844072184,
+  "Voc_mV": 834.3550716944297,
+  "FF_pct": 75.32834152241034,
+  "eta_pct": 18.61474075967566,
+  "n_points": 272,
+  "Voc_method": "interpolated"
+ },
+ "fig5.12a_EQE_50nm_S3fig5a_xticks": [
+  300.0,
+  400.0,
+  500.0,
+  600.0,
+  700.0,
+  800.0,
+  900.0,
+  1000.0
+ ],
+ "fig5.12a_EQE_50nm_S3fig5a_yticks": [
+  100.0,
+  80.0,
+  60.0,
+  40.0,
+  20.0,
+  0.0
+ ],
+ "fig5.12a_EQE_50nm_S3fig5a_resid_pt": [
+  0.02659684449892905,
+  0.01942365219714848
+ ],
+ "fig5.12b_EQE_100nm_S3fig5b_xticks": [
+  300.0,
+  400.0,
+  500.0,
+  600.0,
+  700.0,
+  800.0,
+  900.0,
+  1000.0
+ ],
+ "fig5.12b_EQE_100nm_S3fig5b_yticks": [
+  100.0,
+  80.0,
+  60.0,
+  40.0,
+  20.0,
+  0.0
+ ],
+ "fig5.12b_EQE_100nm_S3fig5b_resid_pt": [
+  0.02660011524561714,
+  0.01942365219714848
+ ],
+ "fig5.13a_CV_50nm_S3fig6a_xticks": [
+  0.0,
+  0.1,
+  0.2,
+  0.3,
+  0.4,
+  0.5,
+  0.6
+ ],
+ "fig5.13a_CV_50nm_S3fig6a_yticks": [
+  1e+17,
+  1e+16,
+  1000000000000000.0
+ ],
+ "fig5.13a_CV_50nm_S3fig6a_resid_pt": [
+  0.01763669926248409,
+  0.02058919270795374
+ ],
+ "fig5.13b_CV_100nm_S3fig6b_xticks": [
+  0.0,
+  0.1,
+  0.2,
+  0.3,
+  0.4,
+  0.5,
+  0.6
+ ],
+ "fig5.13b_CV_100nm_S3fig6b_yticks": [
+  1e+17,
+  1e+16,
+  1000000000000000.0
+ ],
+ "fig5.13b_CV_100nm_S3fig6b_resid_pt": [
+  0.01763560721923503,
+  0.02058919270795374
+ ],
+ "fig5.14_interface_defect_density_50nm_S3fig7_xticks": null,
+ "fig5.14_interface_defect_density_50nm_S3fig7_yticks": [
+  1e+16,
+  1000000000000000.0,
+  100000000000000.0,
+  10000000000000.0
+ ],
+ "fig5.14_interface_defect_density_50nm_S3fig7_resid_pt": [
+  null,
+  3.051759891411977e-05
+ ],
+ "fig6.3_JV_ZnO65nm_vs_SnO2_xticks": [
+  -200.0,
+  0.0,
+  200.0,
+  400.0,
+  600.0,
+  800.0,
+  1000.0
+ ],
+ "fig6.3_JV_ZnO65nm_vs_SnO2_yticks": [
+  35.0,
+  30.0,
+  25.0,
+  20.0,
+  15.0,
+  10.0,
+  5.0,
+  0.0,
+  -5.0,
+  -10.0,
+  -15.0,
+  -20.0,
+  -25.0,
+  -30.0,
+  -35.0
+ ],
+ "fig6.3_JV_ZnO65nm_vs_SnO2_resid_pt": [
+  0.026446870597053144,
+  0.043166097005192035
+ ],
+ "fig6.3_JV_ZnO65nm_vs_SnO2_ZnO_light_FoM": {
+  "Jsc_mA_cm2": 29.449150704798456,
+  "Voc_mV": 854.1881315079654,
+  "FF_pct": 80.0711649507324,
+  "eta_pct": 20.14199363722974,
+  "n_points": 267,
+  "Voc_method": "interpolated"
+ },
+ "fig6.3_JV_ZnO65nm_vs_SnO2_SnO2_light_FoM": {
+  "Jsc_mA_cm2": 30.16213766181498,
+  "Voc_mV": 833.3636516762767,
+  "FF_pct": 78.75317601894234,
+  "eta_pct": 19.795421307615733,
+  "n_points": 263,
+  "Voc_method": "interpolated"
+ }
+}

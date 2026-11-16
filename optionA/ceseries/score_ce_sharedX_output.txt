@@ -1,0 +1,6 @@
+shared light level X = 0.755 sun, total chi2 = 230.9 for 52 points
+  ZnO      dEc -0.26  logS 1.22  phi_b 0.50  chi2 30.4   dEc within dchi2<=4: [-0.26]
+  Ce0.050  dEc -0.34  logS 0.50  phi_b 0.50  chi2 70.7   dEc within dchi2<=4: [-0.34]
+  Ce0.078  dEc -0.18  logS 2.00  phi_b 0.50  chi2 24.6   dEc within dchi2<=4: [-0.18]
+  Ce0.087  dEc -0.22  logS 1.79  phi_b 0.50  chi2 105.3   dEc within dchi2<=4: [-0.22]
+next-best shared X: [(np.float64(2.007), 232.3), (np.float64(2.142), 236.2), (np.float64(1.357), 240.1)]

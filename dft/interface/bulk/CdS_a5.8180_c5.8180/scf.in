@@ -1,0 +1,28 @@
+&control
+  calculation = 'scf'
+  prefix = 'b'
+  outdir = './tmp'
+  pseudo_dir = '/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/pseudo/sr'
+/
+&system
+  ibrav = 6
+  celldm(1) = 7.77423360
+  celldm(3) = 1.41421356
+  nat = 4
+  ntyp = 2
+  ecutwfc = 80
+  nbnd = 34
+/
+&electrons
+  conv_thr = 1.0d-10
+/
+ATOMIC_SPECIES
+  Cd 112.414 Cd.upf
+  S 32.06 S.upf
+ATOMIC_POSITIONS crystal
+  Cd 0.0 0.0 0.0
+  S 0.5 0.0 0.25
+  Cd 0.5 0.5 0.5
+  S 0.0 0.5 0.75
+K_POINTS automatic
+  8 8 6 0 0 0

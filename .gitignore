@@ -2,3 +2,40 @@ __pycache__/
 *.pyc
 .DS_Store
 .ipynb_checkpoints/
+.venv/
+
+# SCAPS-1D (University of Gent) is licensed software and may not be redistributed. Its install, and every input or output
+# file derived from its bundled data, stay local: tools/ holds the Wine prefix, scaps/ the generated .def/.abs/.gen
+# inputs, batch scripts and raw results (see scaps/README.md).
+tools/
+wineprefix*/
+*.exe
+*.dll
+scaps/defs/
+scaps/absorption/
+scaps/generation/
+scaps/scripts/
+scaps/results/
+optionA/sesame/**/defs*/
+optionA/sesame/kujovic/absorption/
+.scaps_run_stamp*
+
+# Source documents are cited, not redistributed
+*.pdf
+*.docx
+*.doc
+data/**/pdfs/
+data/**/pdf/
+data/**/*_text.txt
+data/**/*overlay*.png
+dft/interface/refs/
+!archive/2025-capstone/*.pdf
+
+# Quantum ESPRESSO scratch and large regenerable grids
+dft/pseudo/
+dft/**/tmp/
+dft/**/*.save/
+dft/**/*.wfc*
+dft/**/*.mix*
+dft/**/*.pp
+dft/**/*.cube
