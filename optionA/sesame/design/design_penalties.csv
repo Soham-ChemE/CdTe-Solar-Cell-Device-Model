@@ -1,0 +1,9 @@
+branch,design,params,Rs,Rsh,Voc_mV,Jsc,FF,eta,eta_no_RsRsh,eta_baseline_same_penalties,eta_EQE_anchored
+base,baseline (+B),"dEc -0.30, S 5.21, tau 100 ns, NA x1, back b0.50, T_front 0.90, FTO 350 nm, abs 3.5 um, sigma 0 meV, B 1e-10 cm3/s",0.45,2500,871.5827,27.05012,75.80475,17.87205,18.365,17.87205,19.51044
+base,conservative,"dEc +0.20, S 52.1, tau 300 ns, NA x3, back b0.30, T_front 0.97, FTO 150 nm, abs 3.5 um, sigma 0 meV, B 1e-10 cm3/s",0.45,2500,1015.009,29.50427,84.92928,25.43386,26.12608,17.87205,27.76548
+i_sigma15,baseline (+B),"dEc -0.34, S 1.83, tau 100 ns, NA x1, back b0.50, T_front 0.90, FTO 350 nm, abs 3.5 um, sigma 15 meV, B 1e-10 cm3/s",0.45,2500,881.5471,27.04697,75.34517,17.96468,18.45886,17.96468,19.51044
+i_sigma15,conservative,"dEc +0.20, S 18.3, tau 300 ns, NA x3, back b0.30, T_front 0.97, FTO 150 nm, abs 3.5 um, sigma 15 meV, B 1e-10 cm3/s",0.45,2500,1010.622,29.50535,84.79754,25.28558,25.97391,17.96468,27.46126
+ii_sigma60_ohmic,baseline (+B),"dEc -0.34, S 1.83, tau 100 ns, NA x1, back ohm, T_front 0.90, FTO 350 nm, abs 3.5 um, sigma 60 meV, B 1e-10 cm3/s",0.45,2500,847.5135,27.04839,76.33202,17.49826,17.98144,17.49826,19.51044
+ii_sigma60_ohmic,conservative,"dEc +0.20, S 18.3, tau 300 ns, NA x3, back ohm, T_front 0.97, FTO 150 nm, abs 3.5 um, sigma 60 meV, B 1e-10 cm3/s",0.45,2500,949.2424,29.49948,84.47109,23.65372,24.3011,17.49826,26.37374
+base,realistic (+B),"dEc +0.20, S 52.1, tau 300 ns, NA x10, back b0.30, T_front 0.97, FTO 150 nm, abs 3.5 um, sigma 0 meV, B 1e-10 cm3/s",0.45,2500,1038.74,29.4623,82.82248,25.34671,26.03604,17.87205,27.67033
+base,aggressive (+B),"dEc +0.00, S 5.21, tau 1000 ns, NA x10, back ohm, T_front 0.97, FTO 150 nm, abs 3.5 um, sigma 0 meV, B 1e-10 cm3/s",0.45,2500,1040.319,29.47699,85.64015,26.26195,26.9762,17.87205,28.66948

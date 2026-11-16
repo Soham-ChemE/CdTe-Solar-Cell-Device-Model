@@ -1,0 +1,686 @@
+{'mat': 'CdTe', 'a': 6.481} ok=True VBM-Vbar=4.0931 gap=0.773 DSO=nan 24s
+{'mat': 'CdSe', 'a': 6.077} ok=True VBM-Vbar=4.0240 gap=0.615 DSO=nan 26s
+{'mat': 'ZnSe', 'a': 5.668} ok=True VBM-Vbar=3.3996 gap=1.289 DSO=nan 19s
+{'mat': 'ZnTe', 'a': 6.101} ok=True VBM-Vbar=3.7111 gap=1.254 DSO=nan 26s
+{'mat': 'CdS', 'a': 5.818} ok=True VBM-Vbar=4.4542 gap=1.164 DSO=nan 17s
+{'mat': 'ZnTe', 'a': 6.291} ok=True VBM-Vbar=2.8086 gap=0.839 DSO=nan 18s
+{'mat': 'CdTe', 'a': 6.291} ok=True VBM-Vbar=5.1137 gap=1.047 DSO=nan 18s
+{'mat': 'CdS', 'a': 6.1495} ok=True VBM-Vbar=2.7049 gap=0.791 DSO=nan 17s
+{'mat': 'CdTe', 'a': 6.1495} ok=True VBM-Vbar=5.9742 gap=1.259 DSO=nan 20s
+{'mat': 'ZnSe', 'a': 6.0745} ok=True VBM-Vbar=1.4996 gap=0.528 DSO=nan 22s
+{'mat': 'CdTe', 'a': 6.0745} ok=True VBM-Vbar=6.4688 gap=1.373 DSO=nan 21s
+{'mat': 'ZnSe', 'a': 5.8725} ok=True VBM-Vbar=2.3672 gap=0.881 DSO=nan 19s
+{'mat': 'CdSe', 'a': 5.8725} ok=True VBM-Vbar=5.2326 gap=0.821 DSO=nan 21s
+{'mat': 'CdTe', 'a': 6.41619} ok=True VBM-Vbar=4.4253 gap=0.865 DSO=nan 21s
+{'mat': 'CdTe', 'a': 6.54581} ok=True VBM-Vbar=3.7764 gap=0.683 DSO=nan 25s
+{'mat': 'CdSe', 'a': 6.01623} ok=True VBM-Vbar=4.3626 gap=0.676 DSO=nan 20s
+{'mat': 'CdSe', 'a': 6.13777} ok=True VBM-Vbar=3.7016 gap=0.553 DSO=nan 25s
+{'mat': 'ZnSe', 'a': 5.61132} ok=True VBM-Vbar=3.7171 gap=1.411 DSO=nan 17s
+{'mat': 'ZnSe', 'a': 5.72468} ok=True VBM-Vbar=3.0962 gap=1.171 DSO=nan 19s
+{'mat': 'ZnTe', 'a': 6.03999} ok=True VBM-Vbar=4.0289 gap=1.399 DSO=nan 20s
+{'mat': 'ZnTe', 'a': 6.16201} ok=True VBM-Vbar=3.4074 gap=1.114 DSO=nan 24s
+{'mat': 'CdS', 'a': 5.75982} ok=True VBM-Vbar=4.8145 gap=1.227 DSO=nan 15s
+{'mat': 'CdS', 'a': 5.87618} ok=True VBM-Vbar=4.1114 gap=1.099 DSO=nan 17s
+{'mat': 'CdTe', 'a': 6.481, 'ecut': 60} ok=True VBM-Vbar=4.0972 gap=0.797 DSO=nan 17s
+{'mat': 'CdTe', 'a': 6.481, 'ecut': 100} ok=True VBM-Vbar=4.0927 gap=0.772 DSO=nan 36s
+{'mat': 'ZnSe', 'a': 5.668, 'ecut': 60} ok=True VBM-Vbar=3.3983 gap=1.280 DSO=nan 13s
+{'mat': 'ZnSe', 'a': 5.668, 'ecut': 100} ok=True VBM-Vbar=3.3996 gap=1.289 DSO=nan 25s
+{'mat': 'ZnTe', 'a': 6.101, 'ecut': 60} ok=True VBM-Vbar=3.7148 gap=1.242 DSO=nan 16s
+{'mat': 'ZnTe', 'a': 6.101, 'ecut': 100} ok=True VBM-Vbar=3.7110 gap=1.254 DSO=nan 33s
+{'mat': 'CdS', 'a': 5.818, 'ecut': 60} ok=True VBM-Vbar=4.4615 gap=1.183 DSO=nan 11s
+{'mat': 'CdS', 'a': 5.818, 'ecut': 100} ok=True VBM-Vbar=4.4538 gap=1.162 DSO=nan 20s
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/ZnTe_CdTe_n3_k4
+ZnTe_CdTe_n3_k4: scf 1249 s ok=True
+ZnTe_CdTe_n3_k4: pp+average done
+{'mat': 'CdTe', 'a': 6.481, 'soc': True} ok=True VBM-Vbar=4.3765 gap=0.504 DSO=0.860 80s
+{'mat': 'CdSe', 'a': 6.077, 'soc': True} ok=True VBM-Vbar=4.1494 gap=0.496 DSO=0.363 87s
+{'mat': 'ZnSe', 'a': 5.668, 'soc': True} ok=True VBM-Vbar=3.5298 gap=1.164 DSO=0.382 58s
+{'mat': 'ZnTe', 'a': 6.101, 'soc': True} ok=True VBM-Vbar=4.0022 gap=0.977 DSO=0.889 73s
+{'mat': 'CdS', 'a': 5.818, 'soc': True} ok=True VBM-Vbar=4.4738 gap=1.148 DSO=0.043 50s
+projwfc 23 s
+  1 Zn l=0 z=  0.000 ZnTe  E= -117.6744 w=1.99
+  1 Zn l=1 z=  0.000 ZnTe  E=  -71.8256 w=6.00
+  2 Te l=1 z=  1.573 ZnTe  E= -117.6683 w=0.00
+  2 Te l=2 z=  1.573 ZnTe  E=  -28.1988 w=9.98
+  3 Zn l=0 z=  3.146 ZnTe  E= -117.6622 w=1.99
+  3 Zn l=1 z=  3.146 ZnTe  E=  -71.8133 w=6.00
+  4 Te l=1 z=  4.718 ZnTe  E= -117.6614 w=0.00
+  4 Te l=2 z=  4.718 ZnTe  E=  -28.1978 w=9.98
+  5 Zn l=0 z=  6.291 ZnTe  E= -117.6605 w=1.99
+  5 Zn l=1 z=  6.291 ZnTe  E=  -71.8116 w=6.00
+  6 Te l=1 z=  7.864 ZnTe  E= -117.6605 w=0.00
+  6 Te l=2 z=  7.864 ZnTe  E=  -28.1972 w=9.98
+  7 Zn l=0 z=  9.437 ZnTe  E= -117.6605 w=1.99
+  7 Zn l=1 z=  9.437 ZnTe  E=  -71.8116 w=5.99
+  8 Te l=1 z= 11.009 ZnTe  E= -117.6614 w=0.00
+  8 Te l=2 z= 11.009 ZnTe  E=  -28.1978 w=9.98
+  9 Zn l=0 z= 12.582 ZnTe  E= -117.6623 w=1.99
+  9 Zn l=1 z= 12.582 ZnTe  E=  -71.8134 w=6.00
+ 10 Te l=1 z= 14.155 ZnTe  E= -117.6684 w=0.00
+ 10 Te l=2 z= 14.155 ZnTe  E=  -28.1989 w=9.98
+ 11 Zn l=0 z= 15.727 ZnTe  E= -117.6745 w=1.99
+ 11 Zn l=1 z= 15.727 ZnTe  E=  -71.8257 w=6.00
+ 12 Te l=1 z= 17.300 ZnTe  E=  -96.2419 w=0.01
+ 12 Te l=2 z= 17.300 ZnTe  E=  -28.2301 w=10.00
+ 13 Cd l=0 z= 18.873 CdTe  E=  -94.3802 w=1.99
+ 13 Cd l=1 z= 18.873 CdTe  E=  -55.4373 w=5.99
+ 14 Te l=1 z= 20.446 CdTe  E=  -88.1702 w=0.01
+ 14 Te l=2 z= 20.446 CdTe  E=  -28.2657 w=9.98
+ 15 Cd l=0 z= 22.018 CdTe  E=  -94.3927 w=1.98
+ 15 Cd l=1 z= 22.018 CdTe  E=  -55.4501 w=5.98
+ 16 Te l=1 z= 23.591 CdTe  E=  -90.3790 w=0.01
+ 16 Te l=2 z= 23.591 CdTe  E=  -28.2667 w=9.99
+ 17 Cd l=0 z= 25.164 CdTe  E=  -94.3947 w=1.98
+ 17 Cd l=1 z= 25.164 CdTe  E=  -55.4521 w=5.98
+ 18 Te l=1 z= 26.737 CdTe  E=  -88.0588 w=0.01
+ 18 Te l=2 z= 26.737 CdTe  E=  -28.2673 w=9.98
+ 19 Cd l=0 z= 28.309 CdTe  E=  -94.3947 w=1.98
+ 19 Cd l=1 z= 28.309 CdTe  E=  -55.4521 w=5.98
+ 20 Te l=1 z= 29.882 CdTe  E=  -90.0667 w=0.01
+ 20 Te l=2 z= 29.882 CdTe  E=  -28.2667 w=9.99
+ 21 Cd l=0 z= 31.455 CdTe  E=  -94.3927 w=1.98
+ 21 Cd l=1 z= 31.455 CdTe  E=  -55.4501 w=5.98
+ 22 Te l=1 z= 33.028 CdTe  E=  -88.7696 w=0.01
+ 22 Te l=2 z= 33.028 CdTe  E=  -28.2657 w=9.98
+ 23 Cd l=0 z= 34.600 CdTe  E=  -94.3802 w=1.98
+ 23 Cd l=1 z= 34.600 CdTe  E=  -55.4373 w=5.99
+ 24 Te l=1 z= 36.173 CdTe  E=  -96.7970 w=0.01
+ 24 Te l=2 z= 36.173 CdTe  E=  -28.2301 w=10.00
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/ZnSe_CdTe_n3
+ZnSe_CdTe_n3: scf 2269 s ok=True
+ZnSe_CdTe_n3: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/CdS_CdTe_n3
+CdS_CdTe_n3: scf 1568 s ok=True
+CdS_CdTe_n3: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/HJ_CdTe_eps5_n2
+CdTe 6.481 True
+CdTe 6.8050500000000005 True
+HJ_CdTe_eps5_n2: scf 969 s ok=True
+HJ_CdTe_eps5_n2: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/HJ_ZnSe_eps5_n2
+ZnSe 5.668 True
+ZnSe 5.9514000000000005 True
+HJ_ZnSe_eps5_n2: scf 822 s ok=True
+HJ_ZnSe_eps5_n2: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/HJ_ZnTe_eps5_n2
+ZnTe 6.101 True
+ZnTe 6.4060500000000005 True
+HJ_ZnTe_eps5_n2: scf 1053 s ok=True
+HJ_ZnTe_eps5_n2: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/HJ_CdS_eps5_n2
+CdS 5.818 True
+CdS 6.1089 True
+HJ_CdS_eps5_n2: scf 834 s ok=True
+HJ_CdS_eps5_n2: pp+average done
+P1_ZnSe_on_CdTe sr True [4.1258, 4.4928, 4.4928, 6.8796, 6.8796, 7.5444]
+P1_ZnSe_on_CdTe soc True [4.1026, 4.1026, 4.4445, 4.4445, 4.5687, 4.5687, 6.7148, 6.7148, 7.0102, 7.0102, 7.5862, 7.5862]
+P2_CdTe_on_ZnSe sr True [3.5997, 8.0596, 8.2504, 8.2504, 9.7789, 9.7789]
+P2_CdTe_on_ZnSe soc True [3.5936, 3.5936, 7.9543, 7.9543, 8.0185, 8.0185, 8.4505, 8.4505, 9.5685, 9.5685, 9.8556, 9.8556]
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/ZnSe_CdTe_n4
+ZnSe_CdTe_n4: scf 3084 s ok=True
+ZnSe_CdTe_n4: pp+average done
+P1_ZnSe_on_CdTe /Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/P1_ZnSe_on_CdTe_n3 apar=6.4810 c_strained=4.7102
+P2_CdTe_on_ZnSe /Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/P2_CdTe_on_ZnSe_n3 apar=5.6680 c_strained=7.5964
+P1_ZnSe_on_CdTe_n3: scf 986 s ok=True
+P1_ZnSe_on_CdTe_n3: pp+average done
+P2_CdTe_on_ZnSe_n3: scf 1014 s ok=True
+P2_CdTe_on_ZnSe_n3: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/ZnSe_CdSe_n3
+ZnSe_CdSe_n3: scf 1239 s ok=True
+ZnSe_CdSe_n3: pp+average done
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/HJ_CdSe_eps5_n2
+CdSe 6.077 True
+CdSe 6.380850000000001 True
+HJ_CdSe_eps5_n2: scf 593 s ok=True
+HJ_CdSe_eps5_n2: pp+average done
+{
+ "mat": "CdTe",
+ "a": 6.481,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 115.14810013771057,
+ "E_VBM": 6.8902,
+ "E_CBM": 8.907,
+ "gap": 2.0168,
+ "E_VBM_gamma": 6.8902,
+ "E_CBM_gamma": 8.907,
+ "Cd4s": -99.9424,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.8431,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Te4d": -28.644799999999996,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.012999999999998124,
+ "Vbar": 3.5488450294453777,
+ "pp_s": 1.5239551067352295,
+ "VBM_minus_Vbar": 3.3413549705546224,
+ "Cd4s_minus_Vbar": -103.49124502944538,
+ "Cd4p_minus_Vbar": -63.39194502944538,
+ "Te4d_minus_Vbar": -32.19364502944538
+}
+{
+ "mat": "ZnTe",
+ "a": 6.101,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 89.90391802787781,
+ "E_VBM": 7.3952,
+ "E_CBM": 10.0331,
+ "gap": 2.6378999999999992,
+ "E_VBM_gamma": 7.3952,
+ "E_CBM_gamma": 10.0331,
+ "Zn3s": -124.1807,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -76.9933,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Te4d": -28.315499999999997,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.016500000000000625,
+ "Vbar": 4.503991521844858,
+ "pp_s": 1.5503778457641602,
+ "VBM_minus_Vbar": 2.891208478155142,
+ "Zn3s_minus_Vbar": -128.68469152184485,
+ "Zn3p_minus_Vbar": -81.49729152184486,
+ "Te4d_minus_Vbar": -32.81949152184485
+}
+{
+ "mat": "ZnSe",
+ "a": 5.668,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 81.21538496017456,
+ "E_VBM": 7.4218,
+ "E_CBM": 10.2212,
+ "gap": 2.7993999999999994,
+ "E_VBM_gamma": 7.4218,
+ "E_CBM_gamma": 10.2212,
+ "Zn3s": -123.4973,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -76.3183,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Se3d": -39.05206,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.008100000000005991,
+ "Vbar": 4.9800372705488,
+ "pp_s": 1.425795078277588,
+ "VBM_minus_Vbar": 2.4417627294512005,
+ "Zn3s_minus_Vbar": -128.4773372705488,
+ "Zn3p_minus_Vbar": -81.2983372705488,
+ "Se3d_minus_Vbar": -44.032097270548796
+}
+{
+ "mat": "CdS",
+ "a": 5.818,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 45.31159996986389,
+ "E_VBM": 6.3401,
+ "E_CBM": 8.8464,
+ "gap": 2.5062999999999995,
+ "E_VBM_gamma": 6.3401,
+ "E_CBM_gamma": 8.8464,
+ "Cd4s": -99.6004,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.512,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Vbar": 2.6362901207246585,
+ "pp_s": 1.4412870407104492,
+ "VBM_minus_Vbar": 3.703809879275341,
+ "Cd4s_minus_Vbar": -102.23669012072465,
+ "Cd4p_minus_Vbar": -62.14829012072466
+}
+P2_CdTe_on_ZnSe_n3_fixed: scf 989 s ok=True
+P2_CdTe_on_ZnSe_n3_fixed: pp+average done
+{
+ "mat": "CdTe",
+ "a": 6.0745,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 110.8345959186554,
+ "E_VBM": 9.9736,
+ "E_CBM": 12.6744,
+ "gap": 2.700800000000001,
+ "E_VBM_gamma": 9.9736,
+ "E_CBM_gamma": 12.6744,
+ "Cd4s": -97.4048,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -57.306099999999994,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Te4d": -26.137919999999998,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.024699999999999278,
+ "Vbar": 4.310041214159205,
+ "pp_s": 1.553389072418213,
+ "VBM_minus_Vbar": 5.663558785840794,
+ "Cd4s_minus_Vbar": -101.7148412141592,
+ "Cd4p_minus_Vbar": -61.6161412141592,
+ "Te4d_minus_Vbar": -30.447961214159204
+}
+{
+ "mat": "ZnSe",
+ "a": 6.0745,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 100.36818313598633,
+ "E_VBM": 4.6806,
+ "E_CBM": 6.5702,
+ "gap": 1.8895999999999997,
+ "E_VBM_gamma": 4.6806,
+ "E_CBM_gamma": 6.5702,
+ "Zn3s": -126.1044,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -78.9201,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Se3d": -41.465700000000005,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.003500000000002501,
+ "Vbar": 4.045667255041597,
+ "pp_s": 1.5664339065551758,
+ "VBM_minus_Vbar": 0.6349327449584035,
+ "Zn3s_minus_Vbar": -130.1500672550416,
+ "Zn3p_minus_Vbar": -82.9657672550416,
+ "Se3d_minus_Vbar": -45.511367255041606
+}
+{
+ "mat": "CdTe",
+ "a": 6.481,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 269.0122170448303,
+ "E_VBM": 7.0017,
+ "E_CBM": 8.8014,
+ "gap": 1.7996999999999996,
+ "E_VBM_gamma": 7.0017,
+ "E_CBM_gamma": 8.8014,
+ "Cd4s": -99.955,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.85479999999999,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Te4d": -28.62094,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.01389999999999958,
+ "Vbar": 3.5488361006450466,
+ "pp_s": 1.507345199584961,
+ "VBM_minus_Vbar": 3.452863899354953,
+ "Cd4s_minus_Vbar": -103.50383610064505,
+ "Cd4p_minus_Vbar": -63.40363610064504,
+ "Te4d_minus_Vbar": -32.169776100645045
+}
+{
+ "mat": "ZnTe",
+ "a": 6.101,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 237.20890402793884,
+ "E_VBM": 7.5281,
+ "E_CBM": 9.9173,
+ "gap": 2.389199999999999,
+ "E_VBM_gamma": 7.5281,
+ "E_CBM_gamma": 9.9173,
+ "Zn3s": -124.1967,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -77.007,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Te4d": -28.28788,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.01729999999999876,
+ "Vbar": 4.503994475399311,
+ "pp_s": 1.5486321449279785,
+ "VBM_minus_Vbar": 3.0241055246006896,
+ "Zn3s_minus_Vbar": -128.70069447539933,
+ "Zn3p_minus_Vbar": -81.51099447539931,
+ "Te4d_minus_Vbar": -32.79187447539931
+}
+{
+ "mat": "ZnSe",
+ "a": 5.668,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 197.83368802070618,
+ "E_VBM": 7.5638,
+ "E_CBM": 10.0939,
+ "gap": 2.5301,
+ "E_VBM_gamma": 7.5638,
+ "E_CBM_gamma": 10.0939,
+ "Zn3s": -123.5112,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -76.3304,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Se3d": -39.01398,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.008800000000000807,
+ "Vbar": 4.980035519297141,
+ "pp_s": 1.4226500988006592,
+ "VBM_minus_Vbar": 2.5837644807028584,
+ "Zn3s_minus_Vbar": -128.49123551929713,
+ "Zn3p_minus_Vbar": -81.31043551929714,
+ "Se3d_minus_Vbar": -43.994015519297136
+}
+{
+ "mat": "CdS",
+ "a": 5.818,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 110.18408608436584,
+ "E_VBM": 6.4571,
+ "E_CBM": 8.7406,
+ "gap": 2.283500000000001,
+ "E_VBM_gamma": 6.4571,
+ "E_CBM_gamma": 8.7406,
+ "Cd4s": -99.6097,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.5208,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Vbar": 2.636290130184814,
+ "pp_s": 1.4016270637512207,
+ "VBM_minus_Vbar": 3.8208098698151858,
+ "Cd4s_minus_Vbar": -102.24599013018482,
+ "Cd4p_minus_Vbar": -62.15709013018481
+}
+{
+ "mat": "CdSe",
+ "a": 6.077,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 111.136638879776,
+ "E_VBM": 6.9587,
+ "E_CBM": 8.9132,
+ "gap": 1.9544999999999995,
+ "E_VBM_gamma": 6.9587,
+ "E_CBM_gamma": 8.9132,
+ "Cd4s": -99.285,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.1938,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Se3d": -39.366200000000006,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.006500000000002615,
+ "Vbar": 3.787829822459418,
+ "pp_s": 1.5498390197753906,
+ "VBM_minus_Vbar": 3.1708701775405825,
+ "Cd4s_minus_Vbar": -103.07282982245941,
+ "Cd4p_minus_Vbar": -62.98162982245942,
+ "Se3d_minus_Vbar": -43.15402982245942
+}
+{
+ "mat": "CdSe",
+ "a": 6.077,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 274.1080090999603,
+ "E_VBM": 7.0774,
+ "E_CBM": 8.7946,
+ "gap": 1.717200000000001,
+ "E_VBM_gamma": 7.0774,
+ "E_CBM_gamma": 8.7946,
+ "Cd4s": -99.2957,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -59.2038,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Se3d": -39.33386,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.0071000000000012164,
+ "Vbar": 3.787830847871415,
+ "pp_s": 1.556321144104004,
+ "VBM_minus_Vbar": 3.289569152128585,
+ "Cd4s_minus_Vbar": -103.08353084787142,
+ "Cd4p_minus_Vbar": -62.99163084787141,
+ "Se3d_minus_Vbar": -43.12169084787141
+}
+{
+ "mat": "ZnTe",
+ "a": 6.291,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 90.72929406166077,
+ "E_VBM": 6.1274,
+ "E_CBM": 8.2848,
+ "gap": 2.157400000000001,
+ "E_VBM_gamma": 6.1274,
+ "E_CBM_gamma": 8.2848,
+ "Zn3s": -125.3097,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -78.116,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Te4d": -29.39664,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.011899999999997135,
+ "Vbar": 4.108108402530873,
+ "pp_s": 1.547287940979004,
+ "VBM_minus_Vbar": 2.0192915974691266,
+ "Zn3s_minus_Vbar": -129.41780840253088,
+ "Zn3p_minus_Vbar": -82.22410840253087,
+ "Te4d_minus_Vbar": -33.50474840253087
+}
+{
+ "mat": "CdTe",
+ "a": 6.291,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 97.99554824829102,
+ "E_VBM": 8.2159,
+ "E_CBM": 10.5511,
+ "gap": 2.3352000000000004,
+ "E_VBM_gamma": 8.2159,
+ "E_CBM_gamma": 10.5511,
+ "Cd4s": -98.8147,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -58.7155,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Te4d": -27.549559999999996,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.01759999999999806,
+ "Vbar": 3.880197570555627,
+ "pp_s": 1.548111915588379,
+ "VBM_minus_Vbar": 4.335702429444373,
+ "Cd4s_minus_Vbar": -102.69489757055563,
+ "Cd4p_minus_Vbar": -62.59569757055563,
+ "Te4d_minus_Vbar": -31.429757570555623
+}
+{
+ "mat": "CdS",
+ "a": 6.1495,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 64.74823093414307,
+ "E_VBM": 4.2286,
+ "E_CBM": 6.2861,
+ "gap": 2.0575,
+ "E_VBM_gamma": 4.2286,
+ "E_CBM_gamma": 6.2861,
+ "Cd4s": -101.5959,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -61.5075,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Vbar": 2.232518821591011,
+ "pp_s": 1.5014610290527344,
+ "VBM_minus_Vbar": 1.9960811784089891,
+ "Cd4s_minus_Vbar": -103.82841882159101,
+ "Cd4p_minus_Vbar": -63.74001882159101
+}
+{
+ "mat": "CdTe",
+ "a": 6.1495,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 86.55004906654358,
+ "E_VBM": 9.3322,
+ "E_CBM": 11.9071,
+ "gap": 2.5748999999999995,
+ "E_VBM_gamma": 9.3322,
+ "E_CBM_gamma": 11.9071,
+ "Cd4s": -97.9081,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -57.8098,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Te4d": -26.6483,
+ "Te4d_nb": 5,
+ "Te4d_spread": 0.021999999999998465,
+ "Vbar": 4.154253545147349,
+ "pp_s": 1.5467069149017334,
+ "VBM_minus_Vbar": 5.177946454852651,
+ "Cd4s_minus_Vbar": -102.06235354514736,
+ "Cd4p_minus_Vbar": -61.96405354514735,
+ "Te4d_minus_Vbar": -30.802553545147347
+}
+{
+ "mat": "ZnSe",
+ "a": 5.8725,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 72.59833598136902,
+ "E_VBM": 5.9337,
+ "E_CBM": 8.2533,
+ "gap": 2.3195999999999994,
+ "E_VBM_gamma": 5.9337,
+ "E_CBM_gamma": 8.2533,
+ "Zn3s": -124.8792,
+ "Zn3s_nb": 1,
+ "Zn3s_spread": 0.0,
+ "Zn3p": -77.6918,
+ "Zn3p_nb": 3,
+ "Zn3p_spread": 0.0,
+ "Se3d": -40.34607999999999,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.005299999999998306,
+ "Vbar": 4.4776813154704564,
+ "pp_s": 1.396022081375122,
+ "VBM_minus_Vbar": 1.4560186845295435,
+ "Zn3s_minus_Vbar": -129.35688131547045,
+ "Zn3p_minus_Vbar": -82.16948131547046,
+ "Se3d_minus_Vbar": -44.82376131547045
+}
+{
+ "mat": "CdSe",
+ "a": 5.8725,
+ "c": null,
+ "ecut": 80,
+ "soc": false,
+ "hse": true,
+ "k": 6,
+ "ok": true,
+ "pw_s": 69.81038498878479,
+ "E_VBM": 8.5396,
+ "E_CBM": 10.7507,
+ "gap": 2.2111,
+ "E_VBM_gamma": 8.5396,
+ "E_CBM_gamma": 10.7507,
+ "Cd4s": -97.8912,
+ "Cd4s_nb": 1,
+ "Cd4s_spread": 0.0,
+ "Cd4p": -57.8021,
+ "Cd4p_nb": 3,
+ "Cd4p_spread": 0.0,
+ "Se3d": -38.04218,
+ "Se3d_nb": 5,
+ "Se3d_spread": 0.009300000000003195,
+ "Vbar": 4.197490635723802,
+ "pp_s": 1.3903911113739014,
+ "VBM_minus_Vbar": 4.342109364276198,
+ "Cd4s_minus_Vbar": -102.0886906357238,
+ "Cd4p_minus_Vbar": -61.999590635723806,
+ "Se3d_minus_Vbar": -42.239670635723805
+}
+/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/interface/sl/ZnTe_CdTe_n4
+ZnTe_CdTe_n4: scf 3165 s ok=True
+ZnTe_CdTe_n4: pp+average done

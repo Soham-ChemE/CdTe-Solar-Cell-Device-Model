@@ -1,0 +1,30 @@
+&control
+  calculation = 'scf'
+  prefix = 'b'
+  outdir = './tmp'
+  pseudo_dir = '/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/pseudo/fr/nc-fr-04_pbe_standard'
+/
+&system
+  ibrav = 6
+  celldm(1) = 7.57379788
+  celldm(3) = 1.89536694
+  nat = 4
+  ntyp = 2
+  ecutwfc = 80
+  nbnd = 88
+  noncolin = .true.
+  lspinorb = .true.
+/
+&electrons
+  conv_thr = 1.0d-10
+/
+ATOMIC_SPECIES
+  Cd 112.414 Cd.upf
+  Te 127.6 Te.upf
+ATOMIC_POSITIONS crystal
+  Cd 0.0 0.0 0.0
+  Te 0.5 0.0 0.25
+  Cd 0.5 0.5 0.5
+  Te 0.0 0.5 0.75
+K_POINTS automatic
+  8 8 4 0 0 0

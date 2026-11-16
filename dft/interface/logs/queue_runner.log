@@ -1,0 +1,112 @@
+2026-11-16 00:21:31 START run_bulk_set.py eq
+2026-11-16 00:23:23 END rc=0 112s run_bulk_set.py eq
+2026-11-16 00:25:24 START run_bulk_set.py avg
+2026-11-16 00:28:06 START run_bulk_set.py dp ecut
+2026-11-16 00:34:19 END rc=0 373s run_bulk_set.py dp ecut
+2026-11-16 00:34:19 START make_superlattice.py ZnTe CdTe 3 --k 4 4 1 --tag ZnTe_CdTe_n3_k4
+2026-11-16 00:34:19 END rc=0 0s make_superlattice.py ZnTe CdTe 3 --k 4 4 1 --tag ZnTe_CdTe_n3_k4
+2026-11-16 00:34:19 START run_superlattice.py sl/ZnTe_CdTe_n3_k4 --nk 2
+2026-11-16 00:55:13 END rc=0 1254s run_superlattice.py sl/ZnTe_CdTe_n3_k4 --nk 2
+2026-11-16 00:55:33 START run_bulk_set.py soc
+2026-11-16 01:01:20 END rc=0 347s run_bulk_set.py soc
+2026-11-16 01:01:20 START sl_core_levels.py sl/ZnTe_CdTe_n3
+2026-11-16 01:01:43 END rc=0 23s sl_core_levels.py sl/ZnTe_CdTe_n3
+2026-11-16 01:01:43 START make_superlattice.py ZnSe CdTe 3
+2026-11-16 01:01:43 END rc=0 0s make_superlattice.py ZnSe CdTe 3
+2026-11-16 01:01:43 START run_superlattice.py sl/ZnSe_CdTe_n3 --nk 2
+2026-11-16 01:39:38 END rc=0 2275s run_superlattice.py sl/ZnSe_CdTe_n3 --nk 2
+2026-11-16 01:39:58 START make_superlattice.py CdS CdTe 3
+2026-11-16 01:39:58 END rc=0 0s make_superlattice.py CdS CdTe 3
+2026-11-16 01:39:58 START run_superlattice.py sl/CdS_CdTe_n3 --nk 2
+2026-11-16 02:06:10 END rc=0 1572s run_superlattice.py sl/CdS_CdTe_n3 --nk 2
+2026-11-16 02:06:30 START homojunction.py setup CdTe
+2026-11-16 02:06:30 END rc=0 0s homojunction.py setup CdTe
+2026-11-16 02:06:30 START homojunction.py bulk CdTe
+2026-11-16 02:10:16 END rc=0 226s homojunction.py bulk CdTe
+2026-11-16 02:10:16 START run_superlattice.py sl/HJ_CdTe_eps5_n2 --nk 2
+2026-11-16 02:26:30 END rc=0 974s run_superlattice.py sl/HJ_CdTe_eps5_n2 --nk 2
+2026-11-16 02:28:18 START homojunction.py setup ZnSe
+2026-11-16 02:28:18 END rc=0 0s homojunction.py setup ZnSe
+2026-11-16 02:28:18 START homojunction.py bulk ZnSe
+2026-11-16 02:31:33 END rc=0 195s homojunction.py bulk ZnSe
+2026-11-16 02:31:34 START run_superlattice.py sl/HJ_ZnSe_eps5_n2 --nk 2
+2026-11-16 02:45:21 END rc=0 827s run_superlattice.py sl/HJ_ZnSe_eps5_n2 --nk 2
+2026-11-16 02:45:21 START homojunction.py setup ZnTe
+2026-11-16 02:45:21 END rc=0 0s homojunction.py setup ZnTe
+2026-11-16 02:45:22 START homojunction.py bulk ZnTe
+2026-11-16 02:52:26 END rc=0 423s homojunction.py bulk ZnTe
+2026-11-16 02:52:26 START run_superlattice.py sl/HJ_ZnTe_eps5_n2 --nk 2
+2026-11-16 03:10:03 END rc=0 1057s run_superlattice.py sl/HJ_ZnTe_eps5_n2 --nk 2
+2026-11-16 03:10:23 START homojunction.py setup CdS
+2026-11-16 03:10:24 END rc=0 1s homojunction.py setup CdS
+2026-11-16 03:10:24 START homojunction.py bulk CdS
+2026-11-16 03:13:32 END rc=0 188s homojunction.py bulk CdS
+2026-11-16 03:13:32 START run_superlattice.py sl/HJ_CdS_eps5_n2 --nk 2
+2026-11-16 03:27:30 END rc=0 838s run_superlattice.py sl/HJ_CdS_eps5_n2 --nk 2
+2026-11-16 03:27:30 START pseudomorphic.py bulk
+2026-11-16 03:51:57 END rc=0 1467s pseudomorphic.py bulk
+2026-11-16 03:51:58 START make_superlattice.py ZnSe CdTe 4
+2026-11-16 03:51:58 END rc=0 0s make_superlattice.py ZnSe CdTe 4
+2026-11-16 03:51:58 START run_superlattice.py sl/ZnSe_CdTe_n4 --nk 2
+2026-11-16 04:08:07 END rc=143 969s run_superlattice.py sl/ZnSe_CdTe_n4 --nk 2
+2026-11-16 04:08:27 START run_superlattice.py sl/ZnSe_CdTe_n4 --nk 2
+2026-11-16 04:59:55 END rc=0 3088s run_superlattice.py sl/ZnSe_CdTe_n4 --nk 2
+2026-11-16 04:59:55 START pseudomorphic.py setup
+2026-11-16 04:59:56 END rc=0 1s pseudomorphic.py setup
+2026-11-16 04:59:56 START run_superlattice.py sl/P1_ZnSe_on_CdTe_n3 --nk 2
+2026-11-16 05:16:26 END rc=0 990s run_superlattice.py sl/P1_ZnSe_on_CdTe_n3 --nk 2
+2026-11-16 05:16:26 START run_superlattice.py sl/P2_CdTe_on_ZnSe_n3 --nk 2
+2026-11-16 05:33:24 END rc=0 1018s run_superlattice.py sl/P2_CdTe_on_ZnSe_n3 --nk 2
+2026-11-16 05:33:24 START make_superlattice.py ZnSe CdSe 3
+2026-11-16 05:33:24 END rc=0 0s make_superlattice.py ZnSe CdSe 3
+2026-11-16 05:33:24 START run_superlattice.py sl/ZnSe_CdSe_n3 --nk 2
+2026-11-16 05:54:08 END rc=0 1244s run_superlattice.py sl/ZnSe_CdSe_n3 --nk 2
+2026-11-16 05:54:08 START homojunction.py setup CdSe
+2026-11-16 05:54:08 END rc=0 0s homojunction.py setup CdSe
+2026-11-16 05:54:08 START homojunction.py bulk CdSe
+2026-11-16 05:57:37 END rc=0 209s homojunction.py bulk CdSe
+2026-11-16 05:57:37 START run_superlattice.py sl/HJ_CdSe_eps5_n2 --nk 2
+2026-11-16 06:07:34 END rc=0 597s run_superlattice.py sl/HJ_CdSe_eps5_n2 --nk 2
+2026-11-16 06:07:34 START bulk_refs.py CdTe 6.481 --hse --k 6
+2026-11-16 06:09:31 END rc=0 117s bulk_refs.py CdTe 6.481 --hse --k 6
+2026-11-16 06:09:31 START bulk_refs.py ZnTe 6.101 --hse --k 6
+2026-11-16 06:11:02 END rc=0 91s bulk_refs.py ZnTe 6.101 --hse --k 6
+2026-11-16 06:11:02 START bulk_refs.py ZnSe 5.668 --hse --k 6
+2026-11-16 06:12:25 END rc=0 83s bulk_refs.py ZnSe 5.668 --hse --k 6
+2026-11-16 06:12:25 START bulk_refs.py CdS 5.818 --hse --k 6
+2026-11-16 06:13:12 END rc=0 47s bulk_refs.py CdS 5.818 --hse --k 6
+2026-11-16 06:13:12 START run_superlattice.py sl/P2_CdTe_on_ZnSe_n3_fixed --nk 2
+2026-11-16 06:29:45 END rc=0 993s run_superlattice.py sl/P2_CdTe_on_ZnSe_n3_fixed --nk 2
+2026-11-16 06:29:45 START bulk_refs.py CdTe 6.0745 --hse --k 6
+2026-11-16 06:31:38 END rc=0 113s bulk_refs.py CdTe 6.0745 --hse --k 6
+2026-11-16 06:31:38 START bulk_refs.py ZnSe 6.0745 --hse --k 6
+2026-11-16 06:33:20 END rc=0 102s bulk_refs.py ZnSe 6.0745 --hse --k 6
+2026-11-16 06:33:20 START bulk_refs.py CdTe 6.481 --hse --k 6 --nq 3
+2026-11-16 06:37:50 END rc=0 270s bulk_refs.py CdTe 6.481 --hse --k 6 --nq 3
+2026-11-16 06:37:50 START bulk_refs.py ZnTe 6.101 --hse --k 6 --nq 3
+2026-11-16 06:41:49 END rc=0 239s bulk_refs.py ZnTe 6.101 --hse --k 6 --nq 3
+2026-11-16 06:41:49 START bulk_refs.py ZnSe 5.668 --hse --k 6 --nq 3
+2026-11-16 06:45:09 END rc=0 200s bulk_refs.py ZnSe 5.668 --hse --k 6 --nq 3
+2026-11-16 06:45:09 START bulk_refs.py CdS 5.818 --hse --k 6 --nq 3
+2026-11-16 06:47:00 END rc=0 111s bulk_refs.py CdS 5.818 --hse --k 6 --nq 3
+2026-11-16 06:47:00 START bulk_refs.py CdSe 6.077 --hse --k 6
+2026-11-16 06:48:53 END rc=0 113s bulk_refs.py CdSe 6.077 --hse --k 6
+2026-11-16 06:48:53 START bulk_refs.py CdSe 6.077 --hse --k 6 --nq 3
+2026-11-16 06:53:29 END rc=0 276s bulk_refs.py CdSe 6.077 --hse --k 6 --nq 3
+2026-11-16 06:53:29 START bulk_refs.py ZnTe 6.291 --hse --k 6
+2026-11-16 06:55:01 END rc=0 92s bulk_refs.py ZnTe 6.291 --hse --k 6
+2026-11-16 06:55:01 START bulk_refs.py CdTe 6.291 --hse --k 6
+2026-11-16 06:56:41 END rc=0 100s bulk_refs.py CdTe 6.291 --hse --k 6
+2026-11-16 06:56:41 START bulk_refs.py CdS 6.1495 --hse --k 6
+2026-11-16 06:57:47 END rc=0 66s bulk_refs.py CdS 6.1495 --hse --k 6
+2026-11-16 06:57:47 START bulk_refs.py CdTe 6.1495 --hse --k 6
+2026-11-16 06:59:16 END rc=0 89s bulk_refs.py CdTe 6.1495 --hse --k 6
+2026-11-16 06:59:16 START bulk_refs.py ZnSe 5.8725 --hse --k 6
+2026-11-16 07:00:30 END rc=0 74s bulk_refs.py ZnSe 5.8725 --hse --k 6
+2026-11-16 07:00:30 START bulk_refs.py CdSe 5.8725 --hse --k 6
+2026-11-16 07:01:41 END rc=0 71s bulk_refs.py CdSe 5.8725 --hse --k 6
+2026-11-16 07:01:41 START make_superlattice.py ZnTe CdTe 4
+2026-11-16 07:01:41 END rc=0 0s make_superlattice.py ZnTe CdTe 4
+2026-11-16 07:01:41 START run_superlattice.py sl/ZnTe_CdTe_n4 --nk 2
+2026-11-16 07:54:31 END rc=0 3170s run_superlattice.py sl/ZnTe_CdTe_n4 --nk 2
+2026-11-16 07:54:31 queue empty

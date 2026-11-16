@@ -1,0 +1,30 @@
+&control
+  calculation = 'scf'
+  prefix = 'b'
+  outdir = './tmp'
+  pseudo_dir = '/Users/thegreat/Documents/MATLAB/cdte-device-model/dft/pseudo/sr'
+/
+&system
+  ibrav = 2
+  celldm(1) = 10.99442659
+  nat = 2
+  ntyp = 2
+  ecutwfc = 80
+  nbnd = 17
+  input_dft = 'hse'
+  nqx1 = 3, nqx2 = 3, nqx3 = 3
+  ecutfock = 120
+  exxdiv_treatment = 'gygi-baldereschi'
+  x_gamma_extrapolation = .true.
+/
+&electrons
+  conv_thr = 1.0d-10
+/
+ATOMIC_SPECIES
+  Cd 112.414 Cd.upf
+  S 32.06 S.upf
+ATOMIC_POSITIONS crystal
+  Cd 0.00 0.00 0.00
+  S 0.25 0.25 0.25
+K_POINTS automatic
+  6 6 6 0 0 0

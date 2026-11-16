@@ -1,0 +1,10 @@
+{
+ "eta_pct_max_abs_diff_journal_minus_thesis": 7.91588969661916e-05,
+ "eta_pct_units_per_pt": 0.039868667160634204,
+ "Voc_mV_max_abs_diff_journal_minus_thesis": 0.0008731117228535368,
+ "Voc_mV_units_per_pt": 0.4785028561182715,
+ "Jsc_mA_cm2_max_abs_diff_journal_minus_thesis": 7.26535570230169e-05,
+ "Jsc_mA_cm2_units_per_pt": 0.023924959388026093,
+ "FF_pct_max_abs_diff_journal_minus_thesis": 0.00014727615473475453,
+ "FF_pct_units_per_pt": 0.09570021372465225
+}

@@ -1,3 +1,8 @@
-numpy>=1.26
-openpyxl>=3.1
-matplotlib>=3.8
+# Python 3.12. Versions used for the published results: numpy 2.5.5, scipy 1.18.1, matplotlib 3.11.2, Sesame 2.0.
+numpy>=2.0
+scipy>=1.13
+matplotlib>=3.9
+# NIST Sesame 2.0 (drift-diffusion), installed from source
+sesame @ git+https://github.com/usnistgov/sesame
+# only for the digitisation scripts under data/ (they read the source PDFs, which are not redistributed)
+# pymupdf

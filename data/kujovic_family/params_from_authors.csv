@@ -1,0 +1,109 @@
+quantity,layer_or_interface,value,value_low,value_high,unit,kind,source_id,where,notes
+thickness W,FTO (SnO2:F),350,,,nm,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+thickness W,ZnO,50,,,nm,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+thickness W,CdSeTe/CdTe absorber,3500,,,nm,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",Experimental absorber 3-4 um (S1 PDF p.7).
+band gap Eg,FTO,3.6,,,eV,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+band gap Eg,ZnO,3.4,,,eV,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",Model value; the measured Tauc gap of the ZnO is 3.2-3.26 eV (see measured rows).
+band gap Eg,CdSeTe/CdTe absorber,,1.41,1.5,eV,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7)",Linear grading: 1.41 eV in CdSeTe (front) to 1.50 eV in CdTe (back).
+electron mobility mu_n,FTO,100,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+electron mobility mu_n,ZnO,50,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+electron mobility mu_n,CdSeTe/CdTe absorber,320,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+hole mobility mu_p,FTO,25,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+hole mobility mu_p,ZnO,20,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+hole mobility mu_p,CdSeTe/CdTe absorber,80,,,cm2/Vs,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+acceptor density N_A,FTO,0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+acceptor density N_A,ZnO,0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+acceptor density N_A,CdSeTe/CdTe absorber,,1e+16,3e+16,cm-3,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7)",Linear grading: 1e16 in CdSeTe (front) to 3e16 in CdTe (back).
+donor density N_D,FTO,1e+20,,,cm-3,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7)",Varied 1e16-1e20 in thesis Fig. 3.12 (PDF p.78) / S1 Fig. 6c.
+donor density N_D,ZnO,100000000000.0,,,cm-3,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7); S1 p.5",Chosen because PDL Hall gave no signal (n < 1e12 cm-3).
+donor density N_D,CdSeTe/CdTe absorber,0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)",
+bulk defect density N_t,FTO,100000000000000.0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)","Defect type, energy and capture cross-sections not stated."
+bulk defect density N_t,ZnO,10000000000000.0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)","Defect type, energy and capture cross-sections not stated."
+bulk defect density N_t,CdSeTe/CdTe absorber,5000000000000.0,,,cm-3,SCAPS input,S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50)","Uniform. Defect type, energy and capture cross-sections not stated."
+carrier lifetime tau,CdSeTe/CdTe absorber,10,,,ns,SCAPS input,S1;S4,"S1 Experimental Section, SCAPS Simulations (PDF p.7); S4 PDF p.66",
+interface defect density,ZnO/CdSeTe interface,1000000000.0,,,cm-2,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7)",Acceptor-type interface defects. Energy level and cross-sections not stated.
+interface recombination velocity S,ZnO/CdSeTe interface,10000.0,,,cm/s,SCAPS input,S1;S4,"S4 thesis Table 3.1 (PDF p.75, printed p.50); S1 Experimental Section, SCAPS Simulations (PDF p.7)",Stated as equivalent to 1e9 cm-2 interface defects.
+conduction band offset (CBO),ZnO/CdSeTe interface,0.1,,,eV,SCAPS input,S1;S4,"S1 Experimental Section, SCAPS Simulations (PDF p.7); S1 p.5; S4 PDF p.77",Assumed spike; the authors state it was not measured and should be measured by UPS. Electron affinities are not given.
+simulated eta,21.4% cell model,21.4,,,%,SCAPS output,S4,S4 Fig. 3.10 (PDF p.76),Digitised simulated curve gives 21.36% (curves/S4_fig3.10_*_simulation.csv).
+simulated Voc,21.4% cell model,872,,,mV,SCAPS output,S4,S4 Fig. 3.10 (PDF p.76),
+simulated Jsc,21.4% cell model,30.8,,,mA/cm2,SCAPS output,S4,S4 Fig. 3.10 (PDF p.76),
+simulated FF,21.4% cell model,79.6,,,%,SCAPS output,S4,S4 Fig. 3.10 (PDF p.76),
+optimal CBO range quoted,buffer/absorber,,0.3,0.4,eV,literature quoted,S1;S4,S1 p.5; S4 PDF p.77,Quoted from Song et al. (J. Appl. Phys. 2016); not the authors' measurement.
+"valence band offset (XPS, Kraut)","ZnO/CdSeTe (CSU CSS CdSeTe, CdCl2 400 C)",-2.47,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)","Mean over Cd 3d, Se 3d, Te 3d and Zn 2p/O 1s core levels."
+"conduction band offset (XPS, Kraut)","ZnO/CdSeTe (CSU CSS CdSeTe, CdCl2 400 C)",-0.32,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",Cliff. Uses Eg(ZnO)=3.54 eV and Eg(CdSeTe)=1.39 eV from Tauc plots.
+"valence band offset (XPS, Kraut)","ZnO/CdSeTe (Swansea MOCVD CdSeTe, CdCl2)",-2.34,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",
+"conduction band offset (XPS, Kraut)","ZnO/CdSeTe (Swansea MOCVD CdSeTe, CdCl2)",-0.22,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",Cliff.
+VBM - E_F (XPS),"ZnO, 150 nm sputtered, 1% O2",1.71,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",
+VBM - E_F (XPS),"CdSeTe, 300 nm CSS",0.55,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",
+band gap (Tauc),ZnO film used for XPS,3.54,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",Higher than the 3.2-3.26 eV the device papers report for their ZnO.
+band gap (Tauc),CdSeTe film used for XPS,1.39,,,eV,measured,X2,"X2 Liu, Jones, Kujovic et al., IEEE PVSC 2022, p.387 (Table I, Sec. III)",
+conduction band minimum vs vacuum,ZnO,-4.62,,,eV,diagram value,S4,S4 thesis Fig. 5.4 (PDF p.106),"'Obtained from this work and literature [132, 136]'. Implies ZnO/CdSeTe CBO = -0.22 eV (cliff), the X2 Swansea value."
+conduction band minimum vs vacuum,CeOx,-4.25,,,eV,diagram value,S4,S4 thesis Fig. 5.4 (PDF p.106),
+conduction band minimum vs vacuum,CdSeTe,-4.4,,,eV,diagram value,S4,S4 thesis Fig. 5.4 (PDF p.106),
+valence band maximum vs vacuum,CdSeTe,-5.81,,,eV,diagram value,S4,S4 thesis Fig. 5.4 (PDF p.106),
+carrier density (PDL Hall),"ZnO 50 nm, as deposited, 22 C",,,1000000000000.0,cm-3,measured (upper bound),S1,S1 p.5 (Sec. 2.3); S4 PDF p.74,No Hall signal; the authors conclude n < 1e12 cm-3.
+carrier density (PDL Hall),"ZnO 75 nm, as deposited (S2 conditions)",,,1000000000000.0,cm-3,measured (upper bound),S2,S2 PDF p.7 (Experimental),No signal.
+carrier density (PDL Hall),ZnO and CeZnO 300 nm (co-sputtered batch),,,,cm-3,not measurable,S4,S4 PDF p.104,Too resistive; Ce improved conductivity but still no reliable value.
+carrier density (PDL Hall),"ZnO, 3/6/9% CeZnO, MZO, ZnSnO2 500 nm on Eagle glass",,,1000000000000.0,cm-3,measured (upper bound),S4,S4 PDF p.154,All too resistive; assumed <= 1e12 cm-3.
+carrier density (PDL Hall),"ZnO 750 nm, deposited 500 C, as deposited",10000000000000.0,,,cm-3,measured (order of magnitude),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",'Low 1e13 range'; mobility below 1 cm2/Vs. Films < 550 nm gave no signal.
+carrier density (PDL Hall),"ZnO 750 nm, 500 C, vacuum anneal 500 C 10 min",1e+16,,,cm-3,measured (order of magnitude),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",
+carrier density (PDL Hall),"ZnO 750 nm, 500 C, CdCl2 treated (450/420 C, 15 min)",1000000000000000.0,,,cm-3,measured (order of magnitude),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",
+carrier density (PDL Hall),"ZnO 750 nm, 500 C, anneal + CdCl2",1e+17,,,cm-3,measured (order of magnitude),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",Mobility 1-5 cm2/Vs.
+carrier density (PDL Hall),"ZnO 750 nm, 100 C, anneal + CdCl2",1e+16,,,cm-3,measured (order of magnitude),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)","100 C as-deposited and annealed films, and all 22 C films (any treatment), gave no signal."
+Hall mobility,"ZnO 750 nm, 500 C, as deposited",,,1,cm2/Vs,measured (upper bound),X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",
+Hall mobility,"ZnO 750 nm, 500 C, anneal + CdCl2",,1,5,cm2/Vs,measured,X1,"X1 Togay, Kujovic et al., J. Phys.: Energy 2025, accepted manuscript, Sec. 2 (PDF p.4-6)",
+oxygen out-diffusion from ZnO into CdSeTe,ZnO 50 nm (22 C) in a device,observed,,,,measured (EDX),X1,X1 Fig. 4 (PDF p.6),"Conflicts with S1, which reports no evidence of O depletion. X1 proposes O vacancies as donors in the ZnO."
+carrier density (PDL Hall),"SnO2 500 nm sputtered at 500 C, Eagle glass",1e+17,,,cm-3,measured (order of magnitude),S4,S4 PDF p.157,"Mobility 2-4 (UV set), 0.20-3.21 cm2/Vs (DH set)."
+carrier density (PDL Hall),"SnO2 500 nm sputtered at RT, as deposited",100000000000000.0,,,cm-3,measured (order of magnitude),S4,S4 PDF p.155,Mobility 5.92 cm2/Vs.
+carrier density (statement),SnO2 buffers in high-efficiency devices,,1e+18,1e+19,cm-3,statement,S1;S4,S1 p.5; S4 PDF p.142,From Hall on SnO2 on glass; no film details.
+band gap (Tauc),"ZnO (S1 device process, 22 C)",3.2,,,eV,measured,S1,S1 p.3,
+band gap (Tauc),"ZnO 75 nm, 22-500 C",,3.23,3.25,eV,measured,S2,S2 p.3; SI Fig. S1,
+band gap (Tauc),"ZnO 500 nm, 22 C",3.26,,,eV,measured,S3,S3 Table 1 (PDF p.4),Thesis Table 5.1 (PDF p.109) lists 3.25 eV for the same film; thesis Table 7.2 lists 3.26 eV.
+band gap (Tauc),Ce0.03Zn0.97O 500 nm,3.3,,,eV,measured,S3,S3 Table 1 (PDF p.4),
+band gap (Tauc),Ce0.06Zn0.94O 500 nm,3.33,,,eV,measured,S3,S3 Table 1 (PDF p.4),
+band gap (Tauc),Ce0.09Zn0.91O 500 nm,3.35,,,eV,measured,S3,S3 Table 1 (PDF p.4),
+band gap (Tauc),ZnO / CeO2 (co-sputter batch),,3.22,3.58,eV,measured,S4,S4 PDF p.103,"ZnO 3.22, CeO2 3.58; co-sputtered CeZnO 3.22-3.32 eV."
+band gap (Tauc),"SnO2 sputtered RT / 500 C, ZnSnO2, NSG TEC 12D SnO2, MZO",,3.59,4.17,eV,measured,S4,S4 Table 7.2 (PDF p.150),SnO2 RT 3.59; SnO2 500 C 3.91; ZnSnO2 4.00; TEC 12D 4.17; MZO 3.64.
+weighted average transmittance 350-900 nm,ZnO 500 nm,80.18,,,%,measured,S4,S4 Table 7.2 (PDF p.150),3/6/9% CeZnO: 78.85/79.77/80.14%.
+"crystallite size (XRD, Scherrer)",ZnO 500 nm,34.13,,,nm,measured,S3,S3 SI Table 1,Ce 3/6/9%: 5.50/6.73/6.66 nm.
+grain width in device (STEM),ZnO buffer,45,,,nm,measured,S3,S3 PDF p.9,Columnar grains; CeZnO grains are 3-10 nm nanocrystallites.
+sheet resistance (4-point probe),NSG TEC 12D (FTO + ~67 nm SnO2),12.19,,,ohm/sq,measured,S4,S4 Table 7.3 (PDF p.154),Not the device substrate; the device FTO is unspecified commercial NSG-Pilkington SnO2:F on 2.65 mm SLG.
+absorber band gap (EQE derivative),CdSeTe front,1.41,,,eV,measured,S1;S2,S1 p.3; S2 p.4; S4 PDF p.139,Digitised -dEQE/dlambda peak of S1 Fig. 3b: 879.6 nm = 1.410 eV.
+"hole density (C-V, 0 V, 40 kHz)","absorber, 21.4% cell",2.1e+16,,,cm-3,measured,S1,"S1 p.3, Fig. 3c",Zero-bias depletion width digitised as 0.181 um.
+"hole density (C-V, 0 V)","absorber, 20.74% cell (ZnO 100 C)",1.8e+16,,,cm-3,measured,S2,"S2 p.4, Fig. 4b",
+"hole density (C-V, 0 V)","absorber, S3 cells",,1.01e+16,1.35e+16,cm-3,measured,S3,S3 Table 3 (PDF p.8),Per-condition values are in devices.csv.
+"hole density (C-V, 0 V)","absorber, 21.7% bilayer cell",1.15e+16,,,cm-3,measured,S4,S4 PDF p.140,
+"hole density (DLCP, 0 V)","absorber, SnO2 buffer cell",1.04e+16,,,cm-3,measured,S4,S4 PDF p.137,
+"hole density (DLCP, 0 V)","absorber, SnO2/10 nm ZnO cell",9480000000000000.0,,,cm-3,measured,S4,S4 PDF p.137,
+interface defect density (C-V minus DLCP),ZnO 75 nm deposited at 22 C,192000000000000.0,,,cm-3,measured,S2,"S2 p.4-5 text, Fig. 5","C-V minus DLCP carrier density at 0 V (Keysight E4990, dark); unit as printed (cm-3)."
+interface defect density (C-V minus DLCP),ZnO 75 nm deposited at 100 C,85700000000000.0,,,cm-3,measured,S2,"S2 p.4-5 text, Fig. 5","C-V minus DLCP carrier density at 0 V (Keysight E4990, dark); unit as printed (cm-3)."
+interface defect density (C-V minus DLCP),ZnO 75 nm deposited at 200 C,1980000000000000.0,,,cm-3,measured,S2,"S2 p.4-5 text, Fig. 5","C-V minus DLCP carrier density at 0 V (Keysight E4990, dark); unit as printed (cm-3). Text gives 1.98e15-2.07e15 for 200-500 C; digitised Fig. 5 assigns 1.978e15 to 200 C and 2.065e15 to 500 C."
+interface defect density (C-V minus DLCP),ZnO 75 nm deposited at 500 C,2070000000000000.0,,,cm-3,measured,S2,"S2 p.4-5 text, Fig. 5","C-V minus DLCP carrier density at 0 V (Keysight E4990, dark); unit as printed (cm-3). Text gives 1.98e15-2.07e15 for 200-500 C; digitised Fig. 5 assigns 1.978e15 to 200 C and 2.065e15 to 500 C."
+interface defect density (C-V minus DLCP),ZnO 50 nm,128700000000000.0,,,cm-3,measured (digitised),S3,S3 Fig. 7 (PDF p.8) via thesis Fig. 5.14 (PDF p.115) vector markers,"Not printed as numbers; read from the plotted marker centres (log axis, < 0.5% uncertainty)."
+interface defect density (C-V minus DLCP),Ce0.03Zn0.97O 50 nm,101000000000000.0,,,cm-3,measured (digitised),S3,S3 Fig. 7 (PDF p.8) via thesis Fig. 5.14 (PDF p.115) vector markers,"Not printed as numbers; read from the plotted marker centres (log axis, < 0.5% uncertainty)."
+interface defect density (C-V minus DLCP),Ce0.06Zn0.94O 50 nm,978700000000000.0,,,cm-3,measured (digitised),S3,S3 Fig. 7 (PDF p.8) via thesis Fig. 5.14 (PDF p.115) vector markers,"Not printed as numbers; read from the plotted marker centres (log axis, < 0.5% uncertainty)."
+interface defect density (C-V minus DLCP),Ce0.09Zn0.91O 50 nm,926600000000000.0,,,cm-3,measured (digitised),S3,S3 Fig. 7 (PDF p.8) via thesis Fig. 5.14 (PDF p.115) vector markers,"Not printed as numbers; read from the plotted marker centres (log axis, < 0.5% uncertainty)."
+interface defect density (C-V minus DLCP),SnO2 buffer,903000000000000.0,,,cm-3,measured,S4,S4 PDF p.137,
+interface defect density (C-V minus DLCP),SnO2/10 nm ZnO bilayer,414000000000000.0,,,cm-3,measured,S4,S4 PDF p.137,
+Voc(T->0 K) activation energy Ea,"21.4% cell, ZnO 50 nm 22 C",1.36,,,eV,measured,S1,"S1 p.3, Fig. 3d",Linear fit 315-355 K. Digitised line intercept 1.359 V; slope -1.70 mV/K.
+Voc(T->0 K) activation energy Ea,co-sputter batch ZnO,1.36,,,eV,measured,S4,"S4 PDF p.107-108, Fig. 5.7",
+Voc(T->0 K) activation energy Ea,co-sputter batch Ce0.050Zn0.950O,1.478,,,eV,measured (digitised),S4,S4 Fig. 5.7 (PDF p.108),Intercept of the plotted fit line.
+Voc(T->0 K) activation energy Ea,co-sputter batch Ce0.078Zn0.922O,1.509,,,eV,measured (digitised),S4,S4 Fig. 5.7 (PDF p.108),Intercept of the plotted fit line.
+Voc(T->0 K) activation energy Ea,co-sputter batch Ce0.087Zn0.913O,1.61,,,eV,measured,S4,S4 PDF p.108,Digitised line intercept 1.610 V.
+TRPL lifetime tau2 (triple-exponential fit),SnO2 buffer device,7.7,,,ns,measured,S4,S4 PDF p.138,640 nm excitation through the glass. No TRPL is reported for ZnO-only devices.
+TRPL lifetime tau2 (triple-exponential fit),SnO2/10 nm ZnO bilayer device,8.4,,,ns,measured,S4,S4 PDF p.138,
+effective diffusion length L (STEM-CL),SnO2/CdSeTe,15.24,,,nm,measured,S4,S4 Table 6.3 (PDF p.136),
+reduced surface recombination velocity S_red (STEM-CL),SnO2/CdSeTe,1.34,,,,measured,S4,S4 Table 6.3 (PDF p.136),
+surface recombination velocity s (STEM-CL),SnO2/CdSeTe,265,,,cm/s,measured (relative metric),S4,S4 Table 6.3 (PDF p.136),Uses tau_eff = tau2(TRPL); the authors say s is an underestimate and only a relative metric.
+effective diffusion length L (STEM-CL),SnO2/10 nm ZnO/CdSeTe,10.42,,,nm,measured,S4,S4 Table 6.3 (PDF p.136),
+reduced surface recombination velocity S_red (STEM-CL),SnO2/10 nm ZnO/CdSeTe,0.21,,,,measured,S4,S4 Table 6.3 (PDF p.136),
+surface recombination velocity s (STEM-CL),SnO2/10 nm ZnO/CdSeTe,26,,,cm/s,measured (relative metric),S4,S4 Table 6.3 (PDF p.136),Uses tau_eff = tau2(TRPL); the authors say s is an underestimate and only a relative metric.
+absorber thickness,As-doped CdSeTe/CdTe (First Solar VTD),,3,4,um,process,S1;S2;S3,S1 PDF p.7; S2 PDF p.7; S3 PDF p.11,
+CdCl2 activation temperature,absorber,,400,500,C,process,S1;S2;S3,S1 PDF p.7,
+cell area,device,0.445,,,cm2,process,S1;S2;S3,S1 PDF p.7,
+ZnO deposition rate,"ZnO, RF 1.85 W/cm2, 1 mTorr, 1% O2/Ar, 22 C",2.0,,,nm/min,process,S1,S1 PDF p.7,
+ZnO target purity,ZnO,,99.9,99.99,%,process,S1;S2;S4,S1 PDF p.7; S2 PDF p.7; S4 PDF p.51,"99.9% for the 21.4% work (thesis Ch.3), 99.99% for Ch.4, 6, 7."
+MAR coating reflection reduction,6-layer SiO2/ZrO2 268 nm on glass,3.38,,,% absolute,measured,S1,S1 p.2,Stack SiO2 91/ZrO2 28/SiO2 11/ZrO2 94/SiO2 22/ZrO2 22 nm (S1 PDF p.7).
+glass thickness,NSG-Pilkington FTO-coated soda-lime glass,2.65,,,mm,process,S1;S2;S3,S1 PDF p.6,
+C-V frequency,device,40,,,kHz,process,S1;S2;S3,S1 PDF p.7,
+JVT temperature range,device,,-70,85,C,process,S1;S4,S1 PDF p.7; S4 PDF p.59,Linear fit of Voc(T) over 315-355 K.

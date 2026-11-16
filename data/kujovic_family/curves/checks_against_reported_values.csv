@@ -1,0 +1,122 @@
+check,file,quantity,reported,extracted,difference,reported_where
+"S1 Fig.3a J-V, journal vector centreline",S1_fig3a_JV_light.csv,Voc_mV,875.5,875.158,-0.3416,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, journal vector centreline",S1_fig3a_JV_light.csv,Jsc_mA_cm2,30.43,30.4052,-0.0248,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, journal vector centreline",S1_fig3a_JV_light.csv,FF_pct,80.48,80.5893,0.1093,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, journal vector centreline",S1_fig3a_JV_light.csv,eta_pct,21.44,21.4443,0.0043,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, raster (600 dpi) digitiser","(raster, no file)",Voc_mV,875.5,875.769,0.2691,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, raster (600 dpi) digitiser","(raster, no file)",Jsc_mA_cm2,30.43,30.4557,0.0257,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, raster (600 dpi) digitiser","(raster, no file)",FF_pct,80.48,80.5341,0.0541,S1 p.3 / Fig.3a legend
+"S1 Fig.3a J-V, raster (600 dpi) digitiser","(raster, no file)",eta_pct,21.44,21.4802,0.0402,S1 p.3 / Fig.3a legend
+"Thesis Fig.3.3 = S1 Fig.3a, vector vertices",S4_fig3.3_JV_21p4pct_S1fig3a_light.csv,Voc_mV,875.5,875.157,-0.3428,S1 p.3 / Fig.3a legend
+"Thesis Fig.3.3 = S1 Fig.3a, vector vertices",S4_fig3.3_JV_21p4pct_S1fig3a_light.csv,Jsc_mA_cm2,30.43,30.405,-0.025,S1 p.3 / Fig.3a legend
+"Thesis Fig.3.3 = S1 Fig.3a, vector vertices",S4_fig3.3_JV_21p4pct_S1fig3a_light.csv,FF_pct,80.48,80.5929,0.1129,S1 p.3 / Fig.3a legend
+"Thesis Fig.3.3 = S1 Fig.3a, vector vertices",S4_fig3.3_JV_21p4pct_S1fig3a_light.csv,eta_pct,21.44,21.4451,0.0051,S1 p.3 / Fig.3a legend
+Thesis Fig.3.10 experiment,S4_fig3.10_SCAPS_vs_experiment_JV_experiment.csv,Voc_mV,875,875.655,0.655,thesis Fig.3.10 inset table
+Thesis Fig.3.10 experiment,S4_fig3.10_SCAPS_vs_experiment_JV_experiment.csv,Jsc_mA_cm2,30.4,30.4098,0.0098,thesis Fig.3.10 inset table
+Thesis Fig.3.10 experiment,S4_fig3.10_SCAPS_vs_experiment_JV_experiment.csv,FF_pct,80.5,80.5067,0.0067,thesis Fig.3.10 inset table
+Thesis Fig.3.10 experiment,S4_fig3.10_SCAPS_vs_experiment_JV_experiment.csv,eta_pct,21.4,21.4377,0.0377,thesis Fig.3.10 inset table
+Thesis Fig.3.10 SCAPS simulation,S4_fig3.10_SCAPS_vs_experiment_JV_simulation.csv,Voc_mV,872,872.324,0.3241,thesis Fig.3.10 inset table
+Thesis Fig.3.10 SCAPS simulation,S4_fig3.10_SCAPS_vs_experiment_JV_simulation.csv,Jsc_mA_cm2,30.8,30.8055,0.0055,thesis Fig.3.10 inset table
+Thesis Fig.3.10 SCAPS simulation,S4_fig3.10_SCAPS_vs_experiment_JV_simulation.csv,FF_pct,79.6,79.4767,-0.1233,thesis Fig.3.10 inset table
+Thesis Fig.3.10 SCAPS simulation,S4_fig3.10_SCAPS_vs_experiment_JV_simulation.csv,eta_pct,21.4,21.3573,-0.0427,thesis Fig.3.10 inset table
+S2 best cell 22 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_22C_solid.csv,Voc_mV,859,858.907,-0.0934,S2 Table 1
+S2 best cell 22 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_22C_solid.csv,Jsc_mA_cm2,29.4,29.4085,0.0085,S2 Table 1
+S2 best cell 22 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_22C_solid.csv,FF_pct,79.4,79.3961,-0.0039,S2 Table 1
+S2 best cell 22 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_22C_solid.csv,eta_pct,20.1,20.0548,-0.0452,S2 Table 1
+S2 best cell 100 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_100C_solid.csv,Voc_mV,876.7,876.536,-0.1638,S2 Table 1 / p.3 text
+S2 best cell 100 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_100C_solid.csv,Jsc_mA_cm2,29.6,29.6076,0.0076,S2 Table 1 / p.3 text
+S2 best cell 100 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_100C_solid.csv,FF_pct,79.9,79.8271,-0.0729,S2 Table 1 / p.3 text
+S2 best cell 100 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_100C_solid.csv,eta_pct,20.74,20.7168,-0.0232,S2 Table 1 / p.3 text
+S2 best cell 200 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_200C_solid.csv,Voc_mV,857,857.244,0.2439,S2 Table 1
+S2 best cell 200 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_200C_solid.csv,Jsc_mA_cm2,29.3,29.3242,0.0242,S2 Table 1
+S2 best cell 200 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_200C_solid.csv,FF_pct,78.5,78.4063,-0.0937,S2 Table 1
+S2 best cell 200 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_200C_solid.csv,eta_pct,19.7,19.7097,0.0097,S2 Table 1
+S2 best cell 300 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_300C_solid.csv,Voc_mV,858,857.726,-0.2742,S2 Table 1
+S2 best cell 300 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_300C_solid.csv,Jsc_mA_cm2,29.7,29.7455,0.0455,S2 Table 1
+S2 best cell 300 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_300C_solid.csv,FF_pct,78.4,78.3428,-0.0572,S2 Table 1
+S2 best cell 300 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_300C_solid.csv,eta_pct,20,19.988,-0.012,S2 Table 1
+S2 best cell 400 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_400C_solid.csv,Voc_mV,859,858.722,-0.2775,S2 Table 1
+S2 best cell 400 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_400C_solid.csv,Jsc_mA_cm2,29.3,29.2535,-0.0465,S2 Table 1
+S2 best cell 400 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_400C_solid.csv,FF_pct,78.6,78.6874,0.0874,S2 Table 1
+S2 best cell 400 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_400C_solid.csv,eta_pct,19.8,19.7668,-0.0332,S2 Table 1
+S2 best cell 500 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_500C_solid.csv,Voc_mV,861,860.908,-0.0921,S2 Table 1
+S2 best cell 500 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_500C_solid.csv,Jsc_mA_cm2,29.6,29.6076,0.0076,S2 Table 1
+S2 best cell 500 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_500C_solid.csv,FF_pct,78.7,78.7515,0.0515,S2 Table 1
+S2 best cell 500 C (thesis Fig.4.4),S4_fig4.4_JV_dep_temperature_S2fig4a_500C_solid.csv,eta_pct,20.1,20.0733,-0.0267,S2 Table 1
+S3 best cell ZnO 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_ZnO.csv,Voc_mV,840.9,841.04,0.1401,S3 Table 2
+S3 best cell ZnO 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_ZnO.csv,Jsc_mA_cm2,29.93,29.9269,-0.0031,S3 Table 2
+S3 best cell ZnO 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_ZnO.csv,FF_pct,79.27,79.2902,0.0202,S3 Table 2
+S3 best cell ZnO 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_ZnO.csv,eta_pct,19.95,19.9571,0.0071,S3 Table 2
+S3 best cell ZnO 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_ZnO.csv,Voc_mV,837.8,837.709,-0.0908,S3 Table 2
+S3 best cell ZnO 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_ZnO.csv,Jsc_mA_cm2,29.62,29.6053,-0.0147,S3 Table 2
+S3 best cell ZnO 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_ZnO.csv,FF_pct,79.82,79.8877,0.0677,S3 Table 2
+S3 best cell ZnO 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_ZnO.csv,eta_pct,19.81,19.8126,0.0026,S3 Table 2
+S3 best cell Ce0.03 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.03.csv,Voc_mV,854.2,854.317,0.1168,S3 Table 2
+S3 best cell Ce0.03 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.03.csv,Jsc_mA_cm2,29.7,29.6956,-0.0044,S3 Table 2
+S3 best cell Ce0.03 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.03.csv,FF_pct,79.43,79.4483,0.0183,S3 Table 2
+S3 best cell Ce0.03 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.03.csv,eta_pct,20.15,20.1556,0.0056,S3 Table 2
+S3 best cell Ce0.03 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.03.csv,Voc_mV,858.3,858.241,-0.0588,S3 Table 2
+S3 best cell Ce0.03 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.03.csv,Jsc_mA_cm2,29.36,29.3526,-0.0074,S3 Table 2
+S3 best cell Ce0.03 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.03.csv,FF_pct,77.7,77.7424,0.0424,S3 Table 2
+S3 best cell Ce0.03 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.03.csv,eta_pct,19.58,19.5846,0.0046,S3 Table 2
+S3 best cell Ce0.06 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.06.csv,Voc_mV,844.1,844.01,-0.0898,S3 Table 2
+S3 best cell Ce0.06 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.06.csv,Jsc_mA_cm2,30.07,30.0655,-0.0045,S3 Table 2
+S3 best cell Ce0.06 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.06.csv,FF_pct,76.68,76.6959,0.0159,S3 Table 2
+S3 best cell Ce0.06 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.06.csv,eta_pct,19.46,19.462,0.002,S3 Table 2
+S3 best cell Ce0.06 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.06.csv,Voc_mV,844.3,844.474,0.1738,S3 Table 2
+S3 best cell Ce0.06 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.06.csv,Jsc_mA_cm2,29.07,29.0782,0.0082,S3 Table 2
+S3 best cell Ce0.06 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.06.csv,FF_pct,77.72,77.6889,-0.0311,S3 Table 2
+S3 best cell Ce0.06 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.06.csv,eta_pct,19.08,19.0771,-0.0029,S3 Table 2
+S3 best cell Ce0.09 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.09.csv,Voc_mV,841,841.186,0.1857,S3 Table 2
+S3 best cell Ce0.09 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.09.csv,Jsc_mA_cm2,30.09,30.0936,0.0036,S3 Table 2
+S3 best cell Ce0.09 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.09.csv,FF_pct,76.59,76.5716,-0.0184,S3 Table 2
+S3 best cell Ce0.09 50 nm (thesis Fig.5.11),S4_fig5.11a_JV_50nm_S3fig4a_Ce0.09.csv,eta_pct,19.38,19.3836,0.0036,S3 Table 2
+S3 best cell Ce0.09 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.09.csv,Voc_mV,834.4,834.355,-0.0449,S3 Table 2
+S3 best cell Ce0.09 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.09.csv,Jsc_mA_cm2,29.6,29.6175,0.0175,S3 Table 2
+S3 best cell Ce0.09 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.09.csv,FF_pct,75.34,75.3283,-0.0117,S3 Table 2
+S3 best cell Ce0.09 100 nm (thesis Fig.5.11),S4_fig5.11b_JV_100nm_S3fig4b_Ce0.09.csv,eta_pct,18.61,18.6147,0.0047,S3 Table 2
+Thesis Fig.5.5 ZnO (co-sputter batch),S4_fig5.5_JV_cosputtered_CeZnO_ZnO_light.csv,eta_pct,19.5,19.4814,-0.0186,thesis PDF p.107
+Thesis Fig.5.5 Ce0.050 (co-sputter batch),S4_fig5.5_JV_cosputtered_CeZnO_Ce0.050_light.csv,eta_pct,19.2,19.2056,0.0056,thesis PDF p.107
+Thesis Fig.6.3 ZnO 65 nm,S4_fig6.3_JV_ZnO65nm_vs_SnO2_ZnO_light.csv,Voc_mV,854,854.188,0.1881,thesis Fig.6.3 legend
+Thesis Fig.6.3 ZnO 65 nm,S4_fig6.3_JV_ZnO65nm_vs_SnO2_ZnO_light.csv,Jsc_mA_cm2,29.4,29.4492,0.0492,thesis Fig.6.3 legend
+Thesis Fig.6.3 ZnO 65 nm,S4_fig6.3_JV_ZnO65nm_vs_SnO2_ZnO_light.csv,FF_pct,80.1,80.0712,-0.0288,thesis Fig.6.3 legend
+Thesis Fig.6.3 ZnO 65 nm,S4_fig6.3_JV_ZnO65nm_vs_SnO2_ZnO_light.csv,eta_pct,20.1,20.142,0.042,thesis Fig.6.3 legend
+Thesis Fig.6.3 SnO2,S4_fig6.3_JV_ZnO65nm_vs_SnO2_SnO2_light.csv,Voc_mV,833,833.364,0.3637,thesis Fig.6.3 legend
+Thesis Fig.6.3 SnO2,S4_fig6.3_JV_ZnO65nm_vs_SnO2_SnO2_light.csv,Jsc_mA_cm2,30.2,30.1621,-0.0379,thesis Fig.6.3 legend
+Thesis Fig.6.3 SnO2,S4_fig6.3_JV_ZnO65nm_vs_SnO2_SnO2_light.csv,FF_pct,78.7,78.7532,0.0532,thesis Fig.6.3 legend
+Thesis Fig.6.3 SnO2,S4_fig6.3_JV_ZnO65nm_vs_SnO2_SnO2_light.csv,eta_pct,19.8,19.7954,-0.0046,thesis Fig.6.3 legend
+"S1 Fig.3c zero-bias N_A, journal vector",S1_fig3c_zero_bias_point.csv,N_A_cm-3,2.1e+16,2.103e+16,3e+13,S1 p.3 text
+"S1 Fig.3c zero-bias N_A, raster digitiser",(raster),N_A_cm-3,2.1e+16,2.094e+16,-6e+13,S1 p.3 text
+Thesis Fig.3.5 zero-bias N_A,S4_fig3.5_CV_21p4pct_S1fig3c_zero_bias.csv,N_A_cm-3,2.1e+16,2.103e+16,3e+13,S1 p.3 text
+S2 Fig.4b zero-bias N_A (thesis Fig.4.6),S4_fig4.6_CV_100C_S2fig4b_zero_bias.csv,N_A_cm-3,1.8e+16,1.798e+16,-2e+13,S2 p.4 text
+S3 zero-bias N_A ZnO 50 nm (thesis Fig.5.13),S4_fig5.13a_CV_50nm_S3fig6a_ZnO_0V.csv,N_A_cm-3,1.01e+16,1.011e+16,1e+13,S3 Table 3
+S3 zero-bias N_A ZnO 100 nm (thesis Fig.5.13),S4_fig5.13b_CV_100nm_S3fig6b_ZnO_0V.csv,N_A_cm-3,1.18e+16,1.182e+16,2e+13,S3 Table 3
+S3 zero-bias N_A Ce0.03 50 nm (thesis Fig.5.13),S4_fig5.13a_CV_50nm_S3fig6a_Ce0.03_0V.csv,N_A_cm-3,1.35e+16,1.343e+16,-7e+13,S3 Table 3
+S3 zero-bias N_A Ce0.03 100 nm (thesis Fig.5.13),S4_fig5.13b_CV_100nm_S3fig6b_Ce0.03_0V.csv,N_A_cm-3,1.34e+16,1.34e+16,0,S3 Table 3
+S3 zero-bias N_A Ce0.06 50 nm (thesis Fig.5.13),S4_fig5.13a_CV_50nm_S3fig6a_Ce0.06_0V.csv,N_A_cm-3,1.34e+16,1.343e+16,3e+13,S3 Table 3
+S3 zero-bias N_A Ce0.06 100 nm (thesis Fig.5.13),S4_fig5.13b_CV_100nm_S3fig6b_Ce0.06_0V.csv,N_A_cm-3,1.33e+16,1.329e+16,-1e+13,S3 Table 3
+S3 zero-bias N_A Ce0.09 50 nm (thesis Fig.5.13),S4_fig5.13a_CV_50nm_S3fig6a_Ce0.09_0V.csv,N_A_cm-3,1.24e+16,1.239e+16,-1e+13,S3 Table 3
+S3 zero-bias N_A Ce0.09 100 nm (thesis Fig.5.13),S4_fig5.13b_CV_100nm_S3fig6b_Ce0.09_0V.csv,N_A_cm-3,1.28e+16,1.278e+16,-2e+13,S3 Table 3
+S2 interface defect density 22 C (thesis Fig.4.7),S4_fig4.7_interface_defect_density_S2fig5_Nit.csv,N_it_cm-3,1.92e+14,1.917e+14,-3e+11,S2 p.4-5 text
+S2 interface defect density 100 C (thesis Fig.4.7),S4_fig4.7_interface_defect_density_S2fig5_Nit.csv,N_it_cm-3,8.57e+13,8.569e+13,-1e+10,S2 p.4-5 text
+S2 interface defect density 200 C (thesis Fig.4.7),S4_fig4.7_interface_defect_density_S2fig5_Nit.csv,N_it_cm-3,1.98e+15,1.978e+15,-2e+12,S2 p.4-5 text
+S2 interface defect density 500 C (thesis Fig.4.7),S4_fig4.7_interface_defect_density_S2fig5_Nit.csv,N_it_cm-3,2.07e+15,2.065e+15,-5e+12,S2 p.4-5 text
+"S1 Fig.3d Ea, plotted fit line (journal)",S1_fig3d_fit_line.csv,Ea_eV,1.36,1.3587,-0.0013,S1 p.3 text
+"S1 Fig.3d Ea, refit of 315-355 K markers (journal)",S1_fig3d_Voc_vs_T.csv,Ea_eV,1.36,1.3572,-0.0028,S1 p.3 text
+"S1 Fig.3d Ea, raster digitiser refit",(raster),Ea_eV,1.36,1.3593,-0.0007,S1 p.3 text
+Thesis Fig.5.7 Ea ZnO (co-sputter batch),S4_fig5.7_VocT_cosputtered_CeZnO_ZnO_fit.csv,Ea_eV,1.36,1.3587,-0.0013,thesis PDF p.107
+Thesis Fig.5.7 Ea Ce0.087 (co-sputter batch),S4_fig5.7_VocT_cosputtered_CeZnO_Ce0.087_fit.csv,Ea_eV,1.61,1.6098,-0.0002,thesis PDF p.108
+S1 Fig.3b absorber band gap from -dEQE/dlambda peak,S1_fig3b_minus_dEQE_dlambda.csv,Eg_eV,1.41,1.409,-0.001,S1 p.3 text
+S1 Fig.2 maximum at 50 nm (whisker top),S1_fig2_boxplots.csv,eta_pct,21.23,21.2284,-0.0016,S1 p.3 text
+S1 Fig.2 maximum at 50 nm (whisker top),S1_fig2_boxplots.csv,Voc_mV,883,883.221,0.2209,S1 p.3 text
+S1 Fig.2 maximum at 50 nm (whisker top),S1_fig2_boxplots.csv,Jsc_mA_cm2,30.04,30.0391,-0.0009,S1 p.3 text
+S1 Fig.2 maximum at 50 nm (whisker top),S1_fig2_boxplots.csv,FF_pct,80.73,80.7335,0.0035,S1 p.3 text
+S2 Fig.2 median 100 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,eta_pct,20,20.0235,0.0235,thesis PDF p.86
+S2 Fig.2 median 100 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,Voc_mV,869,868.964,-0.036,thesis PDF p.86
+S2 Fig.2 median 100 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,Jsc_mA_cm2,29.3,29.275,-0.025,thesis PDF p.86
+S2 Fig.2 median 250 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,FF_pct,78.9,78.8935,-0.0065,thesis PDF p.86
+S2 Fig.2 median 50 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,FF_pct,78.7,78.6954,-0.0046,thesis PDF p.86
+S2 Fig.2 median 100 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,FF_pct,78.7,78.6558,-0.0442,thesis PDF p.86
+S2 Fig.2 median 22 C (thesis Fig.4.2),S4_fig4.2_ZnO_dep_temperature_S2fig2_boxplots.csv,eta_pct,19.6,19.6218,0.0218,thesis PDF p.174
+S2 Fig.2 relative mean-efficiency gain 100 C vs 22 C,S4_fig4.2_...boxplots.csv,gain_pct,2.41,2.399,-0.011,thesis PDF p.86
+S2 Fig.2 relative mean-efficiency gain 500 C vs 22 C,S4_fig4.2_...boxplots.csv,gain_pct,0.57,0.564,-0.006,thesis PDF p.86

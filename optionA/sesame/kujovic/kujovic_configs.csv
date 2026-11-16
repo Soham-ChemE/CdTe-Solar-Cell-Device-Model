@@ -1,0 +1,6 @@
+config,front_contact,back_contact,status,Voc,Jsc,FF,eta,dVoc_vs_authors,dJsc_vs_authors,dFF_vs_authors,deta_vs_authors,dVoc_vs_measured,dJsc_vs_measured,dFF_vs_measured,deta_vs_measured,Jgen,EQE_integral_meas_range,EQE_rms_vs_measured_pct,seconds
+K_c_graded_flat,Schottky 4.1,Ohmic (flat band),ok,878.261,27.9248,82.2325,20.1677,6.26052,-2.87521,2.63252,-1.23228,2.76052,-2.50521,1.75252,-1.27228,28.2252,27.8056,17.9755,9.5
+K_c_graded_bar0655,Schottky 4.1,Schottky 5.155,ok,834.974,27.8959,69.8814,16.277,-37.0262,-2.90411,-9.71859,-5.12299,-40.5262,-2.53411,-10.5986,-5.16299,28.2252,27.7732,17.9723,10.2
+K_c_uniform_bar0655,Schottky 4.1,Schottky 5.155,ok,842.865,27.4558,70.3218,16.2735,-29.1345,-3.3442,-9.27823,-5.12646,-32.6345,-2.9742,-10.1582,-5.16646,28.2252,27.3309,18.174,10.9
+K_c_uniform_flat,Schottky 4.1,Ohmic (flat band),ok,903.997,27.5189,80.7444,20.0868,31.997,-3.28105,1.14444,-1.31317,28.497,-2.91105,0.264439,-1.35317,28.2252,27.4021,18.1565,8.9
+K_c_graded_bar0655_win,Schottky 4.1,Schottky 5.155,ok,834.81,27.6332,69.8804,16.1203,-37.1897,-3.16683,-9.71964,-5.27968,-40.6897,-2.79683,-10.5996,-5.31968,28.2252,27.549,14.7124,10.4

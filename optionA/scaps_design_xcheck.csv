@@ -1,0 +1,7 @@
+design,resistance,ok,Voc,Jsc,FF,eta
+baseline,ideal,False,,,,
+baseline,RsRsh,False,,,,
+realistic,ideal,True,1051.1,29.57,84.52,26.27
+realistic,RsRsh,True,1050.7,29.57,82.34,25.58
+aggressive,ideal,True,768.6,29.55,84.74,19.24
+aggressive,RsRsh,True,768.3,29.54,82.42,18.71

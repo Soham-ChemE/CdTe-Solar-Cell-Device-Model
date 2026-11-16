@@ -1,0 +1,112 @@
+[
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE)",
+  "n": 3,
+  "dV": "-4.383",
+  "dEv_PBE": "",
+  "SO_correction": "0.159",
+  "dEv_final": "0.474",
+  "dEc_final": "0.726",
+  "notes": "f=0.28 (per-pair f ranges {'ZnTe/CdTe': [0.3198481906355087, 0.6454396818445327, 0.4826439362400207], 'CdS/CdTe': [-0.12400341786395748, 0.29182680869180855, 0.08391169541392561]}); dEv range 0.13..0.86; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE lineup + HSE06 bulk)",
+  "n": 3,
+  "dV": "-4.383",
+  "dEv_PBE": "",
+  "SO_correction": "0.159",
+  "dEv_final": "0.581",
+  "dEc_final": "0.619",
+  "notes": "f=0.23 (per-pair f ranges {'ZnTe/CdTe': [0.34435380263549586, 0.66994529384452, 0.5071495482400079], 'CdS/CdTe': [-0.24934309866755305, 0.166487127888213, -0.04142798538966994]}); dEv range 0.16..1.04; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE)",
+  "n": 4,
+  "dV": "-4.412",
+  "dEv_PBE": "",
+  "SO_correction": "0.159",
+  "dEv_final": "0.444",
+  "dEc_final": "0.756",
+  "notes": "f=0.28 (per-pair f ranges {'ZnTe/CdTe': [0.3198481906355087, 0.6454396818445327, 0.4826439362400207], 'CdS/CdTe': [-0.12400341786395748, 0.29182680869180855, 0.08391169541392561]}); dEv range 0.10..0.84; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE lineup + HSE06 bulk)",
+  "n": 4,
+  "dV": "-4.412",
+  "dEv_PBE": "",
+  "SO_correction": "0.159",
+  "dEv_final": "0.552",
+  "dEc_final": "0.648",
+  "notes": "f=0.23 (per-pair f ranges {'ZnTe/CdTe': [0.34435380263549586, 0.66994529384452, 0.5071495482400079], 'CdS/CdTe': [-0.24934309866755305, 0.166487127888213, -0.04142798538966994]}); dEv range 0.13..1.02; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdSe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE)",
+  "n": 3,
+  "dV": "-2.608",
+  "dEv_PBE": "",
+  "SO_correction": "-0.006",
+  "dEv_final": "0.124",
+  "dEc_final": "0.836",
+  "notes": "f=0.28 (per-pair f ranges {'ZnTe/CdTe': [0.3198481906355087, 0.6454396818445327, 0.4826439362400207], 'CdS/CdTe': [-0.12400341786395748, 0.29182680869180855, 0.08391169541392561]}); dEv range -0.04..0.31; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdSe",
+  "method": "calibrated A+f(C-A), f fitted to ZnTe/CdTe+CdS/CdTe XPS (PBE lineup + HSE06 bulk)",
+  "n": 3,
+  "dV": "-2.608",
+  "dEv_PBE": "",
+  "SO_correction": "-0.006",
+  "dEv_final": "0.167",
+  "dEc_final": "0.793",
+  "notes": "f=0.23 (per-pair f ranges {'ZnTe/CdTe': [0.34435380263549586, 0.66994529384452, 0.5071495482400079], 'CdS/CdTe': [-0.24934309866755305, 0.166487127888213, -0.04142798538966994]}); dEv range -0.03..0.38; sensitivity check only"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "pseudomorphic P1_ZnSe_on_CdTe route i",
+  "n": 3,
+  "dV": "-1.091",
+  "dEv_PBE": "",
+  "SO_correction": "SOC in dEv (quasi-cubic model for strained layer)",
+  "dEv_final": "0.289",
+  "dEc_final": "-0.061",
+  "notes": "ZnSe at a_par=6.481, c=4.710 A (lin. elasticity); strained ZnSe gap 1.73 eV (exp-anchored); explicit SL (P1_ZnSe_on_CdTe_n3), k 4x4x1"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "pseudomorphic P1_ZnSe_on_CdTe route ii",
+  "n": 3,
+  "dV": "",
+  "dEv_PBE": "",
+  "SO_correction": "SOC in dEv (quasi-cubic model for strained layer)",
+  "dEv_final": "0.288",
+  "dEc_final": "-0.060",
+  "notes": "ZnSe at a_par=6.481, c=4.710 A (lin. elasticity); strained ZnSe gap 1.73 eV (exp-anchored); natural L + bulk VBM shift with a_c(D001)"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "pseudomorphic P2_CdTe_on_ZnSe route i",
+  "n": 3,
+  "dV": "-1.199",
+  "dEv_PBE": "",
+  "SO_correction": "SOC in dEv (quasi-cubic model for strained layer)",
+  "dEv_final": "1.381",
+  "dEc_final": "0.531",
+  "notes": "CdTe at a_par=5.668, c=7.596 A (lin. elasticity); strained CdTe gap 0.79 eV (exp-anchored); explicit SL (P2_CdTe_on_ZnSe_n3_fixed), k 4x4x1"
+ },
+ {
+  "pair": "ZnSe/CdTe",
+  "method": "pseudomorphic P2_CdTe_on_ZnSe route ii",
+  "n": 3,
+  "dV": "",
+  "dEv_PBE": "",
+  "SO_correction": "SOC in dEv (quasi-cubic model for strained layer)",
+  "dEv_final": "1.239",
+  "dEc_final": "0.673",
+  "notes": "CdTe at a_par=5.668, c=7.596 A (lin. elasticity); strained CdTe gap 0.79 eV (exp-anchored); natural L + bulk VBM shift with a_c(D001)"
+ }
+]

@@ -1,0 +1,2 @@
+phi_b,dEc,logS,S,jv_status,Voc300,FF300,Jsc300,eta300,T_K,status
+0.5,-0.26,3,1000,ok,684.314,78.2784,27.0587,14.4946,,skipped (1-sun Voc < 700 mV)
