@@ -226,13 +226,15 @@ function mount(canvas) {
   /* ---------- camera paths and layout */
   const wide = () => (canvas.clientWidth / Math.max(1, canvas.clientHeight)) > 1.15;
   const pathW = cameraPath([[-12.0, 6.4, 15.0], [-3.2, 2.4, 16.8], [-4.8, 1.6, 12.6], [-5.4, 1.15, 9.6]], [[-1.0, -.5, 0], [-.4, -.3, 0], [-1.6, -.15, 0], [-2.35, -.1, 0]]);
-  const pathN = cameraPath([[-8.0, 6.2, 20.5], [-1.8, 2.6, 22.5], [-3.2, 1.7, 15.5], [-4.6, 1.2, 11.0]], [[-1.2, 1.2, 0], [-.6, 1.6, 0], [-2.1, 1.4, 0], [-2.8, 1.3, 0]]);
+  const pathN = cameraPath([[-7.5, 5.5, 27.0], [-2.2, 2.5, 25.0], [-3.8, 1.5, 17.0], [-4.6, 1.1, 12.8]], [[-1.0, -2.0, 0], [-.6, -.7, 0], [-2.0, -.3, 0], [-2.6, -.15, 0]]);
   const pos3 = new THREE.Vector3(), tgt3 = new THREE.Vector3(); let dragging = false, dragT = 0;
   canvas.addEventListener('pointerdown', () => { dragging = true; }); const up = () => { if (dragging) dragT = performance.now(); dragging = false; }; addEventListener('pointerup', up);
   ctr.addEventListener('change', () => st.dirty = true);
   const pathAt = T => { const h = P.heroState(T); return h.m * .42 + h.u * .58; };
   const T0 = reduced ? 1 : S.hero.t; const h0 = P.heroState(T0);
-  applyBands(h0.m, h0.dEc); setStepLabel(h0.near); (wide() ? pathW : pathN).at(pathAt(T0), pos3, tgt3); camera.position.copy(pos3); ctr.target.copy(tgt3); ctr.update();
+  // reduced motion shows the final keyframe with the headline still on screen: slide the view so the cliff sits right of the copy
+  const atT = T => { (wide() ? pathW : pathN).at(pathAt(T), pos3, tgt3); if (reduced && wide()) { pos3.x -= 1.3; tgt3.x -= 1.3; } };
+  applyBands(h0.m, h0.dEc); setStepLabel(h0.near); atT(T0); camera.position.copy(pos3); ctr.target.copy(tgt3); ctr.update();
   if (reduced) { for (let k = 0; k < 240; k++) step(1 / 30); }
   let lastT = -1, idle = 0;
   st.loop((t, dtMs) => {
@@ -241,7 +243,7 @@ function mount(canvas) {
     setStepLabel(h.near);
     if (!reduced) { step(Math.min(.05, (dtMs || 16) / 1000)); changed = true; }
     ifM.opacity = lerp(.03, .05, H.m) + .16 * activity;
-    (wide() ? pathW : pathN).at(pathAt(T), pos3, tgt3);
+    atT(T);
     const free = !dragging && performance.now() - dragT > 2500;
     if (free && camera.position.distanceToSquared(pos3) > 1e-6) { camera.position.lerp(pos3, reduced ? 1 : .07); changed = true; }
     if (free) ctr.target.lerp(tgt3, .07);

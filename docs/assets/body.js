@@ -158,7 +158,7 @@ P.cliffData.then(J => { if (!J) return; Viz.view('[data-viz="valley"]', v => {
   [-.32, -.22].forEach(d => { const p = A.map(d, yAxisLog.lo, 0); const post = new THREE.Mesh(new THREE.CylinderGeometry(.012, .012, 1.2, 6), Viz.mat('green', { emissive: 'green', emissiveIntensity: .5 })); post.position.set(p.x, base + .6, -1.85); v.rig.add(post); });
   lab(v, 'XPS cliffs −0.32 / −0.22 eV (Liu 2022)', [(x0 + x1) / 2, base + 1.35, -1.85], { color: 'green', weight: 700, px: 20 });
   // camera poses for the sticky steps
-  const POSE = { map: [[-4.4, 4.0, 6.6], [.2, -.4, 0]], ridge: [[.2, 7.8, 1.4], [0, -.7, 0]], floor: [[-4.3, 1.0, 4.8], [-1.6, -1.0, .9]], xps: [[-.4, 2.0, 6.0], [-1.4, -.9, .5]], spike: [[5.8, 3.0, 4.6], [1.7, .3, -1.0]] };
+  const POSE = { map: [[-4.0, 3.5, 5.9], [.2, -.4, 0]], ridge: [[.2, 7.8, 1.4], [0, -.7, 0]], floor: [[-4.3, 1.0, 4.8], [-1.6, -1.0, .9]], xps: [[-.4, 2.0, 6.0], [-1.4, -.9, .5]], spike: [[5.8, 3.0, 4.6], [1.7, .3, -1.0]] };
   const cp = new THREE.Vector3(...POSE.map[0]), ct = new THREE.Vector3(...POSE.map[1]), tp = new THREE.Vector3(), tt = new THREE.Vector3();
   v.camera.position.copy(cp); v.camera.lookAt(ct);
   let cv = -1;
@@ -170,7 +170,7 @@ P.cliffData.then(J => { if (!J) return; Viz.view('[data-viz="valley"]', v => {
   };
   v.onTheme = () => { build(); [rib, wl, sk].forEach(m => { v.rig.remove(m); m.geometry.dispose(); }); rib = mk(pos, col, idx, ribM); wl = mk(pos, col, skI, wallM); sk = mk(skin, skinC, skinI, skinM); v.pickables.length = 0; v.pickables.push(rib); cv = -1; };
   v.hover = hit => { const p = hit.point.clone(); v.rig.worldToLocal(p); const d = (p.x + 2.5) / 5 * .5 - .37, ls = 6 - (p.z + 1.8) / 3.6 * 6; let o = O[0]; O.forEach(q => { if (Math.abs(q.dEc - d) < Math.abs(o.dEc - d)) o = q; }); const x = hAt(o, clamp(ls, 0, 6)); return x == null ? null : `<b>ΔEc ${sgn(o.dEc)} eV</b>S ≈ 10${sup(ls.toFixed(1))} cm/s · Δχ² ${x < 10 ? x.toFixed(1) : Math.round(x)}`; };
-}, { camera: [-4.4, 4.0, 6.6], target: [.2, -.4, 0], fov: 34 }); });
+}, { camera: [-4.4, 4.0, 6.6], target: [.2, -.4, 0], fov: 34, aspect: 1.05 }); });
 
 /* ======================================================================== 04 fluctuation gate */
 Viz.view('[data-viz="fluct"]', v => {
@@ -223,16 +223,16 @@ Viz.view('[data-viz="zno"]', v => {
   const Z0 = D.zno, R = mulberry(23), NSP = phone ? 120 : 220;
   const block = (x, title, logS, key) => {
     const g = new THREE.Group(); g.position.x = x; v.rig.add(g);
-    const zno = new THREE.Mesh(new THREE.BoxGeometry(1.5, .45, 1.5), Viz.mat('green', { opacity: .55, depthWrite: false })); zno.position.y = .3; g.add(zno);
-    const ab = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.4, 1.5), Viz.mat(key, { opacity: .7, depthWrite: false })); ab.position.y = -.65; g.add(ab);
-    const ifc = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.5), basic('rose', { opacity: .12, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })); ifc.rotation.x = -Math.PI / 2; ifc.position.y = .075; g.add(ifc);
+    const zno = new THREE.Mesh(new THREE.BoxGeometry(1.35, .45, 1.35), Viz.mat('green', { opacity: .55, depthWrite: false })); zno.position.y = .3; g.add(zno);
+    const ab = new THREE.Mesh(new THREE.BoxGeometry(1.35, 1.4, 1.35), Viz.mat(key, { opacity: .7, depthWrite: false })); ab.position.y = -.65; g.add(ab);
+    const ifc = new THREE.Mesh(new THREE.PlaneGeometry(1.35, 1.35), basic('rose', { opacity: .12, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })); ifc.rotation.x = -Math.PI / 2; ifc.position.y = .075; g.add(ifc);
     Viz.label(v, title, [0, 1.1, 0], { parent: g, px: 22, scale: .085, bg: null, color: 'ink', weight: 700 });
-    Viz.label(v, 'ZnO', [.95, .3, .76], { parent: g, px: 20, scale: .075, bg: false, color: 'green', weight: 700 });
+    Viz.label(v, 'ZnO', [-.86, .3, .7], { parent: g, px: 20, scale: .075, bg: false, color: 'green', weight: 700 });
     return { g, logS, ifc, sp: Array.from({ length: NSP }, () => ({ life: 0, x: 0, z: 0 })), im: inst(v, sphereG(), basic('rose', { blending: THREE.AdditiveBlending }), NSP, g), acc: 0 };
   };
-  const cu = block(-3.35, `Cu-doped absorber · S ≈ 10${sup(Z0.logS_cu.toFixed(0))} cm/s\nZnO cells average 8.0 %`, Z0.logS_cu, 'warm'), as = block(-1.45, 'As-doped 21.4 % cell · S ≈ 5 cm/s', Z0.logS_as, 'warm');
+  const cu = block(-3.45, `Cu-doped absorber · S ≈ 10${sup(Z0.logS_cu.toFixed(0))} cm/s\nZnO cells average 8.0 %`, Z0.logS_cu, 'warm'), as = block(-1.6, 'As-doped 21.4 % cell · S ≈ 5 cm/s', Z0.logS_as, 'warm');
   // right: Voc of the best cells of the Mg series, measured against the one-S model (columns from 700 mV)
-  const Rg = new THREE.Group(); Rg.position.set(1.85, -.1, 0); v.rig.add(Rg); const rig0 = v.rig; v.rig = Rg;
+  const Rg = new THREE.Group(); Rg.position.set(2.05, -.1, 0); v.rig.add(Rg); const rig0 = v.rig; v.rig = Rg;
   const ser = Z0.series, A = Viz.axes(v, { size: [3.2, 2.2, 1.0], x: { lo: -.6, hi: 4.6, ticks: [0, 1, 2, 3, 4], fmt: t => 'x ' + ser[t].x.toFixed(2).replace(/^0/, '').replace('.00', '0'), label: 'Mg fraction (MgₓZn₁₋ₓO)' }, y: { lo: 700, hi: 900, ticks: [700, 750, 800, 850, 900], label: 'Voc (mV)' }, z: { lo: 0, hi: 2 } });
   const items = []; ser.forEach((r, i) => { items.push({ x: i, y: r.voc_best, z: .6, color: 'ink', r, kind: 'measured best cell' }); items.push({ x: i, y: r.voc_model, z: 1.4, color: 'cyan', r, kind: 'model, shared S = 10⁵ cm/s' }); });
   const bars = Viz.bars(v, A, items, { width: .16, depth: .16 });
@@ -243,7 +243,7 @@ Viz.view('[data-viz="zno"]', v => {
     if (Math.abs(vv.p - cv) > 1e-4) { cv = vv.p; bars.draw(ease(vv.p)); }
     for (const b of [cu, as]) {
       b.acc += Math.max(0, b.logS - .5) * 9 * h;               // spark rate grows with log S
-      while (b.acc >= 1) { b.acc -= 1; const s = b.sp.find(q => q.life <= 0); if (s) { s.life = 1; s.x = (R() - .5) * 1.4; s.z = (R() - .5) * 1.4; } }
+      while (b.acc >= 1) { b.acc -= 1; const s = b.sp.find(q => q.life <= 0); if (s) { s.life = 1; s.x = (R() - .5) * 1.25; s.z = (R() - .5) * 1.25; } }
       b.sp.forEach((s, k) => { if (s.life <= 0) { b.im.setMatrixAt(k, Z); return; } s.life -= h * 2.6; const r = .02 + .05 * Math.sin(Math.PI * clamp(s.life, 0, 1)); M4.compose(V3.set(s.x, .08, s.z), Q4, SC.set(r, r, r)); b.im.setMatrixAt(k, M4); });
       b.im.instanceMatrix.needsUpdate = true; b.ifc.material.opacity = .06 + .02 * b.logS;
     }
