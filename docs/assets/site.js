@@ -5,7 +5,10 @@
   // Adaptive quality: a software WebGL renderer (SwiftShader, llvmpipe, the Microsoft basic renderer) cannot animate a full-screen
   // scene at interactive rates, so the page serves its reduced path (hero at the final keyframe, static fallbacks for the body
   // scenes). QA tooling sets window.__forceGL to screenshot the live scenes under software GL regardless.
-  let softGL=false; try{const c=document.createElement('canvas'),gl=c.getContext('webgl2')||c.getContext('webgl'); if(gl){const ext=gl.getExtension('WEBGL_debug_renderer_info'),r=ext?String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)):''; softGL=/swiftshader|llvmpipe|softpipe|software|microsoft basic render/i.test(r); const lose=gl.getExtension('WEBGL_lose_context'); if(lose) lose.loseContext();}}catch(e){}
+  // The probe asks for a context with failIfMajorPerformanceCaveat, which a software renderer refuses at once (creating a
+  // SwiftShader context costs seconds and blocked first paint); a refusal is treated as the software path, so no software
+  // context is ever created. A hardware context is also checked by renderer string as before.
+  let softGL=false; try{const c=document.createElement('canvas'),o={failIfMajorPerformanceCaveat:true},gl=c.getContext('webgl2',o)||c.getContext('webgl',o); if(!gl){softGL=true}else{const ext=gl.getExtension('WEBGL_debug_renderer_info'),r=ext?String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)):''; softGL=/swiftshader|llvmpipe|softpipe|software|microsoft basic render/i.test(r); const lose=gl.getExtension('WEBGL_lose_context'); if(lose) lose.loseContext();}}catch(e){}
   if(window.__forceGL) softGL=false;
   const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches||softGL;
   const saved=(()=>{try{return localStorage.getItem('theme')}catch(e){return null}})(); if(saved) root.setAttribute('data-theme',saved);
@@ -20,7 +23,7 @@
   if(reduced){root.classList.add('viz-static');staticFigs();document.addEventListener('themechange',staticFigs)}
   if(softGL){document.querySelectorAll('.hero, .sticky-fig, .w3d').forEach(h=>{h.classList.add('no-webgl');const fb=h.querySelector('.fallback');if(fb&&fb.dataset.src)fb.src=fb.dataset.src})}
   const S=window.SITE={reduced, softGL, phone, isDark, hero:{t:0, fade:1, glow:0}, frame:[], ready:false};
-  S.onFrame=cb=>S.frame.push(cb);
+  S.onFrame=cb=>S.frame.push(cb); S.offFrame=cb=>{const i=S.frame.indexOf(cb);if(i>=0)S.frame.splice(i,1)};
   const hasGSAP=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
   if(hasGSAP){gsap.registerPlugin(ScrollTrigger)}
   // Lenis smooth scroll synced with ScrollTrigger (pattern from the Lenis README). Not started for reduced motion.

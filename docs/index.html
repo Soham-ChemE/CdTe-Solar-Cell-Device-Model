@@ -20,55 +20,40 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
 <script defer src="assets/data.js"></script>
 <script defer src="assets/site.js"></script>
-<script defer src="assets/hero.js"></script>
-<script type="module">if(!(window.SITE&&window.SITE.softGL)){import('./assets/valley.js')}</script>
-<noscript><style>.reveal{opacity:1;transform:none}.viz img.fallback{opacity:1}.hero-track{height:auto}.hero{position:relative}</style></noscript>
+<script defer src="assets/page.js"></script>
+<script type="module">if(!(window.SITE&&window.SITE.softGL)){import('./assets/scene.js');import('./assets/body.js')}</script>
+<noscript><style>.reveal{opacity:1;transform:none}.hero .fallback,.viz img.fallback{opacity:1}.hero-track{height:auto}.hero{position:relative}.hero .readout,.hero .phases,.hero .hlegend,.cliff-ui,.ctl-only{display:none}</style></noscript>
 </head>
 <body>
-<nav><div class="wrap"><a class="brand" href="#top">CdTe device model</a>
-<div class="links"><a href="#result">Result</a><a href="#ident" class="hide-sm">Identifiability</a><a href="#zno" class="hide-sm">ZnO</a><a href="#design">Design</a><a href="#solvers" class="hide-sm">Solvers</a><a href="#method" class="hide-sm">Method</a><a href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">GitHub</a></div>
+<a class="skip" href="#result">Skip to the results</a>
+<nav aria-label="Sections"><div class="wrap"><a class="brand" href="#top">CdTe device model</a>
+<div class="links"><a href="#result" class="hide-sm">Result</a><a href="#live">Cliff, live</a><a href="#ident" class="hide-sm">Valley</a><a href="#zno" class="hide-sm">ZnO</a><a href="#design" class="hide-xs">Design</a><a href="#solvers" class="hide-sm">Solvers</a><a href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">GitHub</a></div>
 <button class="toggle" id="themeBtn" aria-label="Toggle dark or light theme" title="Toggle theme">◐</button></div></nav>
 
+<main>
 <div class="hero-track" id="top"><div class="hero">
-<div class="bandwrap">
-<svg id="band" viewBox="0 0 640 400" role="img" aria-label="Band diagram of the 21.4 percent cell: FTO, ZnO buffer, As-doped CdSeTe to CdTe absorber and back contact. Scrolling moves the conduction-band step at the ZnO/absorber interface from the published +0.10 eV spike to the best-fit −0.30 eV cliff; the readout gives the fit at the nearest simulated offset.">
-<rect class="bd-r" x="40" y="38" width="50" height="342" style="fill:var(--c-blue)"/>
-<rect class="bd-r" x="90" y="38" width="70" height="342" style="fill:var(--c-green)"/>
-<rect class="bd-r" x="160" y="38" width="420" height="342" style="fill:var(--c-warm)"/>
-<rect class="bd-r" x="580" y="38" width="36" height="342" style="fill:var(--c-grey)"/>
-<text class="bd-lay" x="65" y="28" text-anchor="middle">FTO</text><text class="bd-lay" x="125" y="28" text-anchor="middle">ZnO</text>
-<text class="bd-lay" x="370" y="28" text-anchor="middle">As-doped CdSeTe → CdTe</text><text class="bd-lay" x="598" y="28" text-anchor="middle">back</text>
-<g class="bd-light"><path d="M2,120 L30,120"/><path d="M24,115 L31,120 L24,125"/><path d="M2,160 L30,160"/><path d="M24,155 L31,160 L24,165"/><path d="M2,200 L30,200"/><path d="M24,195 L31,200 L24,205"/></g>
-<text class="bd-note" x="16" y="104" text-anchor="middle">light</text>
-<path class="bd-ef" d="M40,262 L616,262"/><text class="bd-note" x="612" y="255" text-anchor="end">E<tspan font-size="9" dy="3">F</tspan></text>
-<path class="bd-fto" d="M40,256 L90,256"/>
-<path class="bd-band" d="M160,200 C215,200 250,135 320,130 L580,125"/>
-<path class="bd-band" d="M160,341 C215,341 250,276 320,271 L580,275"/>
-<text class="bd-note" x="576" y="114" text-anchor="end">conduction band</text><text class="bd-note" x="576" y="296" text-anchor="end">valence band</text>
-<rect x="150" y="222" width="8" height="10" rx="2" style="fill:var(--c-green);opacity:.55"/><text class="bd-note" x="146" y="231" text-anchor="end">XPS</text>
-<path id="zRec" class="bd-rec" d="M157,195 C126,240 126,300 157,337"/>
-<path id="zCB" class="bd-zno" d="M90,250 L160,190"/>
-<path id="zStep" class="bd-step" d="M160,200 L160,190"/>
-<circle id="zDot" cx="160" cy="190" r="5.5"/>
-<text id="zLab" class="bd-lab" x="172" y="180">+0.10 eV spike</text><text id="zSub" class="bd-sub" x="172" y="198">published model</text>
-<text class="bd-note" x="44" y="372">dashed: interface recombination path</text>
-</svg>
-</div>
+<canvas id="heroCanvas" role="img" aria-label="Three-dimensional cross-section of the 21.4 percent cell: glass, FTO, the ZnO buffer, the graded As-doped CdSeTe to CdTe absorber and the back contact. Light enters through the glass and is absorbed in the absorber, creating electron-hole pairs. Scrolling morphs the layer stack into its band diagram, conduction and valence bands as ribbons, then moves the conduction-band step at the ZnO/CdSeTe interface from the published +0.10 eV spike to the fitted −0.30 eV cliff while recombination sparks at the interface thin out."></canvas>
+<img class="fallback" alt="Rendered band diagram of the cell with the conduction band dropping by 0.30 eV from the absorber into the ZnO buffer: a passivated cliff, not a spike" data-src="assets/hero_dark.webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 <div class="shade"></div>
-<div class="readout" aria-live="polite">
-<div class="k">Front offset ΔE<sub>c</sub></div>
+<ol class="phases" aria-hidden="true"><li data-ph="0"><b>1</b> The device</li><li data-ph="1"><b>2</b> Its bands</li><li data-ph="2"><b>3</b> The front offset</li></ol>
+<div class="hlegend" aria-hidden="true"><span><i class="dot" style="background:var(--c-warm)"></i>light</span><span><i class="dot" style="background:var(--c-cyan)"></i>electrons</span><span><i class="dot" style="background:var(--c-rose)"></i>holes</span><span><i class="dot spark"></i>interface recombination</span></div>
+<div class="readout" id="heroReadout" aria-live="polite">
+<div class="k">Front offset ΔE<sub>c</sub>, ZnO/CdSeTe</div>
 <div class="big" id="roDec">+0.10 eV</div><div class="ro-tag" id="roTag">the published model’s spike</div>
 <div class="row"><span>best S at this offset</span><b id="roS">4.0 × 10⁵ cm/s</b></div>
 <div class="row"><span>1-sun V<sub>oc</sub>, model (measured 875.5)</span><b id="roV">778 mV</b></div>
 <div class="row"><span>Δχ² against the best fit</span><b id="roX">589</b></div>
 <svg id="roProfile" viewBox="0 0 240 70" aria-hidden="true"></svg>
-<div class="fine">profile Δχ² of the ten simulated offsets (log scale); dashed: 95 %</div>
+<div class="fine">profile Δχ² of the ten simulated offsets (log scale); dashed: 95 %. <span class="src">ident_profile.csv</span></div>
 </div>
 <div class="copy"><div class="wrap">
+<div class="eyebrow">SCAPS-1D · NIST Sesame · Quantum ESPRESSO</div>
 <h1>A passivated cliff, not a spike.</h1>
-<p>Calibrated, cross-validated device modelling of the 21.4 % ZnO/CdSeTe/CdTe solar cell.<span class="hide-sm"> Its temperature-dependent V<sub>oc</sub> excludes the +0.10 eV spike of the published model and requires a passivated cliff at the ZnO front.</span> Scroll to move the offset.</p>
-<div class="cta"><a class="btn" href="#result">See the evidence</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">Code and data</a></div>
-</div></div><div class="scrollhint">Scroll</div>
+<p>Calibrated, cross-validated device modelling of the 21.4 % ZnO/CdSeTe/CdTe solar cell.<span class="hide-sm"> Its temperature-dependent V<sub>oc</sub> excludes the +0.10 eV spike of the published model and requires a passivated cliff at the ZnO front.</span> Scroll: the stack becomes its band diagram, then the front offset moves.</p>
+<div class="cta"><a class="btn" href="#live">Move the cliff yourself</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">Code and data</a></div>
+</div></div>
+<div class="cliffcall" id="cliffCall" aria-hidden="true"><b>A passivated cliff, not a spike</b><span>ΔE<sub>c</sub> = −0.30 eV, S ≈ 5 cm/s</span></div>
+<div class="scrollhint">Scroll</div>
 </div></div>
 
 <div class="stats over"><div class="wrap"><div class="grid">
@@ -82,94 +67,154 @@
 <div class="eyebrow reveal">01 · The result</div>
 <h2 class="reveal">Only a cliff follows V<sub>oc</sub> from 216 to 355 K.</h2>
 <p class="lead reveal">The cell’s V<sub>oc</sub> falls at −1.70 mV/K above 316 K, extrapolates to 1.357 eV at 0 K, below the 1.41 eV front gap, and flattens to −0.74 mV/K below 248 K. Fitted jointly with the 1-sun J-V, a passivated cliff reproduces both ends. A spike reaches the measured slope only at an interface S so high that it pulls the 1-sun V<sub>oc</sub> down to about 790 mV.</p>
-<div class="facts reveal"><div><b>−0.30 eV</b><span>best-fit cliff, S ≈ 5 cm/s, back barrier 0.50 eV</span></div><div><b>21.7</b><span>χ² for 12 degrees of freedom</span></div><div><b>≈ 590</b><span>Δχ² of the published +0.10 eV spike</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F1_vocT_cliff_vs_spike.png" target="_blank" rel="noopener"><img src="figures/F1_vocT_cliff_vs_spike.png" width="2103" height="1007" loading="lazy" alt="Measured Voc against temperature with the best cliff, the best spike and the published spike; only the cliff follows the data at both ends, and its residuals stay near the 4 mV band"></a>
-<figcaption><b>F1.</b> (a) Measured V<sub>oc</sub> on the temperature stage (open circles, 13 points, digitised from the published figure) against the joint best fits of three front models at φ<sub>b</sub> = 0.50 eV: the best cliff (−0.30 eV, S = 5.2 cm/s), the best spike (+0.06 eV, S = 1.9 × 10⁵ cm/s) and the published spike (+0.10 eV). (b) Residuals; grey band ±4 mV.</figcaption></figure>
+<div class="two wide-l">
+<div class="vizcard reveal"><div class="vizhead"><b>V<sub>oc</sub>(T): three front models against 13 measured points</b><span class="seg" role="group" aria-label="Highlight a front model"><button data-vt="cliff" class="on" aria-pressed="true">best cliff</button><button data-vt="spike" aria-pressed="false">best spike</button><button data-vt="published" aria-pressed="false">published spike</button></span></div>
+<div class="viz" data-viz="vocT" role="img" aria-label="3D view of open-circuit voltage against temperature: thirteen measured points from 216 to 355 K, repeated in three lanes against the best cliff, the best spike and the published spike. Residual stems are short for the cliff and long for both spikes."><img class="fallback" alt="Figure F1: measured Voc against temperature with the best cliff, the best spike and the published spike; only the cliff follows the data at both ends" data-src="figures/F1_vocT_cliff_vs_spike.png" loading="lazy"></div>
+<div class="vizfoot">Spheres: measured, JVT stage (13 points, digitised from the published figure). Ribbons: joint best fits at φ<sub>b</sub> = 0.50 eV with the stage light level X profiled; stems: model − measured. Drag to orbit. <span class="src">ident/curves, ident_profile.csv</span> · <a href="figures/F1_vocT_cliff_vs_spike.png" target="_blank" rel="noopener">static figure F1</a></div></div>
+<div class="reveal">
+<div class="facts one"><div><b id="vtDec">−0.30 eV</b><span id="vtName">best cliff, S = 5.2 cm/s</span></div><div><b id="vtX">0.2</b><span>Δχ² against the best fit (χ² = 21.7 for 12 degrees of freedom)</span></div><div><b id="vtLight">0.55 sun</b><span>fitted light level of the temperature stage</span></div></div>
+<p class="note">The residuals of the cliff stay near the ±4 mV measurement band at both ends; each spike misses the low-temperature flattening or the slope. The published +0.10 eV spike sits at Δχ² ≈ 590.</p>
+</div></div>
 </div></section>
 
-<section class="story alt" id="ident"><div class="wrap">
-<div class="eyebrow reveal">02 · Identifiability</div>
+<section class="story alt" id="live"><div class="wrap">
+<div class="eyebrow reveal">02 · The cliff, live</div>
+<h2 class="reveal">Move the front offset and the interface S. Read the fit.</h2>
+<p class="lead reveal">Every number below is read from the simulated identifiability map of the 21.4 % cell (SCAPS-type interface states in Sesame, back barrier 0.50 eV, stage light level profiled). The offset snaps to the ten simulated values; S moves along the scan of each one. Off the simulated range the readout says so instead of guessing.</p>
+<div class="livegrid">
+<div class="vizcard reveal cliff3d"><div class="vizhead"><b>The ZnO/CdSeTe interface</b><span class="legend"><span><i style="background:var(--c-green)"></i>ZnO E<sub>c</sub></span><span><i style="background:var(--c-warm)"></i>absorber E<sub>c</sub>, E<sub>v</sub></span><span><i style="background:var(--c-cyan)"></i>electrons</span><span><i style="background:var(--c-rose)"></i>recombination</span></span></div>
+<div class="viz tall" data-viz="cliff" role="img" aria-label="3D close-up of the front interface: the ZnO conduction band meets the absorber conduction band with a step equal to the chosen offset. Electrons flow toward the ZnO; recombination sparks at the interface grow with the model's open-circuit-voltage loss at the chosen S."></div>
+<div class="vizfoot">Spark rate follows the model’s V<sub>oc</sub> loss below 970 mV at the chosen point. Drag to orbit.</div></div>
+<div class="panel cliff-ui reveal" id="cliffUI">
+<div class="ctl"><label for="dEcSlider"><span>Front offset ΔE<sub>c</sub></span> <output id="dEcOut">−0.30 eV</output></label>
+<input type="range" id="dEcSlider" min="0" max="9" step="1" value="1" aria-describedby="dEcHelp">
+<div class="tickrow" aria-hidden="true"><span>−0.34</span><span>−0.22</span><span>−0.10</span><span>+0.10</span></div>
+<div class="note" id="dEcHelp">cliff (negative) to spike (positive); the ten simulated offsets</div></div>
+<div class="ctl"><label for="sSlider"><span>Interface S</span> <output id="sOut">10<sup>0.72</sup> ≈ 5.2 cm/s</output></label>
+<input type="range" id="sSlider" min="0" max="6" step="0.01" value="0.72" aria-describedby="sHelp">
+<div class="tickrow" aria-hidden="true"><span>1</span><span>10²</span><span>10⁴</span><span>10⁶ cm/s</span></div>
+<div class="note" id="sHelp">log₁₀ S in cm/s, 0 to 6</div></div>
+<div class="presets" role="group" aria-label="Presets"><button data-p="0.10">published spike</button><button data-p="0.06">best spike</button><button data-p="-0.22">MOCVD XPS −0.22</button><button data-p="-0.30" class="on">best fit</button><button data-ridge="1">S on the ridge</button></div>
+<div class="tri" aria-live="polite">
+<div><span>model V<sub>oc</sub></span><b id="lvV">872.5 mV</b><small>measured 875.5 ± 8</small></div>
+<div><span>model FF</span><b id="lvF">77.8 %</b><small>measured 80.48 ± 1.5</small></div>
+<div><span>Δχ²</span><b id="lvX">0.2</b><small id="lvXv">inside the 68 % region</small></div>
+</div>
+<div class="status" id="lvStatus"><i></i><span>Inside the data</span></div>
+<p class="cite" id="lvCite">ident_fine_scan.csv · ΔE<sub>c</sub> −0.30 eV, log₁₀ S 0.72 · PCHIP in log S between simulated points</p>
+<canvas id="cliffMap" width="340" height="190" role="img" aria-label="Map of delta chi-squared over the ten simulated offsets and log S, with a crosshair at the chosen point. Click to move the sliders."></canvas>
+<div class="note">Map: Δχ² per simulated offset, strongest colour where the fit is best; hatched, V<sub>oc</sub> and FF only (1-sun V<sub>oc</sub> below 700 mV, temperature series not run). Click it to move both sliders.</div>
+</div>
+</div>
+</div></section>
+
+<section class="story" id="ident"><div class="wrap">
+<div class="eyebrow reveal">03 · Identifiability</div>
 <h2 class="reveal">Cliff depth and S are identified together. Temperature separates them.</h2>
-<p class="lead reveal">At 300 K the two trade along a ridge, 12.9 decades of S per eV of cliff depth, the Boltzmann factor of interface recombination at a cliff. The same pair must also give the V<sub>oc</sub>(T) slope and intercept and the 875 mV room-temperature V<sub>oc</sub>, which leaves a thin valley. The XPS cliff of close-space-sublimated CdSeTe, −0.32 eV, measured by the same research group, sits inside the 68 % region.</p>
+<p class="lead reveal">At 300 K the two trade along a ridge, 12.9 decades of S per eV of cliff depth, the Boltzmann factor of interface recombination at a cliff. The same pair must also give the V<sub>oc</sub>(T) slope and intercept and the 875 mV room-temperature V<sub>oc</sub>, which leaves a thin valley. Scroll the steps to orbit it.</p>
+<div class="sticky-wrap">
+<div class="sticky-fig"><div class="viz" data-viz="valley" role="img" aria-label="3D surface of delta chi-squared over the front offset and log S: a narrow valley whose floor runs along the best-S ridge and bottoms out at minus 0.30 eV and about 5 cm/s, with the published +0.10 eV spike high on the far wall at delta chi-squared of about 589 and the XPS band of measured cliffs marked on the floor"><img class="fallback" alt="Figure F2: delta chi-squared over front offset and log S with the best-S ridge, the thin 95 percent valley and the XPS cliffs; and the profile likelihood for three back barriers" data-src="figures/F2_identifiability.png" loading="lazy"></div><div class="label" id="valLabel"><b>The map</b>Δχ² over (ΔE<sub>c</sub>, log S)</div></div>
+<div class="steps" id="valSteps">
+<div class="step active" data-step="map"><h3>The map</h3><p>Ten simulated offsets, each scanned finely in S: 130 simulated records, all converged. Height is Δχ² on a log scale (φ<sub>b</sub> = 0.50 eV, light level profiled), so good fits sit low.</p></div>
+<div class="step" data-step="ridge"><h3>The ridge</h3><p>The best S for each offset rises 12.9 decades per eV, about 1.3 decades per 0.1 eV of shallower cliff. Room-temperature J-V alone cannot tell depth from S along this line.</p></div>
+<div class="step" data-step="floor"><h3>The floor</h3><p>Temperature closes it: the 95 % region is a thin trench from −0.335 to −0.277 eV with S ≈ 2–10 cm/s. Best fit −0.30 eV, S = 10<sup>0.72</sup> ≈ 5 cm/s, χ² = 21.7 for 12 degrees of freedom.</p></div>
+<div class="step" data-step="xps"><h3>The XPS band</h3><p>The cliff measured by XPS on close-space-sublimated CdSeTe by the same research group, −0.32 eV (Liu et al. 2022), lies inside the 68 % region. The MOCVD value, −0.22 eV, sits at Δχ² ≈ 60.</p></div>
+<div class="step" data-step="spike"><h3>The published spike</h3><p>The +0.10 eV spike of the published device model sits high on the far wall: Δχ² ≈ 589 at the best S for that offset.</p></div>
+</div></div>
 <div class="facts reveal"><div><b>−0.335 to −0.277 eV</b><span>95 % interval on ΔE<sub>c</sub></span></div><div><b>2–10 cm/s</b><span>S along the 95 % valley</span></div><div><b>130</b><span>simulated records, all converged</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F2_identifiability.png" target="_blank" rel="noopener"><img src="figures/F2_identifiability.png" width="2085" height="873" loading="lazy" alt="Map of delta chi-squared over front offset and log S with the best-S ridge and a thin 95 percent valley near minus 0.30 eV, and the profile likelihood for three back barriers"></a>
-<figcaption><b>F2.</b> (a) Δχ² over (ΔE<sub>c</sub>, log₁₀ S) at φ<sub>b</sub> = 0.50 eV with the light level profiled; pink, the best S for each offset; orange, the 95 % region; green, the XPS cliffs. (b) Profile Δχ² against ΔE<sub>c</sub> for back barriers of 0.45, 0.50 and 0.55 eV.</figcaption></figure>
-<div class="vizcard reveal" style="margin-top:24px"><div class="vizhead"><b>The valley in 3D</b><span class="legend"><span><i style="background:var(--c-cyan)"></i>low Δχ²</span><span><i style="background:#ec4899"></i>best-S ridge</span><span><i style="background:var(--c-hot)"></i>best fit</span><span><i style="background:#10b981"></i>XPS cliffs</span></span></div>
-<div class="viz wide"><canvas id="valleyCanvas" role="img" aria-label="Three-dimensional view of delta chi-squared over the front offset and log S: ten ribbons, one per simulated offset, whose floor forms a narrow trench that deepens towards the best fit at minus 0.30 eV and a few cm/s"></canvas><img class="fallback" alt="" data-src="figures/F2_identifiability.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
-<div class="vizfoot">Height is log₁₀(1 + Δχ²) along the fine S scan of each simulated offset (φ<sub>b</sub> = 0.50 eV, light level profiled), so the 95 % region is the floor of the trench. Drag to orbit; hover a ribbon for its values.</div></div>
-<div id="valleyTip" class="viz-tip" hidden></div>
+<p class="note reveal">Static figure: <a href="figures/F2_identifiability.png" target="_blank" rel="noopener">F2</a>. Data: <span class="src">optionA/sesame/kujovic/ident/ident_fine_scan.csv, ident_profile.csv, ridge_points.csv</span>.</p>
 </div></section>
 
-<section class="story" id="fluct"><div class="wrap">
-<div class="eyebrow reveal">03 · The fluctuation gate</div>
+<section class="story alt" id="fluct"><div class="wrap">
+<div class="eyebrow reveal">04 · The fluctuation gate</div>
 <h2 class="reveal">Band-gap fluctuations do not rescue the spike.</h2>
 <p class="lead reveal">Lateral band-gap fluctuations in As-doped CdSeTe lower V<sub>oc</sub> and bend V<sub>oc</sub>(T), so they could imitate a cliff. A parallel-domain model with widths σ from 0 to 80 meV, with and without the 52 ± 8 meV photoluminescence prior, keeps the best spike at Δχ² = 447–514 for every bound on S. What fluctuations do change is the back contact: the low-temperature flattening is carried either by a ~0.5 eV back barrier or by σ ≈ 60 meV.</p>
-<div class="facts reveal"><div><b>447–514</b><span>Δχ² of the best spike, every S bound and prior</span></div><div><b>≥ −0.26 eV</b><span>cliff depth required in every case</span></div><div><b>σ ≈ 60 meV</b><span>trades against the back barrier</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F3_fluctuation_gate.png" target="_blank" rel="noopener"><img src="figures/F3_fluctuation_gate.png" width="2135" height="1023" loading="lazy" alt="Profile delta chi-squared against front offset with band-gap fluctuations for several S bounds, bars of the spike exclusion for each bound with and without the prior, and chi-squared against fluctuation width for four back contacts"></a>
-<figcaption><b>F3.</b> (a) Profile Δχ² against ΔE<sub>c</sub> with parallel-domain fluctuations of width σ: σ = 0, σ free with S unbounded, S ≥ 1 and S ≥ 10 cm/s. (b) Δχ² of the best spike for each S bound, with and without the σ prior. (c) χ² against σ at ΔE<sub>c</sub> = −0.34 eV for an ohmic back contact and three back barriers.</figcaption></figure>
+<div class="vizcard reveal"><div class="vizhead"><b>Gaussian band-gap domains, and the fit at each σ</b><span class="legend"><span><i style="background:var(--c-hot)"></i>narrow-gap domains</span><span><i style="background:var(--c-cool)"></i>wide-gap domains</span><span><i style="background:var(--c-cyan)"></i>profile Δχ²</span><span><i style="background:var(--c-rose)"></i>spike floor, Δχ² 447</span></span></div>
+<div class="viz wide" data-viz="fluct" role="img" aria-label="Left: a field of absorber domains whose conduction and valence band edges are displaced by a Gaussian band-gap spread of the chosen width. Right: the profile delta chi-squared against the front offset at that width, with a wall at delta chi-squared 447 over the spike that the spike never gets below."><img class="fallback" alt="Figure F3: profile delta chi-squared against front offset with fluctuations for several S bounds, the spike exclusion for each bound with and without the prior, and chi-squared against fluctuation width for four back contacts" data-src="figures/F3_fluctuation_gate.png" loading="lazy"></div>
+<div class="vizctl ctl-only"><label for="sigSlider">Fluctuation width σ</label><input type="range" id="sigSlider" min="0" max="80" step="5" value="60" aria-describedby="sigHelp"><span class="val" id="sigOut">60 meV</span></div>
+<div class="sigtrack ctl-only" aria-hidden="true"><i style="left:55%;width:20%"></i><span style="left:65%">PL prior 52 ± 8 meV</span></div>
+<div class="vizfoot" id="sigHelp"><span id="sigRead">At σ = 60 meV the best offset is −0.46 eV (Δχ² 0); the best spike, +0.06 eV, sits at Δχ² 2777.</span> Δχ² against the overall best (σ free, S free, no prior: χ² 15.7 at −0.46 eV, σ 60 meV). <span class="src">fluct/fluct_sigma_vs_dEc.csv</span> · <a href="figures/F3_fluctuation_gate.png" target="_blank" rel="noopener">static figure F3</a></div></div>
+<div class="two top" style="margin-top:24px">
+<div class="reveal"><div class="tablewrap"><table class="gate"><caption class="note">Best spike (+0.06 eV) against the best cliff, σ refitted</caption><thead><tr><th>S bound</th><th class="num">no σ prior</th><th class="num">with σ prior</th></tr></thead><tbody id="gateTable"></tbody></table></div>
+<p class="note"><span class="src">fluct/fluct_profile.csv, fluct_profile_Sbound.csv</span></p></div>
+<div class="reveal"><div class="facts one"><div><b>447–514</b><span>Δχ² of the best spike, every S bound and prior</span></div><div><b>≥ −0.26 eV</b><span>cliff depth required in every case</span></div><div><b>σ ≈ 60 meV</b><span>trades against the back barrier; with S free the minimum slides to −0.46 eV and S ≈ 0.08 cm/s, which only a physical bound on S closes</span></div></div></div>
+</div>
 </div></section>
 
-<section class="story alt" id="zno"><div class="wrap">
-<div class="eyebrow reveal">04 · The ZnO paradox</div>
+<section class="story" id="zno"><div class="wrap">
+<div class="eyebrow reveal">05 · The ZnO paradox</div>
 <h2 class="reveal">Same buffer, 21.4 % on one absorber and 8 % on another. The difference is the interface.</h2>
 <p class="lead reveal">On Cu-doped absorbers, ZnO-buffered cells average 8.0 % while MgZnO cells reach 18.5 % (Pandey et al. 2021). Fitting the best cells of that Mg-fraction series with their XPS offsets, one shared S ≈ 10⁵ cm/s reproduces the V<sub>oc</sub> of the whole series. At equal cliff depth the As-doped interface is about 3–200× cleaner, and raising the absorber doping lowers, rather than rescues, the ZnO-front V<sub>oc</sub>.</p>
-<div class="facts reveal"><div><b>≈ 10⁵ cm/s</b><span>one shared S across the Cu-doped series</span></div><div><b>3–200×</b><span>cleaner As-doped interface at equal cliff</span></div><div><b>1,980</b><span>J-V simulations, none failed</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F4_pandey_oneS.png" target="_blank" rel="noopener"><img src="figures/F4_pandey_oneS.png" width="2136" height="1046" loading="lazy" alt="Voc and fill factor of the best cells of the Cu-doped MgZnO series against the one-S model, and the profile of the shared S for three treatments of the short-circuit current, with the As-doped cell's S shaded far lower"></a>
-<figcaption><b>F4.</b> One shared interface S for the Cu-doped Mg<sub>x</sub>Zn<sub>1−x</sub>O series. (a) V<sub>oc</sub> and (b) FF of the best cells (circles) and averages (crosses) against the model with S = 10⁵ cm/s. (c) Profile Δχ² of the shared S for three J<sub>sc</sub> treatments; the shaded band is the effective S of the As-doped 21.4 % cell (2–20 cm/s), at a deeper cliff.</figcaption></figure>
+<div class="vizcard reveal"><div class="vizhead"><b>Two ZnO interfaces, and one S for the whole Mg series</b><span class="legend"><span><i style="background:var(--c-rose)"></i>recombination sparks (log S)</span><span><i style="background:var(--ink)"></i>measured best cell</span><span><i style="background:var(--c-cyan)"></i>model, S = 10⁵ cm/s</span></span></div>
+<div class="viz wide" data-viz="zno" role="img" aria-label="Left: two ZnO-on-absorber interfaces side by side. The Cu-doped interface, S about ten to the fifth cm/s, is crowded with recombination sparks; the As-doped interface of the 21.4 percent cell, S about 5 cm/s, is nearly clean. Right: open-circuit voltage of the best cells of the Cu-doped MgZnO series against the model with one shared S, for Mg fractions 0 to 0.25."><img class="fallback" alt="Figure F4: Voc and fill factor of the best cells of the Cu-doped MgZnO series against the one-S model, and the profile of the shared S, with the As-doped cell's S shaded far lower" data-src="figures/F4_pandey_oneS.png" loading="lazy"></div>
+<div class="vizfoot">Spark rate grows with log S: 10<sup>5.0</sup> against 10<sup>0.72</sup> cm/s. Columns start at 700 mV. Hover a column for its values. <span class="src">data/pandey2021/pandey2021_mzo_series.csv; pandey_oneS/oneS_fits.csv (J<sub>sc</sub> scaled, R<sub>s</sub> fitted, shared S)</span> · <a href="figures/F4_pandey_oneS.png" target="_blank" rel="noopener">static figure F4</a></div></div>
+<div class="facts reveal" style="margin-top:22px"><div><b>≈ 10⁵ cm/s</b><span>one shared S across the Cu-doped series</span></div><div><b>3–200×</b><span>cleaner As-doped interface at equal cliff</span></div><div><b>1,980</b><span>J-V simulations, none failed</span></div></div>
+<div class="tablewrap reveal"><table><thead><tr><th>Mg fraction x</th><th class="num">XPS ΔE<sub>c</sub> (eV)</th><th class="num">V<sub>oc</sub> best cell (mV)</th><th class="num">V<sub>oc</sub> model (mV)</th><th class="num">η best / average (%)</th></tr></thead><tbody id="znoTable"></tbody></table></div>
 </div></section>
 
-<section class="story" id="design"><div class="wrap">
-<div class="eyebrow reveal">05 · Design route</div>
+<section class="story alt" id="design"><div class="wrap">
+<div class="eyebrow reveal">06 · Design route</div>
 <h2 class="reveal">Remove the cliff, keep the interface clean: 25.4 % in both solvers.</h2>
-<p class="lead reveal">Starting from the calibrated cell, removing the cliff gains 4.2–4.3 points as interface recombination falls from 93 % to 1.5 % of the recombination at V<sub>oc</sub>. No spike is needed, as long as S stays below about 50 cm/s. A conservative design (ΔE<sub>c</sub> +0.20 eV even with ten times today’s S, a 300 ns lifetime, N<sub>A</sub> ×3, a 0.30 eV back barrier, an anti-reflection coating and 150 nm FTO), penalised with radiative recombination and R<sub>s</sub>/R<sub>sh</sub> = 0.45/2500 Ω cm², gives 25.43 % in Sesame and 25.36 % in SCAPS. The back contact then carries 82–88 % of the recombination at V<sub>oc</sub> and becomes the next target.</p>
-<div class="facts reveal"><div><b>25.4 %</b><span>conservative design, SCAPS 1014.3 mV, Sesame 1015.0 mV</span></div><div><b>17.9 %</b><span>calibrated baseline with the same penalties</span></div><div><b>23.7–25.4 %</b><span>across three calibration branches</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F5_design_waterfall.png" target="_blank" rel="noopener"><img src="figures/F5_design_waterfall.png" width="2075" height="907" loading="lazy" alt="Waterfall from the 18.37 percent model baseline: removing the cliff adds 4.21 points, lifetime, doping, back barrier and optics add the rest, and penalties bring the conservative design to 25.43 percent, against 17.87 percent for the baseline with the same penalties"></a>
-<figcaption><b>F5.</b> Design waterfall from the calibrated baseline (R<sub>s</sub> = 0, no radiative recombination) to the conservative design. Blue: isolated gain of each lever; orange: non-additivity and resistive penalties; dashed: the baseline with the same penalties, 17.87 %.</figcaption></figure>
+<p class="lead reveal">Starting from the calibrated cell, removing the cliff gains 4.2–4.3 points as interface recombination falls from 93 % to 1.5 % of the recombination at V<sub>oc</sub>. No spike is needed, as long as S stays below about 50 cm/s. A conservative design (ΔE<sub>c</sub> +0.20 eV even with ten times today’s S, a 300 ns lifetime, N<sub>A</sub> ×3, a 0.30 eV back barrier, an anti-reflection coating and 150 nm FTO), penalised with radiative recombination and R<sub>s</sub>/R<sub>sh</sub> = 0.45/2500 Ω cm², gives 25.43 % in Sesame and 25.36 % in SCAPS.</p>
+<div class="vizcard reveal"><div class="vizhead"><b>From the calibrated cell to the conservative design</b><span class="badges"><span class="badge">SCAPS <b id="bdScaps">25.36 %</b></span><span class="badge">Sesame <b id="bdSesame">25.43 %</b></span></span></div>
+<div class="viz wide" data-viz="design" role="img" aria-label="3D staircase of model efficiency: from the 18.37 percent model baseline, removing the cliff adds 4.21 points, lifetime 0.35, doping 0.78, the back barrier 0.40 and optics 2.06; non-additivity and radiative recombination take 0.05 and the resistive penalties 0.69, ending at 25.43 percent. A plane marks the calibrated baseline with the same penalties, 17.87 percent."><img class="fallback" alt="Figure F5: design waterfall from the 18.37 percent model baseline to the 25.43 percent conservative design, against 17.87 percent for the baseline with the same penalties" data-src="figures/F5_design_waterfall.png" loading="lazy"></div>
+<div class="vizfoot">Blocks: isolated gain of each lever on the calibrated cell; orange: non-additivity and penalties; plane: the calibrated baseline with the same penalties, <b>17.87 %</b>. Hover a block. <span class="src">design/design_results.csv, design_penalties.csv; scaps_design_conservative_RsRsh.csv</span> · <a href="figures/F5_design_waterfall.png" target="_blank" rel="noopener">static figure F5</a></div></div>
+<div class="two top" style="margin-top:24px">
+<div class="box reveal next"><b>Next bottleneck: the back contact</b><p>Once the cliff is gone, the back contact carries 82–88 % of the recombination at V<sub>oc</sub> in the combined designs. A real electron reflector needs a conduction-band barrier layer, which is the next thing to simulate.</p></div>
+<div class="facts one reveal"><div><b>17.9 % → 25.4 %</b><span>calibrated baseline and conservative design, same penalties</span></div><div><b>23.7–25.4 %</b><span>the conservative design across three calibration branches</span></div></div>
+</div>
 </div></section>
 
-<section class="story alt" id="solvers"><div class="wrap">
-<div class="eyebrow reveal">06 · Two solvers</div>
+<section class="story" id="solvers"><div class="wrap">
+<div class="eyebrow reveal">07 · Two solvers, one answer</div>
 <h2 class="reveal">SCAPS-1D and NIST Sesame, about 1 mV apart.</h2>
 <p class="lead reveal">SCAPS’s absorber-side interface layer cannot describe a cliff: its defects see only the absorber conduction band, so deeper cliffs look better. Recombination from the buffer conduction band to the absorber valence band was therefore added to Sesame by subclassing its solver, with Sesame’s source unchanged. Against SCAPS interface-defect blocks with the same physics, the spike case agrees under light (894.9 against 895.6 mV, FF 81.12 % in both), and four offsets agree in the dark to 2.5–4 % in current, about 1 mV, from 10⁻³ to 45 mA/cm².</p>
-<div class="facts reveal"><div><b>≈ 1 mV</b><span>dark J-V, four offsets, interface-state model</span></div><div><b>1.1 mV</b><span>eight MgZnO/ZnO cells, SCAPS’s own model</span></div><div><b>0.9 mV</b><span>a common CdTe benchmark junction</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F6_solver_crossvalidation.png" target="_blank" rel="noopener"><img src="figures/F6_solver_crossvalidation.png" width="2404" height="1405" loading="lazy" alt="Dark J-V curves from SCAPS markers and Sesame lines for four offsets, their current ratio between 0.96 and 0.975, and a table of light comparisons all within about 1 mV"></a>
-<figcaption><b>F6.</b> (a) Dark J-V for four front offsets with the interface-state model (markers SCAPS, lines Sesame). (b) Ratio of the Sesame to the SCAPS current. (c) Light comparisons at 1 sun and 300 K, for SCAPS’s interface-layer model (IL) and the interface states (IF).</figcaption></figure>
-</div></section>
-
-<section class="story" id="znse"><div class="wrap">
-<div class="eyebrow reveal">07 · Outlook: ZnSe</div>
-<h2 class="reveal">ZnSe from first principles: +0.55 ± 0.3 eV, right at the collapse edge.</h2>
-<p class="lead reveal">Quantum ESPRESSO natural band offsets, from (001) superlattice line-ups with spin-orbit bulk references, semicore deformation potentials and an HSE06 correction, put the ZnSe/CdTe conduction-band offset at +0.55 ± 0.3 eV, consistent with Wei and Zunger (1998). On the calibrated As-doped absorber a ZnSe front is harmless up to +0.20 to +0.40 eV, and electron extraction collapses between +0.40 and +0.55 eV; SCAPS confirms the edge. A Kraut-method XPS measurement on ZnSe/CdSeTe would settle which side a real device sits on.</p>
-<div class="facts reveal"><div><b>+0.55 ± 0.3 eV</b><span>ZnSe/CdTe ΔE<sub>c</sub> from DFT</span></div><div><b>22.6–23.0 %</b><span>harmless ZnSe fronts at low S</span></div><div><b>969.6 / 970.0 mV</b><span>SCAPS and Sesame at +0.30 eV</span></div></div>
-<figure class="plate reveal"><a class="zoom" href="figures/F7_SI_znse_collapse.png" target="_blank" rel="noopener"><img src="figures/F7_SI_znse_collapse.png" width="2085" height="843" loading="lazy" alt="Efficiency and current at zero volts against the ZnSe conduction-band offset: flat up to a few tenths of an eV, then collapsing near the DFT offset band"></a>
-<figcaption><b>F7.</b> ZnSe front buffer on the calibrated absorber. (a) Efficiency and (b) current at V = 0 against the ZnSe/absorber conduction-band offset for two donor densities, two thicknesses and three interface S values; the band is the DFT offset, +0.55 ± 0.3 eV.</figcaption></figure>
-</div></section>
-
-<section class="story alt" id="method"><div class="wrap">
-<div class="eyebrow reveal">08 · Method</div>
-<h2 class="reveal">Rebuild, cross-validate, test identifiability, then design.</h2>
-<div class="steps3">
-<div class="card reveal"><div class="num">01</div><h3>Data from vectors</h3><p>J-V, EQE, C-V and V<sub>oc</sub>(T) read from the drawing paths of the published PDFs: 0.0006 mA/cm² and 0.010 mV against the thesis vertices of the same curve; an independent raster digitiser agrees to about 0.4 mV.</p></div>
-<div class="card reveal"><div class="num">02</div><h3>Two solvers, one input</h3><p>SCAPS-1D 3.3.11 runs headless from Python. Every Sesame case is built from the same SCAPS definition file with SCAPS’s optical conventions; on a common junction the two agree to 0.41 % in J<sub>sc</sub> and 0.9 mV.</p></div>
-<div class="card reveal"><div class="num">03</div><h3>A cliff-capable interface</h3><p>Interface states between the buffer conduction band and the absorber valence band, added to Sesame’s residual and Jacobian and verified against SCAPS interface-defect blocks with the same physics.</p></div>
-<div class="card reveal"><div class="num">04</div><h3>Profile likelihood</h3><p>χ² over the 13 V<sub>oc</sub>(T) points plus the 1-sun V<sub>oc</sub> and FF, with the temperature-stage light level profiled. Ten offsets with fine scans in S, each at seven temperatures and two light levels.</p></div>
-<div class="card reveal"><div class="num">05</div><h3>Fluctuation gate</h3><p>Parallel-domain band-gap fluctuations (Grabitz, Rau and Werner) from 0 to 80 meV, with and without the photoluminescence prior, as the maximum-effect limit.</p></div>
-<div class="card reveal"><div class="num">06</div><h3>DFT and design</h3><p>Quantum ESPRESSO 7.6 band offsets for the ZnSe outlook; designs applied one lever at a time and combined, penalised alike, evaluated on three calibration branches and against the detailed-balance limit.</p></div>
+<div class="two wide-l">
+<div class="vizcard reveal"><div class="vizhead"><b>Dark J-V, four front offsets</b><span class="legend"><span><i class="ring"></i>SCAPS</span><span><i style="background:var(--c-cyan)"></i>Sesame</span></span></div>
+<div class="viz" data-viz="solvers" role="img" aria-label="3D view of dark current against voltage on a log scale for four front offsets, +0.10, −0.10, −0.22 and −0.32 eV: SCAPS points sit on the Sesame ribbons, and a voltage cursor sweeps across them"><img class="fallback" alt="Figure F6: dark J-V curves from SCAPS markers and Sesame lines for four offsets, their current ratio between 0.96 and 0.975, and a table of light comparisons all within about 1 mV" data-src="figures/F6_solver_crossvalidation.png" loading="lazy"></div>
+<div class="vizfoot">Interface-state model, φ<sub>b</sub> = 0.50 eV. <span class="src">optionA/scaps_if_dark.csv</span> · <a href="figures/F6_solver_crossvalidation.png" target="_blank" rel="noopener">static figure F6</a></div></div>
+<div class="reveal"><div class="panel sweep" aria-live="off"><div class="k">At the cursor, <b id="swV">0.60 V</b></div><table class="mini"><thead><tr><th>ΔE<sub>c</sub></th><th class="num">SCAPS</th><th class="num">Sesame</th><th class="num">ratio</th></tr></thead><tbody id="swBody"></tbody></table><p class="note">mA/cm². Sesame sits 2.5–4 % below SCAPS at every voltage with J ≥ 10⁻³ mA/cm² (ratio 0.959–0.976).</p><button class="btn ghost small" id="swPause" aria-pressed="false">Pause sweep</button></div></div>
 </div>
+<div class="tablewrap reveal" style="margin-top:26px"><table><thead><tr><th>Light case (1 sun, 300 K)</th><th>Front model</th><th class="num">ΔV<sub>oc</sub> (mV)</th><th class="num">|ΔJ<sub>sc</sub>| (%)</th><th class="num">|ΔFF| (pts)</th></tr></thead><tbody id="lightTable"></tbody></table>
+<p class="note">Δ = Sesame − SCAPS. IL: absorber-side defect layer; IF: buffer-CB/absorber-VB interface states. <span class="src">sesame/validation.csv, kujovic/kujovic_validation.csv, scaps_if_xcheck.csv, scaps_znse_xcheck.csv, scaps_design_xcheck.csv</span></p></div>
+</div></section>
+
+<section class="story alt" id="znse"><div class="wrap">
+<div class="eyebrow reveal">08 · Outlook: ZnSe</div>
+<h2 class="reveal">ZnSe from first principles: +0.55 ± 0.3 eV, right at the collapse edge.</h2>
+<p class="lead reveal">Quantum ESPRESSO natural band offsets, from (001) superlattice line-ups with spin-orbit bulk references, semicore deformation potentials and an HSE06 correction, put the ZnSe/CdTe conduction-band offset at +0.55 ± 0.3 eV, consistent with Wei and Zunger (1998). On the calibrated As-doped absorber a ZnSe front is harmless up to +0.20 to +0.40 eV, and electron extraction collapses between +0.40 and +0.55 eV; SCAPS confirms the edge.</p>
+<div class="vizcard reveal"><div class="vizhead"><b>Efficiency against the ZnSe offset, eight front variants</b><span class="legend"><span><i style="background:var(--c-cyan)"></i>N<sub>D</sub> 10¹⁵</span><span><i style="background:var(--c-violet)"></i>N<sub>D</sub> 10¹⁷</span><span><i style="background:var(--c-warm)"></i>DFT +0.55 ± 0.3 eV</span><span><i style="background:var(--c-hot)"></i>blocked, no V<sub>oc</sub> below 1.6 V</span></span></div>
+<div class="viz wide" data-viz="znse" role="img" aria-label="3D collapse map of efficiency against the ZnSe conduction-band offset for eight front variants: flat near 23 percent up to a few tenths of an eV, then collapsing between +0.40 and +0.55 eV, inside the amber DFT band centred at +0.55 eV"><img class="fallback" alt="Figure F7: efficiency and current at zero volts against the ZnSe conduction-band offset: flat up to a few tenths of an eV, then collapsing near the DFT offset band" data-src="figures/F7_SI_znse_collapse.png" loading="lazy"></div>
+<div class="vizfoot">Each lane: one interface S, donor density and thickness; hover a ribbon for the point. <span class="src">kujovic/znse/znse_results.csv; dft/interface/results.csv</span> · <a href="figures/F7_SI_znse_collapse.png" target="_blank" rel="noopener">static figure F7</a></div></div>
+<div class="facts reveal" style="margin-top:22px"><div><b>+0.55 ± 0.3 eV</b><span>ZnSe/CdTe ΔE<sub>c</sub> from DFT</span></div><div><b>22.6–23.0 %</b><span>harmless ZnSe fronts at low S</span></div><div><b>969.6 / 970.0 mV</b><span>SCAPS and Sesame at +0.30 eV</span></div></div>
+<p class="note reveal">A Kraut-method XPS measurement on ZnSe/CdSeTe would settle which side of the edge a real device sits on.</p>
+</div></section>
+
+<section class="story" id="method"><div class="wrap">
+<div class="eyebrow reveal">09 · Method</div>
+<h2 class="reveal">Rebuild, cross-validate, test identifiability, then design.</h2>
+<ol class="strip" aria-label="Method steps">
+<li class="reveal"><span class="num">01</span><h3>Data from vectors</h3><p>J-V, EQE, C-V and V<sub>oc</sub>(T) read from the drawing paths of the published PDFs: 0.0006 mA/cm² and 0.010 mV against the thesis vertices of the same curve; a raster digitiser agrees to about 0.4 mV.</p></li>
+<li class="reveal"><span class="num">02</span><h3>Two solvers, one input</h3><p>SCAPS-1D 3.3.11 runs headless from Python. Every Sesame case is built from the same SCAPS definition file with SCAPS’s optical conventions; on a common junction the two agree to 0.41 % in J<sub>sc</sub> and 0.9 mV.</p></li>
+<li class="reveal"><span class="num">03</span><h3>A cliff-capable interface</h3><p>Interface states between the buffer conduction band and the absorber valence band, added to Sesame’s residual and Jacobian and verified against SCAPS interface-defect blocks with the same physics.</p></li>
+<li class="reveal"><span class="num">04</span><h3>Profile likelihood</h3><p>χ² over the 13 V<sub>oc</sub>(T) points plus the 1-sun V<sub>oc</sub> and FF, with the temperature-stage light level profiled. Ten offsets with fine scans in S, each at seven temperatures and two light levels.</p></li>
+<li class="reveal"><span class="num">05</span><h3>Fluctuation gate</h3><p>Parallel-domain band-gap fluctuations (Grabitz, Rau and Werner) from 0 to 80 meV, with and without the photoluminescence prior, as the maximum-effect limit.</p></li>
+<li class="reveal"><span class="num">06</span><h3>DFT and design</h3><p>Quantum ESPRESSO 7.6 band offsets for the ZnSe outlook; designs applied one lever at a time and combined, penalised alike, evaluated on three calibration branches and against the detailed-balance limit.</p></li>
+</ol>
 <div class="linkrow reveal"><a class="btn" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model#reproduce">Reproduce</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/docs/CLAIMS.md">Claims and evidence</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/tree/main/optionA/sesame">Sesame model</a></div>
 </div></section>
 
-<section class="story" id="background"><div class="wrap">
-<div class="eyebrow reveal">09 · Background</div>
+<section class="story alt" id="background"><div class="wrap">
+<div class="eyebrow reveal">10 · Background</div>
 <h2 class="reveal">Where it started: the 2025 capstone and its correction.</h2>
 <div class="box reveal"><b>Correction (November 2026)</b><p>This project began as a forensic re-run of an undergraduate SCAPS-1D capstone on a ZnSe/CdTe cell (VIT, 2025). Re-running its 12 original input files showed that its 27.99 % headline came from input-file settings rather than from the device: a defect-free, effectively undoped CdTe absorber at a 1.6 eV band gap, with CdTe absorption data applied to other layers. Corrected, the same cell gives 18.2 %, and 18.9 % without its Cs₂BiAgI₆ layer. That audit set the rules used here: every number from a committed script, every parameter with a source, every key result checked by a second solver.</p>
 <div class="linkrow"><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/docs/FORENSICS.md">Forensics</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/tree/main/archive/2025-capstone">Archived capstone</a></div></div>
 </div></section>
 
-<section class="story alt" id="sources"><div class="wrap">
-<div class="eyebrow reveal">10 · Sources</div>
+<section class="story" id="sources"><div class="wrap">
+<div class="eyebrow reveal">11 · Sources</div>
 <h2 class="reveal">Data, methods and software.</h2>
-<div class="two" style="align-items:start">
+<div class="two top">
 <div class="reveal"><ol class="refs">
 <li>L. Kujović et al., <i>Achieving 21.4% efficient CdSeTe/CdTe solar cells using highly resistive intrinsic ZnO buffer layers</i>, Adv. Funct. Mater. 34, 2312528 (2024). <a href="https://doi.org/10.1002/adfm.202312528">doi</a></li>
 <li>R. Pandey et al., <i>CdTe-based solar cells with variations in Mg concentration in the MgZnO emitter</i>, Solar RRL 5, 2100126 (2021). <a href="https://doi.org/10.1002/solr.202100126">doi</a></li>
@@ -179,17 +224,11 @@
 <li>P. O. Grabitz, U. Rau, J. H. Werner, Phys. Status Solidi A 202, 2920 (2005); S.-H. Wei and A. Zunger, Appl. Phys. Lett. 72, 2011 (1998).</li>
 </ol></div>
 <div class="reveal"><div class="card"><b>Software</b><p class="note">SCAPS-1D 3.3.11, M. Burgelman et al., University of Gent (Thin Solid Films 361, 527, 2000); obtained separately, not redistributed. NIST Sesame 2.0 (B. Gaury et al., Sol. Energy Mater. Sol. Cells 198, 53, 2019). Quantum ESPRESSO 7.6 with PseudoDojo pseudopotentials.</p>
-<p class="note">Digitised data are redistributed only as extracted numbers; cite the original publications. A manuscript is in preparation.</p></div>
-<div class="linkrow"><a class="btn" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">Repository</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/DATA_LICENSE.md">Data licence</a></div></div>
+<p class="note">Digitised data are redistributed only as extracted numbers; cite the original publications. A manuscript is in preparation. Every claim on this page, with its evidence and caveats, is in <a href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/docs/CLAIMS.md">docs/CLAIMS.md</a>.</p></div>
+<div class="linkrow"><a class="btn" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model">Repository</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/docs/CLAIMS.md">CLAIMS.md</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/tree/main/archive/2025-capstone">Archive</a><a class="btn ghost" href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/DATA_LICENSE.md">Data licence</a></div></div>
 </div></div></section>
+</main>
 
-<footer><div class="wrap"><div><b style="color:var(--ink)">Soham Kavathekar</b> · MS Chemical &amp; Biomolecular Engineering, University of Pennsylvania<br><a href="mailto:stg3719@seas.upenn.edu">stg3719@seas.upenn.edu</a> · <a href="https://www.linkedin.com/in/soham-kavathekar-cheme">linkedin.com/in/soham-kavathekar-cheme</a> · <a href="https://github.com/Soham-ChemE">github.com/Soham-ChemE</a></div><div>SCAPS-1D 3.3.11 · NIST Sesame 2.0 · Quantum ESPRESSO 7.6 · three.js 0.186 · GSAP 3.15 · Lenis 1.3</div></div></footer>
-
-<script>
-document.addEventListener('siteready',()=>{const S=window.SITE;
-  // reveal by IntersectionObserver as well, so content shows after an instant jump (a #hash link, restored scroll position)
-  if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}));document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
-  if(S&&S.softGL){document.querySelectorAll('.viz').forEach(v=>{v.classList.add('no-webgl');const f=v.querySelector('img.fallback');if(f&&f.dataset.src)f.src=f.dataset.src})}});
-</script>
+<footer><div class="wrap"><div><b style="color:var(--ink)">Soham Kavathekar</b> · MS Chemical &amp; Biomolecular Engineering, University of Pennsylvania<br><a href="mailto:stg3719@seas.upenn.edu">stg3719@seas.upenn.edu</a> · <a href="https://www.linkedin.com/in/soham-kavathekar-cheme">linkedin.com/in/soham-kavathekar-cheme</a> · <a href="https://github.com/Soham-ChemE">github.com/Soham-ChemE</a></div><div>SCAPS-1D 3.3.11 · NIST Sesame 2.0 · Quantum ESPRESSO 7.6 · three.js 0.186 · GSAP 3.15 · Lenis 1.3 · <a href="https://github.com/Soham-ChemE/CdTe-Solar-Cell-Device-Model/blob/main/docs/DESIGN.md">design notes</a></div></div></footer>
 </body>
 </html>

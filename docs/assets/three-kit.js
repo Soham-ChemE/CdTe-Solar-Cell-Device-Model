@@ -80,16 +80,18 @@ export function createStage(canvas, opts = {}) {
     stage.dirty = true;
   };
   stage.setBloom = s => { if (bloom) bloom.strength = s * stage.bloomScale; };
-  applyTheme(); document.addEventListener('themechange', () => { applyTheme(); stage.onTheme && stage.onTheme(S.isDark()); });
+  const onThemeChange = () => { if (stage.disposed) return; applyTheme(); stage.onTheme && stage.onTheme(S.isDark()); };
+  applyTheme(); document.addEventListener('themechange', onThemeChange);
   // resize
   const fit = () => { const w = holder.clientWidth, h = holder.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); if (composer) composer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); stage.dirty = true; stage.wide = w > 820; };
-  fit(); new ResizeObserver(fit).observe(holder);
+  fit(); const ro = new ResizeObserver(fit); ro.observe(holder);
   // only render while on screen
-  new IntersectionObserver(es => es.forEach(e => { stage.visible = e.isIntersecting; if (e.isIntersecting) stage.dirty = true; }), { threshold: 0 }).observe(holder);
+  const io = new IntersectionObserver(es => es.forEach(e => { stage.visible = e.isIntersecting; if (e.isIntersecting) stage.dirty = true; }), { threshold: 0 }); io.observe(holder);
   stage.render = () => { if (composer) composer.render(); else renderer.render(scene, camera); stage.dirty = false; };
   // frame loop: the page's update callback returns true when something changed
-  stage.loop = update => { S.onFrame((t, dt) => { if (stage.disposed || !stage.visible) return; const changed = update(t, dt); if (changed || stage.dirty) stage.render(); }); };
-  stage.dispose = () => { if (stage.disposed) return; stage.disposed = true; scene.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) { [].concat(o.material).forEach(m => { for (const k in m) if (m[k] && m[k].isTexture) m[k].dispose(); m.dispose(); }); } }); if (renderer.__env) { renderer.__env.dispose(); renderer.__env = null; } if (composer) { composer.passes.forEach(p => p.dispose && p.dispose()); composer.dispose && composer.dispose(); } renderer.dispose(); renderer.forceContextLoss && renderer.forceContextLoss(); };
+  stage.loop = update => { stage.frameCb = (t, dt) => { if (stage.disposed || !stage.visible) return; const changed = update(t, dt); if (changed || stage.dirty) stage.render(); }; S.onFrame(stage.frameCb); };
+  /* dispose: GPU resources and every listener, so a page can mount and unmount a stage as it scrolls (lazy scenes) */
+  stage.dispose = () => { if (stage.disposed) return; stage.disposed = true; document.removeEventListener('themechange', onThemeChange); ro.disconnect(); io.disconnect(); removeEventListener('pagehide', stage.dispose); if (stage.frameCb && S.offFrame) S.offFrame(stage.frameCb); const k = (window.__stages || []).indexOf(stage); if (k >= 0) window.__stages.splice(k, 1); scene.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) { [].concat(o.material).forEach(m => { for (const k in m) if (m[k] && m[k].isTexture) m[k].dispose(); m.dispose(); }); } }); if (renderer.__env) { renderer.__env.dispose(); renderer.__env = null; } if (composer) { composer.passes.forEach(p => p.dispose && p.dispose()); composer.dispose && composer.dispose(); } renderer.dispose(); renderer.forceContextLoss && renderer.forceContextLoss(); };
   addEventListener('pagehide', stage.dispose, { once: true });
   return stage;
 }
