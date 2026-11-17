@@ -8,7 +8,7 @@
    the identifiability ridge (ident_profile.csv via window.CDTE.profile; window.PAGE.heroState is the shared timeline).
    Band shapes away from the interface (bending, grading, back barrier) are schematic; the step and S are the data.
    The stage mounts when the hero is near the viewport and is disposed when it is far away, then rebuilt on return. */
-import { THREE, createStage, cameraPath, makeLabel, redrawLabel, palette } from './three-kit.js?v=c56cef6b86';
+import { THREE, createStage, cameraPath, makeLabel, redrawLabel, palette } from './three-kit.js?v=f87cbbf5a1';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';

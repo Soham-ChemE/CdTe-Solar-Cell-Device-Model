@@ -140,7 +140,7 @@ steps = [("Remove the cliff", "ΔEc +0.20 eV, S ×10", f(res["1a dEc +0.20, S 52
          ("Bulk lifetime", "τ 300 ns", f(res["1c tau 300 ns at dEc +0.00"]["lever_deta"])),
          ("Absorber doping", "N_A ×3", f(res["1d NA x3 at dEc 0, tau 300 ns"]["lever_deta"])),
          ("Back barrier", "0.30 eV", f(res["1e back b0.30 at dEc 0"]["lever_deta"])),
-         ("Optics", "anti-reflection + 150 nm FTO", f(res["1f optics (c) at dEc 0"]["lever_deta"]))]
+         ("Optics", "idealised front optics (T 0.97) + 150 nm FTO", f(res["1f optics (c) at dEc 0"]["lever_deta"]))]
 cum = eta0 + sum(s[2] for s in steps)
 steps.append(("Non-additivity", "+ radiative B", f(cons["eta_no_RsRsh"]) - cum))
 scaps_cons = rows(REPO / "optionA/scaps_design_conservative_RsRsh.csv")[0]
@@ -237,7 +237,7 @@ ax.text(64, 230, "not a spike.", color=INK, fontsize=44, fontweight="bold", **kw
 ax.text(64, 276, "Calibrated, cross-validated model of the", color=MUT, fontsize=15, **kw)
 ax.text(64, 300, "21.4 % ZnO/CdSeTe/CdTe solar cell", color=MUT, fontsize=15, **kw)
 stats = [(f"Δχ² ≥ {fluct['spike_min']:.0f}", "published +0.10 eV spike, excluded"), ("−0.30 eV", "best-fit cliff, S ≈ 5 cm/s"),
-         (f"{design['cons']:.1f} %", "design, in SCAPS and Sesame"), ("≈ 1 mV", "SCAPS–Sesame agreement")]
+         (f"{design['cons']:.1f} %", "design, in SCAPS and Sesame"), ("≥ 100×", "S ratio, Cu- over As-doped ZnO interface")]
 for i, (big, small) in enumerate(stats):
     x, y = 64 + (i % 2) * 300, 372 + (i // 2) * 92
     ax.text(x, y, big, color=CY, fontsize=26, fontweight="bold", **kw)

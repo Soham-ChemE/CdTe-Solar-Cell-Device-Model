@@ -1,7 +1,7 @@
 /* Page logic that does not need WebGL: the hero readout, the controls and readouts of the interactive sections, the tables,
    and the static path (figures F1-F7 for reduced motion and software or missing WebGL). The 3D scenes (scene.js, body.js) read
    the shared state in window.PAGE every frame. Classic script; runs after site.js. Data: window.CDTE (assets/data.js) and
-   assets/cliff.json?v=c56cef6b86 (fetched once, shared). */
+   assets/cliff.json?v=f87cbbf5a1 (fetched once, shared). */
 (function () {
   const D = window.CDTE, S = window.SITE || { reduced: true, onFrame() {}, isDark: () => false, steps() {} };
   const $ = id => document.getElementById(id);
@@ -17,7 +17,7 @@
   // every section below runs in isolation: one that throws is logged and skipped, the others (and the tables) still run
   const safe = (name, fn) => { try { fn(); } catch (e) { console.error('page: ' + name + ' failed', e); } };
   P.cliffData = Promise.resolve(null);
-  safe('data', () => { P.cliffData = fetch('assets/cliff.json?v=c56cef6b86').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(j => { P.cliffJSON = j; return j; }).catch(e => { console.error('page: cliff.json', e); return null; }); });
+  safe('data', () => { P.cliffData = fetch('assets/cliff.json?v=f87cbbf5a1').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(j => { P.cliffJSON = j; return j; }).catch(e => { console.error('page: cliff.json', e); return null; }); });
   // static figures: one scene (P.vizFallback), every scene not running live (P.vizSweep), or the hero (P.heroFallback)
   P.vizFallback = el => { if (!el) return; el.classList.remove('viz-live'); el.classList.add('viz-failed'); el.removeAttribute('data-pending'); const i = el.querySelector('img.fallback'); if (i && i.dataset.src && !i.getAttribute('src')) i.src = i.dataset.src; };
   P.vizSweep = () => document.querySelectorAll('.viz').forEach(el => { if (!el.classList.contains('viz-live') && !el.hasAttribute('data-pending')) P.vizFallback(el); });

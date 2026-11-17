@@ -9,8 +9,8 @@
      design  F5  the design staircase from the calibrated cell to the conservative design
      solvers F6  dark J-V of SCAPS and Sesame for four offsets, with a sweeping voltage cursor
      znse    F7  efficiency against the ZnSe offset for eight front variants, with the DFT band */
-import { THREE, redrawLabel } from './three-kit.js?v=c56cef6b86';
-import Viz from './viz.js?v=c56cef6b86';
+import { THREE, redrawLabel } from './three-kit.js?v=f87cbbf5a1';
+import Viz from './viz.js?v=f87cbbf5a1';
 
 const D = window.CDTE, P = window.PAGE || {}, S = window.SITE;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), lerp = (a, b, t) => a + (b - a) * t;
