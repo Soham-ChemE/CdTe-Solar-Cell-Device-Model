@@ -60,6 +60,8 @@ export function createStage(canvas, opts = {}) {
   // post-processing: size the renderer first, then build the composer, resize only through composer.setSize
   let composer = null, bloom = null, bokeh = null;
   const w0 = holder.clientWidth || 2, h0 = holder.clientHeight || 2; renderer.setSize(w0, h0, false); camera.aspect = w0 / h0; camera.updateProjectionMatrix();
+  const floatRT = renderer.capabilities.isWebGL2 && (renderer.extensions.has('EXT_color_buffer_float') || renderer.extensions.has('EXT_color_buffer_half_float'));
+  if (!floatRT) { opts = { ...opts, bloom: null, dof: null }; }
   if (opts.bloom || opts.dof) {
     // multisampled HDR target so the post chain keeps anti-aliasing (WebGL2); EffectComposer sizes it from the renderer's pixel ratio
     const rt = new THREE.WebGLRenderTarget(w0, h0, { type: THREE.HalfFloatType, samples: S.phone ? 2 : 4 });
@@ -103,18 +105,24 @@ export function cameraPath(points, targets) {
   return { curve, at(t, outPos, outTarget) { curve.getPointAt(Math.min(1, Math.max(0, t)), outPos); const u = Math.min(1, Math.max(0, t)) * (tg.length - 1), i = Math.min(tg.length - 2, Math.floor(u)); outTarget.copy(tg[i]).lerp(tg[i + 1], u - i); return outPos; } };
 }
 
-/** Text as a sprite (canvas texture). Redrawn by Viz on theme change; standalone users call label.redraw(). */
+/** Text as a sprite (canvas texture). Redrawn by Viz on theme change; standalone users call label.redraw().
+    Labels are drawn bold with a contrasting halo, at 3x resolution, and are exempt from tone mapping so they keep their exact
+    palette colours in both themes (the hero draws them in an overlay pass after its post-processing chain). */
 export function makeLabel(text, o = {}) {
-  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false, depthTest: o.depthTest ?? false, sizeAttenuation: o.attenuate ?? true }));
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false, depthTest: o.depthTest ?? false, sizeAttenuation: o.attenuate ?? true, toneMapped: false }));
   sp.userData.label = { text, o }; sp.renderOrder = 10; redrawLabel(sp, o.dark ?? (window.SITE ? window.SITE.isDark() : true)); return sp;
 }
+const LABEL_MUTED = { dark: '#b9c4d2', light: '#3b4657' };
 export function redrawLabel(sp, dark) {
-  const { text, o } = sp.userData.label, pal = palette(dark); const px = o.px || 26, pad = o.pad ?? 8, weight = o.weight || 600;
-  const c = document.createElement('canvas'), g = c.getContext('2d'); g.font = `${weight} ${px}px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif`;
-  const lines = String(text).split('\n'), w = Math.ceil(Math.max(...lines.map(l => g.measureText(l).width))) + pad * 2, h = Math.ceil(lines.length * px * 1.25) + pad * 2;
-  c.width = w * 2; c.height = h * 2; g.scale(2, 2); g.font = `${weight} ${px}px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif`; g.textBaseline = 'top';
-  if (o.bg !== false) { g.fillStyle = o.bg || (dark ? 'rgba(15,23,42,.72)' : 'rgba(255,255,255,.8)'); const r = 8; g.beginPath(); g.roundRect(0, 0, w, h, r); g.fill(); }
-  g.fillStyle = o.color ? (pal[o.color] || o.color) : pal.ink; lines.forEach((l, i) => g.fillText(l, pad, pad + i * px * 1.25));
-  if (sp.material.map) sp.material.map.dispose(); const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4; sp.material.map = tex; sp.material.needsUpdate = true;
+  const { text, o } = sp.userData.label, pal = palette(dark); const px = o.px || 26, weight = Math.max(700, o.weight || 700), halo = Math.max(2, Math.round(px * .09)), pad = Math.max(o.pad ?? 8, halo + 2);
+  const font = `${weight} ${px}px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif`;
+  const c = document.createElement('canvas'), g = c.getContext('2d'); g.font = font;
+  const lines = String(text).split('\n'), w = Math.max(2, Math.ceil(Math.max(...lines.map(l => g.measureText(l).width))) + pad * 2), h = Math.ceil(lines.length * px * 1.25) + pad * 2;
+  const R = Math.min(3, 2048 / Math.max(w, h)); c.width = Math.ceil(w * R); c.height = Math.ceil(h * R); g.scale(R, R); g.font = font; g.textBaseline = 'top';
+  if (o.bg !== false) { g.fillStyle = o.bg || (dark ? 'rgba(11,18,32,.88)' : 'rgba(255,255,255,.94)'); const r = 8; g.beginPath(); if (g.roundRect) g.roundRect(0, 0, w, h, r); else g.rect(0, 0, w, h); g.fill(); }
+  const col = o.color === 'muted' ? LABEL_MUTED[dark ? 'dark' : 'light'] : o.color ? (pal[o.color] || o.color) : pal.ink;
+  g.lineJoin = 'round'; g.lineWidth = halo; g.strokeStyle = dark ? 'rgba(6,10,20,.75)' : 'rgba(255,255,255,.6)';
+  lines.forEach((l, i) => { const y = pad + i * px * 1.25; g.strokeText(l, pad, y); g.fillStyle = col; g.fillText(l, pad, y); });
+  if (sp.material.map) sp.material.map.dispose(); const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4; sp.material.map = tex; sp.material.toneMapped = false; sp.material.needsUpdate = true;
   const s = o.scale || 1; sp.scale.set(s * w / px, s * h / px, 1); sp.userData.size = [w, h]; return sp;
 }

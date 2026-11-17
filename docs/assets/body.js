@@ -9,10 +9,10 @@
      design  F5  the design staircase from the calibrated cell to the conservative design
      solvers F6  dark J-V of SCAPS and Sesame for four offsets, with a sweeping voltage cursor
      znse    F7  efficiency against the ZnSe offset for eight front variants, with the DFT band */
-import { THREE, redrawLabel } from './three-kit.js';
-import Viz from './viz.js';
+import { THREE, redrawLabel } from './three-kit.js?v=c56cef6b86';
+import Viz from './viz.js?v=c56cef6b86';
 
-const D = window.CDTE, P = window.PAGE, S = window.SITE;
+const D = window.CDTE, P = window.PAGE || {}, S = window.SITE;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 const sstep = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
@@ -25,14 +25,17 @@ const sgn = (v, d = 2) => (v > 0 ? '+' : '') + mn((+v).toFixed(d));
 const lg = x => Math.log10(Math.max(x, .3));
 const phone = S.phone;
 const Z = new THREE.Matrix4().makeScale(0, 0, 0), M4 = new THREE.Matrix4(), V3 = new THREE.Vector3(), Q4 = new THREE.Quaternion(), SC = new THREE.Vector3();
-const lab = (v, text, pos, o = {}) => Viz.label(v, text, pos, { px: 24, scale: .085, bg: false, color: 'muted', ...o });
+const lab = (v, text, pos, o = {}) => Viz.label(v, text, pos, { px: 26, scale: .09, bg: false, color: 'muted', ...o });
 const sphereG = () => new THREE.SphereGeometry(1, 14, 10);
 function inst(v, geo, mat, n, parent) { const im = new THREE.InstancedMesh(geo, mat, n); im.frustumCulled = false; for (let i = 0; i < n; i++) im.setMatrixAt(i, Z); (parent || v.rig).add(im); return im; }
 const basic = (key, o = {}) => { const m = new THREE.MeshBasicMaterial({ color: Viz.pal[key] || key, transparent: true, depthWrite: false, ...o }); m.userData.pal = key; return m; };
 const yAxisLog = { lo: -.55, hi: 3.8, ticks: [0, 1, 2, 3], fmt: t => ['1', '10', '100', '1000'][t] };
+// registration is isolated per scene: if one throws, that placeholder shows its static figure and the rest go on
+const fallback = el => (P.vizFallback ? P.vizFallback(el) : Viz.fallback(el));
+const reg = (sel, build, o) => { const el = document.querySelector(sel); try { const v = Viz.view(el, build, o); if (!v && !Viz.static) fallback(el); return v; } catch (e) { console.error('body: scene ' + sel + ' failed to register', e); fallback(el); return null; } };
 
 /* ======================================================================== 01 Voc(T) */
-Viz.view('[data-viz="vocT"]', v => {
+reg('[data-viz="vocT"]', v => {
   const VT = D.vocT, keys = ['cliff', 'spike', 'published'], cols = ['green', 'hot', 'rose'];
   const A = Viz.axes(v, { size: [4.6, 2.5, 1.8], x: { lo: 210, hi: 360, ticks: [220, 260, 300, 340], label: 'temperature (K)' }, y: { lo: 740, hi: 940, ticks: [750, 800, 850, 900], label: 'Voc (mV)' }, z: { lo: 0, hi: 3 } });
   const meas = VT.measured, rib = [], stems = [], lanes = [];
@@ -64,7 +67,7 @@ Viz.view('[data-viz="vocT"]', v => {
 }, { camera: [1.3, 1.25, 7.4], target: [0, -.05, 0], fov: 32, rot: -.12 });
 
 /* ======================================================================== 02 the cliff, live */
-Viz.view('[data-viz="cliff"]', v => {
+reg('[data-viz="cliff"]', v => {
   const K = 2.0, E0 = .35, yE = E => K * (E - E0), ZW = 1.25, X0 = -2.6, XZ = -1.5, X1 = 3.3;
   const u = x => clamp(x / X1, 0, 1);
   const EcA = x => 1.32 - .70 * Math.pow(Math.max(0, 1 - u(x) / .45), 2), EvA = x => EcA(x) - (1.41 + .06 * sstep(.2, 1, u(x)));
@@ -118,7 +121,7 @@ Viz.view('[data-viz="cliff"]', v => {
 }, { camera: [-1.7, 1.3, 9.8], target: [.35, -.25, 0], fov: 34, rot: .3, tilt: .04, aspect: 1.33 });
 
 /* ======================================================================== 03 valley (needs cliff.json) */
-P.cliffData.then(J => { if (!J) return; Viz.view('[data-viz="valley"]', v => {
+(P.cliffData || Promise.resolve(null)).then(J => { const el = document.querySelector('[data-viz="valley"]'); if (el) el.removeAttribute('data-pending'); if (!J) { fallback(el); return; } reg('[data-viz="valley"]', v => {
   const A = Viz.axes(v, { size: [5, 2.4, 3.6], x: { lo: -.37, hi: .13, ticks: [-.3, -.2, -.1, 0, .1], fmt: t => mn(t.toFixed(1)), label: 'ΔEc (eV)' }, y: { ...yAxisLog, label: 'Δχ²' }, z: { lo: 0, hi: 6, ticks: [0, 2, 4, 6], fmt: t => (6 - t) ? '10' + sup(6 - t) : '1', label: 'S (cm/s)' } });
   const zS = ls => 6 - ls;   // low S in front
   const O = J.offsets, G = Array.from({ length: 121 }, (_, i) => i * .05), W = .014;
@@ -170,10 +173,10 @@ P.cliffData.then(J => { if (!J) return; Viz.view('[data-viz="valley"]', v => {
   };
   v.onTheme = () => { build(); [rib, wl, sk].forEach(m => { v.rig.remove(m); m.geometry.dispose(); }); rib = mk(pos, col, idx, ribM); wl = mk(pos, col, skI, wallM); sk = mk(skin, skinC, skinI, skinM); v.pickables.length = 0; v.pickables.push(rib); cv = -1; };
   v.hover = hit => { const p = hit.point.clone(); v.rig.worldToLocal(p); const d = (p.x + 2.5) / 5 * .5 - .37, ls = 6 - (p.z + 1.8) / 3.6 * 6; let o = O[0]; O.forEach(q => { if (Math.abs(q.dEc - d) < Math.abs(o.dEc - d)) o = q; }); const x = hAt(o, clamp(ls, 0, 6)); return x == null ? null : `<b>ΔEc ${sgn(o.dEc)} eV</b>S ≈ 10${sup(ls.toFixed(1))} cm/s · Δχ² ${x < 10 ? x.toFixed(1) : Math.round(x)}`; };
-}, { camera: [-4.4, 4.0, 6.6], target: [.2, -.4, 0], fov: 34, aspect: 1.05 }); });
+}, { camera: [-4.4, 4.0, 6.6], target: [.2, -.4, 0], fov: 34, aspect: 1.05 }); }).catch(e => { console.error('body: valley', e); fallback(document.querySelector('[data-viz="valley"]')); });
 
 /* ======================================================================== 04 fluctuation gate */
-Viz.view('[data-viz="fluct"]', v => {
+reg('[data-viz="fluct"]', v => {
   const F = D.fluct, n = phone ? 11 : 16, sp = .2, KX = 7, R = mulberry(17), g = Array.from({ length: n * n }, () => gauss(R));
   const L = new THREE.Group(); L.position.set(-2.55, 0, 0); v.rig.add(L);
   const tileG = new THREE.BoxGeometry(sp * .86, .05, sp * .86), cb = inst(v, tileG, new THREE.MeshStandardMaterial({ roughness: .4, metalness: .1 }), n * n, L), vb = inst(v, tileG, new THREE.MeshStandardMaterial({ roughness: .4, metalness: .1 }), n * n, L);
@@ -219,7 +222,7 @@ Viz.view('[data-viz="fluct"]', v => {
 }, { camera: [0, 2.6, 8.4], target: [0, -.1, 0], fov: 34, rot: -.18, tilt: .04, aspect: 2 });
 
 /* ======================================================================== 05 ZnO paradox */
-Viz.view('[data-viz="zno"]', v => {
+reg('[data-viz="zno"]', v => {
   const Z0 = D.zno, R = mulberry(23), NSP = phone ? 120 : 220;
   const block = (x, title, logS, key) => {
     const g = new THREE.Group(); g.position.x = x; v.rig.add(g);
@@ -253,7 +256,7 @@ Viz.view('[data-viz="zno"]', v => {
 }, { camera: [-.2, 1.8, 7.4], target: [-.5, -.25, 0], fov: 34, rot: .1, tilt: .03, aspect: 2 });
 
 /* ======================================================================== 06 design staircase */
-Viz.view('[data-viz="design"]', v => {
+reg('[data-viz="design"]', v => {
   const Dd = D.design, st = Dd.steps, nCol = st.length + 4;
   const A = Viz.axes(v, { size: [6.2, 2.6, 1.0], x: { lo: -.6, hi: nCol - .4, ticks: [] }, y: { lo: 16.5, hi: 27, ticks: [17, 19, 21, 23, 25, 27], label: 'model efficiency (%)' }, z: { lo: 0, hi: 1 } });
   const parts = [], picks = [], W = .62 * 6.2 / nCol;
@@ -279,7 +282,7 @@ Viz.view('[data-viz="design"]', v => {
 }, { camera: [.9, 1.3, 6.9], target: [0, 0, 0], fov: 34, rot: -.14, tilt: .04, aspect: 2 });
 
 /* ======================================================================== 07 solvers */
-Viz.view('[data-viz="solvers"]', v => {
+reg('[data-viz="solvers"]', v => {
   const SV = D.solvers.dark, cols = ['hot', 'cyan', 'violet', 'green'];
   const A = Viz.axes(v, { size: [4.2, 2.6, 2.4], x: { lo: .28, hi: .97, ticks: [.3, .5, .7, .9], fmt: t => t.toFixed(1), label: 'voltage (V)' }, y: { lo: -5, hi: 2, ticks: [-4, -2, 0, 2], fmt: t => '10' + sup(t), label: 'J dark (mA/cm²)' }, z: { lo: 0, hi: 4, ticks: [.5, 1.5, 2.5, 3.5], fmt: t => sgn(SV[Math.floor(t)].dEc) + ' eV' } });
   const rib = SV.map((c, k) => Viz.ribbon(v, A, c.V, c.sesame.map(Math.log10), { z: k + .5, width: .22, color: cols[k], name: `Sesame, ΔEc ${sgn(c.dEc)} eV`, unit: 'mA/cm²', skirtOpacity: .1 }));
@@ -296,7 +299,7 @@ Viz.view('[data-viz="solvers"]', v => {
 }, { camera: [2.1, 1.4, 6.6], target: [0, -.1, 0], fov: 32 });
 
 /* ======================================================================== 08 ZnSe collapse map */
-Viz.view('[data-viz="znse"]', v => {
+reg('[data-viz="znse"]', v => {
   const Zs = D.znse, ns = Zs.sets.length;
   const A = Viz.axes(v, { size: [5.0, 2.4, 3.2], x: { lo: -.12, hi: .82, ticks: [0, .2, .4, .6, .8], fmt: t => (t > 0 ? '+' : '') + t.toFixed(1), label: 'ZnSe/absorber ΔEc (eV)' }, y: { lo: 0, hi: 25, ticks: [0, 5, 10, 15, 20, 25], label: 'efficiency (%)' }, z: { lo: 0, hi: ns } });
   const rib = [], blocked = [];
@@ -304,7 +307,7 @@ Viz.view('[data-viz="znse"]', v => {
     const key = s.label.includes('10¹⁷') ? 'violet' : 'cyan', xs = Zs.dEc, ys = s.eta.map(e => e ?? 0);
     rib.push(Viz.ribbon(v, A, xs, ys, { z: k + .5, width: .22, color: key, name: s.label, unit: '%', skirtOpacity: .12 }));
     s.eta.forEach((e, i) => { if (e == null) blocked.push(A.map(xs[i], .4, k + .5)); });
-    lab(v, s.label, A.map(.84, ys[0] * 0 + 1, k + .5).add(V3.set(.35, 0, 0)).toArray(), { px: 17, scale: .066 });
+    lab(v, s.label, A.map(.84, ys[0] * 0 + 1, k + .5).add(V3.set(.35, 0, 0)).toArray(), { px: 20, scale: .072 });
   });
   const bl = inst(v, new THREE.BoxGeometry(1, 1, 1), Viz.mat('hot', { emissive: 'hot', emissiveIntensity: .6 }), blocked.length); blocked.forEach((p, i) => { M4.compose(p, Q4, SC.set(.06, .06, .06)); bl.setMatrixAt(i, M4); }); bl.instanceMatrix.needsUpdate = true;
   const x0 = A.map(Zs.dft[0] - Zs.dft[1], 0, 0).x, x1 = A.map(Math.min(.82, Zs.dft[0] + Zs.dft[1]), 0, 0).x, xc = A.map(Zs.dft[0], 0, 0).x;
@@ -317,3 +320,5 @@ Viz.view('[data-viz="znse"]', v => {
 }, { camera: [3.4, 2.6, 6.8], target: [0, -.2, 0], fov: 34, aspect: 2 });
 
 window.__body = true;
+// anything that did not register (and is not waiting for data) shows its static figure
+if (P.vizSweep && !Viz.static) P.vizSweep();

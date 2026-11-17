@@ -51,3 +51,29 @@ Playwright for Python, headless Chromium with software WebGL and `window.__force
 `--hero` renders `assets/hero_dark.webp` and `hero_light.webp` (the no-WebGL hero), `--qa` writes both-theme screenshots at
 1440 px and 375 px with console, failed-request and overflow checks to `docs/qa/`, `--static` checks the reduced-motion and
 software-renderer paths. `python docs/build_assets.py` then rebuilds the data and the social preview with the hero render.
+
+## Robustness (after the Safari report of 17 November 2026)
+
+The first 3D release left Safari with blank body scenes and empty tables. The cause was a stale cached `assets/data.js`
+from the previous page (GitHub Pages serves every file with `max-age=600`) running under the new `page.js`. The new script
+threw at the first missing key, so no table was filled and `body.js` stopped registering scenes. Nothing on the page could
+then fall back to a figure. Reproduced in Playwright WebKit by serving the old `data.js` under the new page. Since then:
+
+- **No version skew.** Every local asset URL carries `?v=<hash of all assets>`, written by `build_assets.py`, including
+  the module imports between `scene.js`, `body.js`, `viz.js` and `three-kit.js`. A browser can no longer combine files
+  from two releases.
+- **Failure is local.**
+  - Every section of `page.js` runs in its own guarded block.
+  - Every frame callback is isolated: one that throws is removed, and the others keep running.
+  - Each scene's registration, build, update and render is guarded. A scene that fails is disposed and shows its static
+    figure (F1–F7) in place.
+  - A scene that never registers, or a module that fails to load, is swept to its figure as well.
+  - The hero falls back to its rendered image.
+- **Tables do not need JavaScript.** `build_assets.py` writes the table rows into `index.html`; `page.js` only refreshes
+  them, and drives the voltage sweep.
+- **Bloom only with float render targets.** `createStage` skips the post-processing chain when the GPU cannot render to
+  half-float targets.
+- **Labels.** In-scene labels are drawn bold with a contrasting halo at 3× resolution and are exempt from tone mapping. The
+  hero draws them in an overlay pass after bloom. The left wash behind the headline fades out with it.
+
+QA runs in Chromium and WebKit (`page_qa.py --engine webkit`, screenshots in `qa/webkit/`).

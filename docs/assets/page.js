@@ -1,7 +1,7 @@
 /* Page logic that does not need WebGL: the hero readout, the controls and readouts of the interactive sections, the tables,
    and the static path (figures F1-F7 for reduced motion and software or missing WebGL). The 3D scenes (scene.js, body.js) read
    the shared state in window.PAGE every frame. Classic script; runs after site.js. Data: window.CDTE (assets/data.js) and
-   assets/cliff.json (fetched once, shared). */
+   assets/cliff.json?v=c56cef6b86 (fetched once, shared). */
 (function () {
   const D = window.CDTE, S = window.SITE || { reduced: true, onFrame() {}, isDark: () => false, steps() {} };
   const $ = id => document.getElementById(id);
@@ -14,8 +14,17 @@
   const fmtS = ls => { const S0 = Math.pow(10, ls); if (ls >= 2.5) { const e = Math.floor(ls), m = S0 / Math.pow(10, e); return m.toFixed(1) + ' × 10' + sup(e) + ' cm/s'; } return (S0 < 10 ? S0.toFixed(1) : Math.round(S0).toString()) + ' cm/s'; };
   const fmtX = v => v == null ? '—' : v < 10 ? fx(v, 1) : Math.round(v).toLocaleString('en-US');
   const P = window.PAGE = { v: 0, cliff: null, vt: 'cliff', sigma: 60, valley: 'map', sweep: { i: 6, paused: false }, bump() { this.v++; } };
+  // every section below runs in isolation: one that throws is logged and skipped, the others (and the tables) still run
+  const safe = (name, fn) => { try { fn(); } catch (e) { console.error('page: ' + name + ' failed', e); } };
+  P.cliffData = Promise.resolve(null);
+  safe('data', () => { P.cliffData = fetch('assets/cliff.json?v=c56cef6b86').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(j => { P.cliffJSON = j; return j; }).catch(e => { console.error('page: cliff.json', e); return null; }); });
+  // static figures: one scene (P.vizFallback), every scene not running live (P.vizSweep), or the hero (P.heroFallback)
+  P.vizFallback = el => { if (!el) return; el.classList.remove('viz-live'); el.classList.add('viz-failed'); el.removeAttribute('data-pending'); const i = el.querySelector('img.fallback'); if (i && i.dataset.src && !i.getAttribute('src')) i.src = i.dataset.src; };
+  P.vizSweep = () => document.querySelectorAll('.viz').forEach(el => { if (!el.classList.contains('viz-live') && !el.hasAttribute('data-pending')) P.vizFallback(el); });
+  P.heroFallback = () => { const h = document.querySelector('.hero'); if (!h) return; h.classList.add('no-webgl'); const fb = h.querySelector('.fallback'); if (fb) fb.src = 'assets/hero_' + (S.isDark() ? 'dark' : 'light') + '.webp'; const r = $('heroReadout'); if (r) r.style.opacity = 1; };
 
   /* ---------- hero timeline (shared with scene.js) */
+  safe('hero', () => {
   const prof = D.profile;                                   // descending dEc: +0.10 ... -0.34
   const sweep = prof.filter(p => p.dEc >= -0.30 - 1e-9);    // the sweep ends at the best fit
   P.heroState = T => {
@@ -34,10 +43,12 @@
   }
   const ro = { box: $('heroReadout'), dec: $('roDec'), tag: $('roTag'), s: $('roS'), v: $('roV'), x: $('roX'), cur: $('roCur') };
   const phases = [...document.querySelectorAll('.phases li')], call = $('cliffCall'), copy = document.querySelector('.hero .copy');
+  const shade = document.querySelector('.hero .shade');   // the left wash is for the headline; it fades with it so the scene's labels stay crisp
   let lastNear = null, lastT = -1;
   function heroDOM(T) {
     if (Math.abs(T - lastT) < 1e-4) return; lastT = T; const h = P.heroState(T);
     if (ro.box && !document.querySelector('.hero.no-webgl')) ro.box.style.opacity = h.ro.toFixed(3);
+    if (shade && !S.reduced) shade.style.opacity = (1 - sstep(.04, .3, T)).toFixed(3);
     phases.forEach((li, i) => li.classList.toggle('on', i === h.phase));
     if (call) { call.style.opacity = h.call.toFixed(3); call.style.transform = `translate(0,${(10 - 10 * h.call).toFixed(1)}px)`; }
     if (h.near !== lastNear && ro.dec) {
@@ -53,20 +64,26 @@
   if (S.reduced && copy) copy.style.opacity = 1;
   if (S.reduced && call) call.hidden = true;   // the final keyframe is shown at once; the headline already says it
 
+  });
   /* ---------- static path: figures F1-F7 for reduced motion and software or missing WebGL */
+  safe('static', () => {
   const heroFb = document.querySelector('.hero .fallback');
   const heroImg = () => { if (heroFb && document.querySelector('.hero.no-webgl')) heroFb.src = 'assets/hero_' + (S.isDark() ? 'dark' : 'light') + '.webp'; };
   const staticFigs = () => document.querySelectorAll('.viz img.fallback[data-src]').forEach(i => { if (!i.getAttribute('src')) i.src = i.dataset.src; });
   if (S.reduced) { document.documentElement.classList.add('viz-static'); staticFigs(); }
   heroImg(); document.addEventListener('themechange', heroImg);
-  // if three.js never arrives (blocked CDN, module error), show the hero render after a grace period
-  if (!S.softGL) setTimeout(() => { if (!window.__heroReady) { const h = document.querySelector('.hero'); if (h) { h.classList.add('no-webgl'); heroImg(); if (ro.box) ro.box.style.opacity = 1; } } }, 8000);
-  if (!S.reduced) setTimeout(() => { if (!window.__viz || !window.__viz.S) { document.documentElement.classList.add('viz-static'); staticFigs(); } }, 9000);
+  // if three.js or the scene modules never arrive (blocked CDN, module error), show the static hero and figures after a grace period
+  if (!S.softGL) setTimeout(() => { if (!window.__heroReady) P.heroFallback(); }, 8000);
+  if (!S.reduced) setTimeout(() => { if (!window.__viz || !window.__viz.S) { document.documentElement.classList.add('viz-static'); staticFigs(); } else P.vizSweep(); }, 9000);
 
+  });
   /* ---------- reveals by IntersectionObserver as well (instant jumps, restored scroll positions) */
+  safe('reveals', () => {
   if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } })); document.querySelectorAll('.reveal').forEach(el => io.observe(el)); }
 
+  });
   /* ---------- 01 Voc(T) model toggle */
+  safe('vocT', () => {
   const VT = { cliff: 'best cliff, S = ', spike: 'best spike, S = ', published: 'published spike, S on the ridge = ' };
   function setVT(k) {
     P.vt = k; P.bump(); const m = D.vocT.models.find(x => x.key === k);
@@ -75,9 +92,10 @@
   }
   document.querySelectorAll('[data-vt]').forEach(b => b.addEventListener('click', () => setVT(b.dataset.vt))); setVT('cliff');
 
+  });
   /* ---------- 02 the cliff, live */
+  safe('cliff', () => {
   const dS = $('dEcSlider'), sS = $('sSlider');
-  P.cliffData = fetch('assets/cliff.json').then(r => r.json()).then(j => { P.cliffJSON = j; return j; }).catch(() => null);
   const lerpRow = (rows, ls, cols) => { let k = 1; while (k < rows.length - 1 && rows[k][0] < ls) k++; const a = rows[k - 1], b = rows[k], t = clamp((ls - a[0]) / ((b[0] - a[0]) || 1), 0, 1); return cols.map(c => a[c] == null || b[c] == null ? null : a[c] + (b[c] - a[c]) * t); };
   function evalCliff(J, i, ls) {
     const o = J.offsets[i], fine = o.fine, mp = o.map, lo = fine[0][0], hi = fine[fine.length - 1][0];
@@ -145,12 +163,16 @@
     document.addEventListener('themechange', drawMap);
   }
 
+  });
   /* ---------- 03 valley steps */
+  safe('valley', () => {
   const VL = { map: ['The map', 'Δχ² over (ΔE<sub>c</sub>, log S)'], ridge: ['The ridge', '12.9 decades of S per eV'], floor: ['The floor', '95 %: −0.335 to −0.277 eV'], xps: ['The XPS band', '−0.32 eV inside the 68 % region'], spike: ['The published spike', 'Δχ² ≈ 589'] };
   const vlab = $('valLabel');
   if (S.steps) S.steps('#valSteps .step', k => { P.valley = k; P.bump(); if (vlab && VL[k]) vlab.innerHTML = `<b>${VL[k][0]}</b>${VL[k][1]}`; });
 
+  });
   /* ---------- 04 fluctuation gate */
+  safe('fluct', () => {
   const F = D.fluct, sg = $('sigSlider');
   function updSig() {
     const s = +sg.value, k = F.sigma.indexOf(s), row = F.dchi2[k]; P.sigma = s; P.bump();
@@ -159,15 +181,16 @@
     $('sigRead').innerHTML = `At σ = ${s} meV the best offset is ${sgn(F.dEc[bi])} eV (Δχ² ${fmtX(row[bi])}, S = ${fmtS(F.logS[k][bi])}); the best spike, +0.06 eV, sits at Δχ² ${fmtX(row[si])}, above the floor of ${Math.round(F.spike_min)}.`;
   }
   if (sg) { sg.addEventListener('input', updSig); updSig(); }
-  const gt = $('gateTable');
-  if (gt) { const mx = 600; gt.innerHTML = [['S free', F.spike.free], ['S ≥ 1 cm/s', F.spike.S1], ['S ≥ 10 cm/s', F.spike.S10]].map(([n, v]) => `<tr><td>${n}</td>${v.map(x => `<td class="num"><span class="bar" style="width:${(x / mx * 90).toFixed(0)}px"></span>${Math.round(x)}</td>`).join('')}</tr>`).join(''); }
 
+  });
   /* ---------- 05 ZnO table, 06 badges, 07 solver tables */
-  const zt = $('znoTable');
-  if (zt) zt.innerHTML = D.zno.series.map(r => `<tr><td>${r.x.toFixed(2)}</td><td class="num">${sgn(r.dEc)}</td><td class="num">${Math.round(r.voc_best)}</td><td class="num">${r.voc_model.toFixed(1)}</td><td class="num">${r.eta_best.toFixed(1)} / ${r.eta_avg.toFixed(1)}</td></tr>`).join('');
-  if ($('bdScaps')) { $('bdScaps').textContent = D.design.scaps.toFixed(2) + ' %'; $('bdSesame').textContent = D.design.cons.toFixed(2) + ' %'; }
-  const lt = $('lightTable');
-  if (lt) lt.innerHTML = D.solvers.table.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td>${r.slice(2).map(c => `<td class="num">${minus(c)}</td>`).join('')}</tr>`).join('');
+  // each table is filled on its own, from data.js only (no WebGL involved)
+  safe('gate table', () => { const F = D.fluct, gt = $('gateTable'), mx = 600; if (gt) gt.innerHTML = [['S free', F.spike.free], ['S ≥ 1 cm/s', F.spike.S1], ['S ≥ 10 cm/s', F.spike.S10]].map(([n, v]) => `<tr><td>${n}</td>${v.map(x => `<td class="num"><span class="bar" style="width:${(x / mx * 90).toFixed(0)}px"></span>${Math.round(x)}</td>`).join('')}</tr>`).join(''); });
+  safe('ZnO table', () => { const zt = $('znoTable'); if (zt) zt.innerHTML = D.zno.series.map(r => `<tr><td>${r.x.toFixed(2)}</td><td class="num">${sgn(r.dEc)}</td><td class="num">${Math.round(r.voc_best)}</td><td class="num">${r.voc_model.toFixed(1)}</td><td class="num">${r.eta_best.toFixed(1)} / ${r.eta_avg.toFixed(1)}</td></tr>`).join(''); });
+  safe('badges', () => { if ($('bdScaps')) { $('bdScaps').textContent = D.design.scaps.toFixed(2) + ' %'; $('bdSesame').textContent = D.design.cons.toFixed(2) + ' %'; } });
+  safe('light table', () => { const lt = $('lightTable'); if (lt) lt.innerHTML = D.solvers.table.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td>${r.slice(2).map(c => `<td class="num">${minus(c)}</td>`).join('')}</tr>`).join(''); });
+  /* ---------- 07 the voltage sweep */
+  safe('sweep', () => {
   const SW = D.solvers.dark, VV = SW[0].V, swb = $('swBody'), SWC = ['--c-hot', '--c-cyan', '--c-violet', '--c-green'];
   const fJ = j => j >= 1 ? j.toFixed(2) : j.toExponential(2).replace('e', '×10^').replace(/\^([+-]?)(\d+)/, (m, s, d) => sup((s === '-' ? '-' : '') + +d)).replace('-', '−');
   function updSweep() {
@@ -181,4 +204,5 @@
   if (swEl && 'IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => swVisible = e.isIntersecting)).observe(swEl);
   if (!S.reduced) setInterval(() => { if (!swVisible || P.sweep.paused) return; let i = P.sweep.i + dir; if (i >= VV.length || i < 0) { dir = -dir; i = P.sweep.i + dir; } P.sweep.i = i; updSweep(); }, 850);
   else { P.sweep.paused = true; if (pb) pb.hidden = true; }
+  });
 })();

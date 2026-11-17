@@ -8,7 +8,7 @@
    the identifiability ridge (ident_profile.csv via window.CDTE.profile; window.PAGE.heroState is the shared timeline).
    Band shapes away from the interface (bending, grading, back barrier) are schematic; the step and S are the data.
    The stage mounts when the hero is near the viewport and is disposed when it is far away, then rebuilt on return. */
-import { THREE, createStage, cameraPath, makeLabel, redrawLabel, palette } from './three-kit.js';
+import { THREE, createStage, cameraPath, makeLabel, redrawLabel, palette } from './three-kit.js?v=c56cef6b86';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
@@ -42,6 +42,10 @@ function mount(canvas) {
   const ctr = new OrbitControls(camera, canvas); ctr.enableDamping = true; ctr.enableZoom = false; ctr.enablePan = false; ctr.enabled = !phone; ctr.minPolarAngle = .55; ctr.maxPolarAngle = 1.75; ctr.rotateSpeed = .5;
   const hemi = new THREE.HemisphereLight(0xffffff, 0x223355, .85), dl = new THREE.DirectionalLight(0xffffff, 1.6); dl.position.set(-6, 9, 8); const fill = new THREE.DirectionalLight(0xffffff, .5); fill.position.set(6, -2, 6); scene.add(hemi, dl, fill);
   const G = new THREE.Group(); scene.add(G);
+  // labels live in an overlay scene drawn after the post-processing chain, without tone mapping or bloom, so they keep their
+  // exact colours and stay crisp in both themes
+  const LS = new THREE.Scene(), baseRender = st.render;
+  st.render = () => { baseRender(); const r = st.renderer, tm = r.toneMapping, ac = r.autoClear; r.toneMapping = THREE.NoToneMapping; r.autoClear = false; r.render(LS, camera); r.autoClear = ac; r.toneMapping = tm; };
   const disposables = [];
 
   /* ---------- deformable slabs: a box per layer whose top and bottom faces move from the slab faces to Ec(x) and Ev(x) */
@@ -115,10 +119,10 @@ function mount(canvas) {
 
   /* ---------- labels */
   const labs = [];
-  const lab = (t, o = {}) => { const s = makeLabel(t, { px: 26, scale: phone ? .16 : .12, color: 'muted', bg: false, ...o }); G.add(s); labs.push(s); return s; };
+  const lab = (t, o = {}) => { const s = makeLabel(t, { px: 30, scale: phone ? .19 : .15, color: 'muted', bg: false, weight: 800, ...o }); LS.add(s); labs.push(s); return s; };
   const LL = [['glass', 'glass', 'muted'], ['fto', 'FTO', 'blue'], ['zno', 'ZnO', 'green'], ['abs', 'As-doped CdSeTe → CdTe', 'warm'], ['back', 'back contact', 'steel']].map(([k, t, c]) => ({ k, s: lab(t, { color: c, weight: 700, px: 28 }) }));
   const lSun = lab('sunlight', { color: 'yellow', weight: 700, px: 28 }), lEc = lab('Ec · conduction band', { color: 'ink', weight: 600 }), lEv = lab('Ev · valence band', { color: 'ink', weight: 600 }), lEf = lab('EF', { color: 'muted' }), lBack = lab('back barrier 0.50 eV', { color: 'muted' }), lRec = lab('interface recombination', { color: 'rose', weight: 700 });
-  const lStepLab = lab('+0.10 eV spike', { color: 'ink', weight: 800, px: 30, bg: null });
+  const lStepLab = lab('+0.10 eV spike', { color: 'ink', weight: 800, px: 32, bg: null });
   let stepText = '';
 
   /* ---------- particles: one slot = photon, then an electron-hole pair */
@@ -200,13 +204,13 @@ function mount(canvas) {
     // labels
     const cx = k => (L[k][0] + L[k][1]) / 2, yTop = 2.35;
     const yFl = yE(EFLOOR) + .28;
-    LL.forEach(({ k, s }) => { const zt = k === 'abs' ? 0 : ZW * .4; s.position.set(cx(k) + (k === 'glass' ? -m * 3.2 : 0) + (k === 'fto' ? -m * .1 : 0), lerp(yTop + (k === 'fto' || k === 'glass' ? .36 : 0), k === 'abs' ? yE(EvAbs(.6)) - .55 : yFl + (k === 'zno' ? .42 : 0), m), lerp(zt, ZW + .05, m)); s.material.opacity = k === 'glass' ? 1 - m : 1; });
+    LL.forEach(({ k, s }) => { const zt = k === 'abs' ? 0 : ZW * .4; s.position.set(cx(k) + (k === 'glass' ? -m * 3.2 : 0) + (k === 'fto' ? -m * .1 : 0) + (k === 'abs' ? m * 2.3 : 0), lerp(yTop + (k === 'fto' || k === 'glass' ? .36 : 0), k === 'abs' ? yE(EvAbs(2.3)) - .95 : yFl + (k === 'zno' ? .42 : 0), m), lerp(zt, ZW + .05, m)); s.material.opacity = k === 'glass' ? 1 - m : 1; });
     lSun.position.set(lerp(-8.9, -7.4, m), lerp(.95, yE(.35) + .7, m), 0); lSun.material.opacity = lerp(1, .8, m);
-    const lb = sstep(.55, 1, m);
-    lEc.position.set(1.6, yE(EcAbs(1.6)) + .42, ZW); lEv.position.set(1.6, yE(EvAbs(1.6)) - .42, ZW); lEf.position.set(L.back[1] + .65, yE(0), ZW);
+    const lb = sstep(.4, .85, m);
+    lEc.position.set(-1.5, yE(EcAbs(-1.5)) - .32, ZW); lEv.position.set(-1.1, yE(EvAbs(-1.1)) + .32, ZW);   // inside the gap, clear of the particles on the bands lEf.position.set(L.back[1] + .65, yE(0), ZW);
     lBack.position.set(2.75, yE(EvAbs(L.abs[1])) - .55, ZW); lRec.position.set(XI - 1.55, (H.yZ + H.yV) / 2 - .15, ZW);
     [lEc, lEv, lEf, lBack, lRec].forEach(s => s.material.opacity = lb);
-    lStepLab.position.set(XI - .1, Math.max(H.yZ, yE(EcAbs(XI))) + .62, ZW); lStepLab.material.opacity = sstep(.6, 1, m);
+    lStepLab.position.set(XI - .1, Math.max(H.yZ, yE(EcAbs(XI))) + .62, ZW); lStepLab.material.opacity = sstep(.45, .9, m);
     beams.visible = true;
     for (let i = 0; i < NB; i++) { const x0 = -11, x1 = lerp(XI, XI + .6, m), len = x1 - x0; tmpV.set((x0 + x1) / 2, lerp(BY[i], (yE(EcAbs(XI + .4)) + yE(EvAbs(XI + .4))) / 2 + BY[i] * .25, m), BZ[i]); sc.set(len, lerp(1, .6, m), lerp(1, .6, m)); tmpM.compose(tmpV, Q, sc); beams.setMatrixAt(i, tmpM); }
     beams.instanceMatrix.needsUpdate = true;
@@ -253,14 +257,15 @@ function mount(canvas) {
     return changed;
   });
   window.__hero = { st, applyBands, H };
-  return () => { removeEventListener('pointerup', up); ctr.dispose(); disposables.forEach(d => d.dispose()); [beamG, sph, photonG, flashG].forEach(g => g.dispose()); st.dispose(); };
+  return () => { removeEventListener('pointerup', up); ctr.dispose(); disposables.forEach(d => d.dispose()); [beamG, sph, photonG, flashG].forEach(g => g.dispose()); labs.forEach(l => { l.material.map && l.material.map.dispose(); l.material.dispose(); }); st.dispose(); };
 }
 
 /* ---------- lazy mount / dispose by distance from the viewport */
 (function () {
   const track = document.querySelector('.hero-track'); let canvas = document.getElementById('heroCanvas'); if (!track || !canvas) return;
   let unmount = null;
-  const doMount = () => { if (unmount) return; unmount = mount(canvas) || null; if (!unmount) { document.querySelector('.hero').classList.add('no-webgl'); } };
+  const fail = e => { if (e) console.warn('hero: falling back to the static render', e); const h = document.querySelector('.hero'); h.classList.add('no-webgl'); const fb = h.querySelector('.fallback'); if (fb) fb.src = 'assets/hero_' + (S.isDark() ? 'dark' : 'light') + '.webp'; const ro = document.getElementById('heroReadout'); if (ro) ro.style.opacity = 1; };
+  const doMount = () => { if (unmount || document.querySelector('.hero.no-webgl')) return; try { unmount = mount(canvas) || null; } catch (e) { unmount = null; fail(e); return; } if (!unmount) fail(); };
   const doUnmount = () => { if (!unmount) return; unmount(); unmount = null; const fresh = canvas.cloneNode(false); canvas.replaceWith(fresh); canvas = fresh; };
   new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) doMount(); }), { rootMargin: '50% 0px 50% 0px' }).observe(track);
   new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) doUnmount(); }), { rootMargin: '150% 0px 150% 0px' }).observe(track);

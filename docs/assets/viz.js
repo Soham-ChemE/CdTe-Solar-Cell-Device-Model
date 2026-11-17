@@ -6,7 +6,7 @@
    screen and only when something changed, supports hover readouts (raycast), drag-to-orbit, and both themes.
    Reduced motion or no WebGL: the views are not built and each placeholder shows its static PNG (docs/build_assets.py).
    Helpers: axes, ribbon, bars, surface, tiles, exploded, label, mat. ES module; three.js via the page's import map. */
-import { THREE, palette, THEME, roomEnvironment, makeLabel, redrawLabel } from './three-kit.js';
+import { THREE, palette, THEME, roomEnvironment, makeLabel, redrawLabel } from './three-kit.js?v=c56cef6b86';
 
 const S = () => window.SITE || { reduced: matchMedia('(prefers-reduced-motion:reduce)').matches, phone: matchMedia('(max-width:640px)').matches, isDark: () => matchMedia('(prefers-color-scheme:dark)').matches, onFrame: cb => requestAnimationFrame(function l(t) { cb(t / 1000, 16); requestAnimationFrame(l) }) };
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -36,7 +36,7 @@ export const Viz = {
     if (this.renderer || this.static) return !!this.renderer;
     const s = this.S;
     const canvas = document.createElement('canvas'); canvas.className = 'viz-canvas'; canvas.setAttribute('aria-hidden', 'true'); document.body.appendChild(canvas); this.canvas = canvas;
-    let r; try { r = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' }); } catch (e) { canvas.remove(); this.static = true; document.documentElement.classList.add('viz-static'); this.applyStatic(); return false; }
+    let r; try { r = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' }); } catch (e) { console.warn('viz: no WebGL renderer, showing the static figures', e); canvas.remove(); this.static = true; document.documentElement.classList.add('viz-static'); this.applyStatic(); this.views.forEach(v => this.fallback(v.el)); return false; }
     this.renderer = r; r.setPixelRatio(Math.min(devicePixelRatio || 1, s.phone ? 1.5 : 2)); r.setClearColor(0x000000, 0); r.toneMapping = THREE.ACESFilmicToneMapping; r.autoClear = false;
     r.toneMappingExposure = THEME[this.dark ? 'dark' : 'light'].exposure;
     this.env = roomEnvironment(r);
@@ -56,7 +56,7 @@ export const Viz = {
         const start = vh * .92, end = Math.min(vh * .58 - rc.height / 2, start - vh * .25);
         const target = v.pinned != null ? v.pinned : clamp((start - rc.top) / Math.max(1, start - end), 0, 1);
         if (Math.abs(target - v.p) > 1e-3) { v.p += (target - v.p) * (v.pinned != null ? 1 : .14); if (Math.abs(target - v.p) < 1e-3) v.p = target; v.dirty = true; }
-        const changed = v.update ? v.update(v, t, dt) : false; if (changed || v.dirty || scrolled) any = true;
+        let changed = false; try { changed = v.update ? v.update(v, t, dt) : false; } catch (e) { this.fail(v, e); continue; } if (changed || v.dirty || scrolled) any = true;
       }
       if (any && anyVisible) this.renderAll();
       else if (scrolled && !anyVisible && this.painted) { r.setScissorTest(false); r.clear(); this.painted = false; }
@@ -87,7 +87,7 @@ export const Viz = {
       // the camera keeps the whole element's aspect; the scissor clips to the visible part
       const asp = rc.width / rc.height; if (Math.abs(v.camera.aspect - asp) > 1e-3) { v.camera.aspect = asp; const da = v.o.aspect || 1.6, f0 = v.o.fov || 34; v.camera.fov = asp < da ? 2 * Math.atan(Math.tan(f0 * Math.PI / 360) * da / asp) * 180 / Math.PI : f0; v.camera.updateProjectionMatrix(); }  // keep the designed horizontal extent on narrow placeholders
       r.setViewport(rc.left, h - rc.bottom, rc.width, rc.height); r.setScissor(left, h - bottom, right - left, bottom - top);
-      r.render(v.scene, v.camera); v.dirty = false;
+      try { r.render(v.scene, v.camera); } catch (e) { this.fail(v, e); continue; } v.dirty = false;
     }
     r.setScissorTest(false); this.painted = true;
   },
@@ -118,7 +118,7 @@ export const Viz = {
   },
 
   buildView(v) {
-    if (!v || v.built || !this.boot()) return;
+    if (!v || v.built || v.failed) return; if (!this.boot()) { this.fallback(v.el); return; }
     const o = v.o, T = THEME[this.dark ? 'dark' : 'light'];
     const scene = new THREE.Scene(); scene.environment = this.env; const envIntensity = o.envIntensity ?? .5; scene.environmentIntensity = envIntensity * T.env;
     const camera = new THREE.PerspectiveCamera(o.fov || 34, 1.6, .05, 200); camera.position.set(...(o.camera || [4, 3, 6])); const target = new THREE.Vector3(...(o.target || [0, 0, 0])); camera.lookAt(target);
@@ -126,16 +126,25 @@ export const Viz = {
     Object.assign(v, { scene, camera, rig, target, envIntensity, lights: [], pickables: [], update: null, hover: null, onTheme: null, dark: this.dark, pal: this.pal, dirty: true });
     const hemi = new THREE.HemisphereLight(0xffffff, 0x334466, o.hemi ?? .9), dl = new THREE.DirectionalLight(0xffffff, o.sun ?? 1.3); dl.position.set(4, 8, 6); hemi.userData.base = hemi.intensity; dl.userData.base = dl.intensity; scene.add(hemi, dl); v.lights.push(hemi, dl);
     v.lights.forEach(l => l.intensity = l.userData.base * T.lights);
-    v.build(v, this);
+    try { v.build(v, this); } catch (e) { this.fail(v, e); return; }
     const userUpdate = v.update;
     v.update = (vv, t, dt) => { let ch = false; if (vv.spin && !vv.dragging()) { vv.rot += vv.spin * (dt / 1000); ch = true; } rig.rotation.y = vv.rot; rig.rotation.x = vv.tilt; if (userUpdate) ch = userUpdate(vv, t, dt) || ch; return ch; };
     v.built = true; v.builds = (v.builds || 0) + 1;
   },
 
+  /* A scene that throws (while building, updating or rendering) is disposed and replaced by its static figure; the others go on. */
+  fail(v, e) {
+    console.error('viz: scene "' + (v && v.name) + '" failed; showing its static figure', e);
+    if (!v || v.failed) return; v.failed = true; v.built = true; this.disposeView(v); v.built = false; Viz.fallback(v.el);
+  },
+  fallback(el) {
+    if (!el) return; el.classList.remove('viz-live'); el.classList.add('viz-failed'); el.removeAttribute('data-pending');
+    const img = el.querySelector('img.fallback'); if (img && img.dataset.src && !img.getAttribute('src')) img.src = img.dataset.src;
+  },
+
   disposeView(v) {
     if (!v || !v.built) return; v.built = false; v.visible = false;
-    v.scene.traverse(o => { o.geometry && o.geometry.dispose(); if (o.material) [].concat(o.material).forEach(m => { for (const k in m) if (m[k] && m[k].isTexture) m[k].dispose(); m.dispose(); }); });
-    v.scene.clear(); v.scene = v.rig = v.camera = null; v.pickables = []; v.lights = []; v.update = v.hover = v.onTheme = null;
+    if (v.scene) { v.scene.traverse(o => { o.geometry && o.geometry.dispose(); if (o.material) [].concat(o.material).forEach(m => { for (const k in m) if (m[k] && m[k].isTexture) m[k].dispose(); m.dispose(); }); }); v.scene.clear(); } v.scene = v.rig = v.camera = null; v.pickables = []; v.lights = []; v.update = v.hover = v.onTheme = null;
     if (v.onDispose) v.onDispose(v);
   },
 

@@ -10,7 +10,8 @@
 .hero-track{height:380vh}
 .hero{background:var(--bg)}
 .hero canvas{touch-action:pan-y}
-.hero .shade{background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 70%,transparent) 0,color-mix(in srgb,var(--bg) 25%,transparent) 36%,transparent 58%),linear-gradient(180deg,transparent 52%,color-mix(in srgb,var(--bg) 70%,transparent) 82%,var(--bg) 100%);transition:opacity .4s}
+.hero .shade{background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 70%,transparent) 0,color-mix(in srgb,var(--bg) 25%,transparent) 36%,transparent 58%)}
+.hero .shadeb{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 52%,color-mix(in srgb,var(--bg) 70%,transparent) 82%,var(--bg) 100%)}
 .hero .copy{bottom:8vh}.hero .copy .wrap{max-width:1180px}.hero h1{max-width:12ch}.hero p{max-width:44ch}
 .hero .copy .eyebrow{margin-bottom:10px}
 .phases{position:absolute;left:16px;top:66px;margin:0;padding:4px;list-style:none;display:flex;gap:4px;background:var(--glass);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:12.5px;color:var(--muted)}
@@ -39,7 +40,7 @@
  .phases{top:58px;left:8px;font-size:11px}.phases li{padding:4px 8px}
  .hero .readout{left:8px;right:8px;width:auto;top:96px;padding:8px 10px;font-size:12px}
  .readout .big{font-size:22px;display:inline-block;margin-right:8px}.readout .ro-tag{display:inline-block;margin:0}.readout .k,.readout .fine,.readout svg{display:none}.readout .row{margin-top:1px}
- .hero .shade{background:linear-gradient(180deg,transparent 50%,color-mix(in srgb,var(--bg) 78%,transparent) 76%,var(--bg) 100%)}
+ .hero .shade{background:none}.hero .shadeb{background:linear-gradient(180deg,transparent 50%,color-mix(in srgb,var(--bg) 78%,transparent) 76%,var(--bg) 100%)}
  nav .brand{font-size:15px;white-space:nowrap}
  .hero .copy{bottom:4vh}.hero h1{font-size:34px}.hero p{font-size:15px;max-width:none}.hide-sm{display:none}
  .cliffcall{top:auto;bottom:24vh;left:8px;right:8px;max-width:none}}
@@ -122,3 +123,8 @@ caption{caption-side:top;text-align:left;padding:0 0 6px}
 
 nav .links a{white-space:nowrap}@media (max-width:420px){nav .links a.hide-xs{display:none}nav .wrap{gap:12px}}
 @media (max-width:640px){.viz.wide{aspect-ratio:4/3}}
+
+/* a scene that failed (or never started) shows its static figure in place */
+.viz.viz-failed{aspect-ratio:auto;background:var(--paper);cursor:auto}
+.viz.viz-failed img.fallback{position:relative;inset:auto;height:auto;opacity:1}
+.sticky-fig .viz.viz-failed img.fallback{position:absolute;inset:0;height:100%}
