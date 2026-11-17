@@ -7,10 +7,10 @@ Writes
   docs/assets/data.js            window.CDTE = {...}: hero profile, Voc(T) curves (F1), fluctuation gate (F3), ZnO paradox
                                  (F4), design staircase (F5), solver cross-check (F6), ZnSe collapse map (F7)
   docs/assets/cliff.json         the identifiability map and fine scan (F2), loaded lazily by "The cliff, live" and the valley
-  docs/assets/social-preview.png 1280x640 card; embeds docs/assets/hero_dark.webp when it exists (rendered by tools/page_qa.py)
+  docs/assets/social-preview.png 1280x640 card; embeds docs/assets/hero_dark.webp when it exists (rendered by page_qa.py)
 
 Run from anywhere:   python docs/build_assets.py          (numpy, scipy, matplotlib)
-Renders and QA:      python docs/tools/page_qa.py --hero --qa   (Playwright for Python; see that file), then re-run this
+Renders and QA:      python docs/page_qa.py --hero --qa   (Playwright for Python; see that file), then re-run this
                      script so the social preview picks up the new hero render.
 """
 import csv
@@ -218,7 +218,7 @@ BG, INK, MUT, CY, GR, OR = "#0b1220", "#e6edf3", "#8b98a9", "#22d3ee", "#34d399"
 fig = plt.figure(figsize=(12.8, 6.4), dpi=100, facecolor=BG)
 ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 1280); ax.set_ylim(640, 0); ax.axis("off"); ax.set_facecolor(BG)
 render = OUT / "hero_dark.webp"
-if render.exists():  # the 3D hero, captured by docs/tools/page_qa.py --hero, on the right half with a fade into the text side
+if render.exists():  # the 3D hero, captured by docs/page_qa.py --hero, on the right half with a fade into the text side
     from PIL import Image
     img = np.asarray(Image.open(render).convert("RGB")) / 255.0
     h, w = img.shape[:2]

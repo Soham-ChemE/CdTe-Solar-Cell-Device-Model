@@ -45,7 +45,7 @@ more than two and a half viewports away (`viz.js`); the shared renderer caps the
 renders only when something changed. Narrow placeholders widen the camera's field of view so the designed horizontal
 extent stays in frame.
 
-## QA (`docs/tools/page_qa.py`)
+## QA (`docs/page_qa.py`)
 
 Playwright for Python, headless Chromium with software WebGL and `window.__forceGL` (frame timing not representative):
 `--hero` renders `assets/hero_dark.webp` and `hero_light.webp` (the no-WebGL hero), `--qa` writes both-theme screenshots at

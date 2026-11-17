@@ -1,0 +1,122 @@
+{
+ "pages": {
+  "index.html": {
+   "dark": {
+    "errors": [],
+    "failed": [],
+    "overflowPx1440": 0,
+    "scenesBuilt": [
+     "vocT:2",
+     "cliff:2",
+     "fluct:2",
+     "zno:2",
+     "design:1",
+     "solvers:1",
+     "znse:1",
+     "valley:2"
+    ],
+    "transferBytes": 614643,
+    "mobileErrors": [],
+    "mobileFailed": [],
+    "overflowPx375": 0,
+    "reducedMotionFigures": [
+     {
+      "src": "F1_vocT_cliff_vs_spike.png",
+      "visible": "1"
+     },
+     {
+      "src": "F2_identifiability.png",
+      "visible": "1"
+     },
+     {
+      "src": "F3_fluctuation_gate.png",
+      "visible": "1"
+     },
+     {
+      "src": "F4_pandey_oneS.png",
+      "visible": "1"
+     },
+     {
+      "src": "F5_design_waterfall.png",
+      "visible": "1"
+     },
+     {
+      "src": "F6_solver_crossvalidation.png",
+      "visible": "1"
+     },
+     {
+      "src": "F7_SI_znse_collapse.png",
+      "visible": "1"
+     }
+    ],
+    "reducedErrors": [],
+    "reducedFailed": [],
+    "softwareGL": {
+     "softGL": true,
+     "hero": "hero no-webgl",
+     "img": "assets/hero_dark.webp"
+    },
+    "softErrors": [],
+    "softFailed": []
+   },
+   "light": {
+    "errors": [],
+    "failed": [],
+    "overflowPx1440": 0,
+    "scenesBuilt": [
+     "vocT:2",
+     "cliff:2",
+     "fluct:2",
+     "zno:2",
+     "design:1",
+     "solvers:1",
+     "znse:1",
+     "valley:2"
+    ],
+    "transferBytes": 614643,
+    "mobileErrors": [],
+    "mobileFailed": [],
+    "overflowPx375": 0,
+    "reducedMotionFigures": [
+     {
+      "src": "F1_vocT_cliff_vs_spike.png",
+      "visible": "1"
+     },
+     {
+      "src": "F2_identifiability.png",
+      "visible": "1"
+     },
+     {
+      "src": "F3_fluctuation_gate.png",
+      "visible": "1"
+     },
+     {
+      "src": "F4_pandey_oneS.png",
+      "visible": "1"
+     },
+     {
+      "src": "F5_design_waterfall.png",
+      "visible": "1"
+     },
+     {
+      "src": "F6_solver_crossvalidation.png",
+      "visible": "1"
+     },
+     {
+      "src": "F7_SI_znse_collapse.png",
+      "visible": "1"
+     }
+    ],
+    "reducedErrors": [],
+    "reducedFailed": [],
+    "softwareGL": {
+     "softGL": true,
+     "hero": "hero no-webgl",
+     "img": "assets/hero_light.webp"
+    },
+    "softErrors": [],
+    "softFailed": []
+   }
+  }
+ }
+}
