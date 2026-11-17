@@ -6,7 +6,7 @@
    screen and only when something changed, supports hover readouts (raycast), drag-to-orbit, and both themes.
    Reduced motion or no WebGL: the views are not built and each placeholder shows its static PNG (docs/build_assets.py).
    Helpers: axes, ribbon, bars, surface, tiles, exploded, label, mat. ES module; three.js via the page's import map. */
-import { THREE, palette, THEME, roomEnvironment, makeLabel, redrawLabel } from './three-kit.js?v=c56cef6b86';
+import { THREE, palette, THEME, roomEnvironment, makeLabel, redrawLabel } from './three-kit.js?v=f87cbbf5a1';
 
 const S = () => window.SITE || { reduced: matchMedia('(prefers-reduced-motion:reduce)').matches, phone: matchMedia('(max-width:640px)').matches, isDark: () => matchMedia('(prefers-color-scheme:dark)').matches, onFrame: cb => requestAnimationFrame(function l(t) { cb(t / 1000, 16); requestAnimationFrame(l) }) };
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
