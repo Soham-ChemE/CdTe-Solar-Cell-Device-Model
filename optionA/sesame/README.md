@@ -5,12 +5,12 @@ validated against SCAPS on the cases SCAPS solves. It is then run on the 48-case
 `optionA/zno_hypotheses.py`, where SCAPS failed on 42 cases.
 
 Bottom line:
-- **Validation:** with SCAPS's own optics, Sesame reproduces all 8 converged SCAPS cases to within 1.1 mV in Voc,
+- **Validation:** with SCAPS's own optics, Sesame reproduces all 8 converged SCAPS cases (spike or shallow-cliff, defect-layer front) to within 1.1 mV in Voc,
   0.22% in Jsc, 0.07 points in FF and 0.03 points in efficiency.
 - **Convergence:** all 48 grid cases converge in Sesame, and so do all 48 cases of a second front-recombination
   variant.
-- **How front recombination is represented decides the answers.** SCAPS's model puts it in a 10 nm absorber-side
-  interface layer (IL). There it cannot exchange electrons with the ZnO conduction band, so a deeper cliff starves it
+- **How front recombination is represented decides the answers.** Our first rebuild (optionA/mzo_model.py, kujovic_model.py) put it in a 10 nm absorber-side
+  interface layer (IL); the published model used SCAPS interface-defect blocks instead. There it cannot exchange electrons with the ZnO conduction band, so a deeper cliff starves it
   of electrons. The trends with cliff depth then come out wrong (not monotonic, and often "deeper is better"). The
   grid was therefore also run with interface states that couple the ZnO conduction band to the absorber valence band
   (`grid.py --interface`). That variant gives the textbook behaviour and reproduces the calibrated x = 0.15 cell
@@ -181,7 +181,7 @@ and 47 (deep cliff, high S, kinked curves). Each change is measured against the 
 All 48 cases converged in Sesame (`grid_results.csv`). Each is checked against the `.def` that SCAPS failed on.
 For the 6 cases SCAPS did solve (h000–h010), the grid reproduces the validation numbers above.
 
-Voc in mV, Jsc in mA/cm², FF and eta in %. "IL" is the SCAPS model, with front recombination in the 10 nm interface layer. "Interface states" is the sensitivity variant described below. The SCAPS column lists the 6 cases SCAPS solved; the IL column reproduces them to within 1.1 mV.
+Voc in mV, Jsc in mA/cm², FF and eta in %. "IL" is our first-rebuild representation, with front recombination in the 10 nm interface layer. "Interface states" is the sensitivity variant described below. The SCAPS column lists the 6 cases SCAPS solved; the IL column reproduces them to within 1.1 mV.
 
 | # | ΔEc | S_front | ND_ZnO | NA | IL: Voc / Jsc / FF / eta | interface states: Voc / Jsc / FF / eta | SCAPS |
 |---|---|---|---|---|---|---|---|
