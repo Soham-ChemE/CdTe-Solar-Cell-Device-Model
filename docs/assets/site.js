@@ -35,7 +35,9 @@
     document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();lenis.scrollTo(el,{offset:-52})}}));
   }
   S.lenis=lenis;
-  if(hasGSAP){gsap.ticker.add((t,dt)=>{for(const cb of S.frame) cb(t,dt)})}else{(function loop(t){for(const cb of S.frame) cb(t/1000,16);requestAnimationFrame(loop)})(0)}
+  // every frame callback is isolated: one that throws is removed (and told, through cb.onFail) instead of stopping the others
+  const runFrame=(t,dt)=>{for(const cb of S.frame.slice()){try{cb(t,dt)}catch(e){console.error(e);S.offFrame(cb);if(cb.onFail){try{cb.onFail(e)}catch(_){}}}}};
+  if(hasGSAP){gsap.ticker.add(runFrame)}else{(function loop(t){runFrame(t/1000,16);requestAnimationFrame(loop)})(0)}
 
   // pinned hero master timeline: scrubs SITE.hero.t from 0 to 1 over the track; fades and lifts the copy; sets glow
   const track=document.querySelector('.hero-track'), copy=document.querySelector('.hero .copy'), hint=document.querySelector('.scrollhint');

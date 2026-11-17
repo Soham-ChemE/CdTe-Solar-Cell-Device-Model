@@ -16,6 +16,7 @@ Renders and QA:      python docs/page_qa.py --hero --qa   (Playwright for Python
 import csv
 import json
 import math
+import re
 from pathlib import Path
 
 import numpy as np
@@ -244,3 +245,63 @@ for i, (big, small) in enumerate(stats):
 ax.text(64, 590, "soham-cheme.github.io/CdTe-Solar-Cell-Device-Model", color="#5b6676", fontsize=12, **kw)
 fig.savefig(OUT / "social-preview.png", facecolor=BG)
 print("wrote", OUT / "social-preview.png", "(with hero render)" if render.exists() else "(no hero render yet)")
+
+# ------------------------------------------------------------------ tables pre-rendered into index.html
+# The tables are written into the HTML at build time, so they show without JavaScript, without WebGL and whatever happens to
+# the scene modules; page.js rewrites them with the same rows (and drives the sweep table) once it runs.
+SUPD = str.maketrans("-0123456789", "⁻⁰¹²³⁴⁵⁶⁷⁸⁹")
+um = lambda t: str(t).replace("-", "−")  # noqa: E731
+sg = lambda v, d=2: ("+" if v > 0 else "") + um(f"{v:.{d}f}")  # noqa: E731
+
+
+def fJ(j):
+    if j >= 1:
+        return f"{j:.2f}"
+    m, e = f"{j:.2e}".split("e")
+    return um(m) + "×10" + str(int(e)).translate(SUPD)
+
+
+rows_html = {
+    "gateTable": "".join(f"<tr><td>{n}</td>" + "".join(f'<td class="num"><span class="bar" style="width:{x / 600 * 90:.0f}px"></span>{round(x)}</td>' for x in v) + "</tr>"
+                         for n, v in (("S free", fluct["spike"]["free"]), ("S ≥ 1 cm/s", fluct["spike"]["S1"]), ("S ≥ 10 cm/s", fluct["spike"]["S10"]))),
+    "znoTable": "".join(f'<tr><td>{r_["x"]:.2f}</td><td class="num">{sg(r_["dEc"])}</td><td class="num">{round(r_["voc_best"])}</td><td class="num">{r_["voc_model"]:.1f}</td><td class="num">{r_["eta_best"]:.1f} / {r_["eta_avg"]:.1f}</td></tr>' for r_ in zno["series"]),
+    "lightTable": "".join(f"<tr><td>{t[0]}</td><td>{t[1]}</td>" + "".join(f'<td class="num">{um(c)}</td>' for c in t[2:]) + "</tr>" for t in solv["table"]),
+}
+SWC = ["--c-hot", "--c-cyan", "--c-violet", "--c-green"]
+V0 = solv["dark"][0]["V"][6]
+rows_html["swBody"] = "".join(f'<tr><td><span class="sw-d" style="background:var({SWC[k]})"></span>{sg(c["dEc"])}</td><td class="num">{fJ(c["scaps"][c["V"].index(V0)])}</td>'
+                              f'<td class="num">{fJ(c["sesame"][c["V"].index(V0)])}</td><td class="num">{c["sesame"][c["V"].index(V0)] / c["scaps"][c["V"].index(V0)]:.3f}</td></tr>'
+                              for k, c in enumerate(solv["dark"]) if V0 in c["V"])
+idx_path = REPO / "docs/index.html"
+idx = idx_path.read_text()
+for tid, html in rows_html.items():
+    idx, n_ = re.subn(rf'(<tbody id="{tid}">).*?(</tbody>)', lambda m: m.group(1) + html + m.group(2), idx, flags=re.S)
+    assert n_ == 1, tid
+idx = re.sub(r'(<b id="swV">)[^<]*(</b>)', lambda m: m.group(1) + f"{V0:.2f} V" + m.group(2), idx)
+idx_path.write_text(idx)
+print("pre-rendered tables:", ", ".join(rows_html))
+
+# ------------------------------------------------------------------ cache busting
+# Every local asset URL carries ?v=<hash of all assets>, so a browser can never combine a cached file from an older release
+# with new code (a stale data.js under a new page.js is what blanked the body scenes in Safari after the 3D release).
+import hashlib  # noqa: E402
+
+DOCS = REPO / "docs"
+VERSIONED = ["assets/site.css", "assets/page.css", "assets/data.js", "assets/site.js", "assets/page.js", "assets/scene.js",
+             "assets/body.js", "assets/viz.js", "assets/three-kit.js", "assets/cliff.json"]
+TOKEN = re.compile(r"\?v=[0-9a-z]+")
+h = hashlib.sha1()
+for rel in VERSIONED:
+    h.update(TOKEN.sub("", (DOCS / rel).read_text()).encode())
+ver = h.hexdigest()[:10]
+PATTERNS = [(DOCS / "index.html", r"((?:\./)?assets/(?:site\.css|page\.css|data\.js|site\.js|page\.js|scene\.js|body\.js))(?:\?v=[0-9a-z]+)?"),
+            (OUT / "page.js", r"(assets/cliff\.json)(?:\?v=[0-9a-z]+)?"),
+            (OUT / "scene.js", r"(\./three-kit\.js)(?:\?v=[0-9a-z]+)?"),
+            (OUT / "viz.js", r"(\./three-kit\.js)(?:\?v=[0-9a-z]+)?"),
+            (OUT / "body.js", r"(\./(?:three-kit|viz)\.js)(?:\?v=[0-9a-z]+)?")]
+for path, pat in PATTERNS:
+    t = path.read_text()
+    t2 = re.sub(pat, lambda m: m.group(1) + "?v=" + ver, t)
+    if t2 != t:
+        path.write_text(t2)
+print("asset version", ver)

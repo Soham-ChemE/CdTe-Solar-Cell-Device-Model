@@ -1,10 +1,27 @@
 {
+ "engine": "chromium",
  "pages": {
   "index.html": {
    "dark": {
     "errors": [],
     "failed": [],
     "overflowPx1440": 0,
+    "scenes": {
+     "vocT": "live",
+     "cliff": "live",
+     "valley": "live",
+     "fluct": "live",
+     "zno": "live",
+     "design": "live",
+     "solvers": "live",
+     "znse": "live"
+    },
+    "tableRows": {
+     "znoTable": 5,
+     "lightTable": 6,
+     "swBody": 4,
+     "gateTable": 3
+    },
     "scenesBuilt": [
      "vocT:2",
      "cliff:2",
@@ -15,13 +32,17 @@
      "znse:1",
      "valley:2"
     ],
-    "transferBytes": 614643,
+    "transferBytes": 709740,
     "mobileErrors": [],
     "mobileFailed": [],
     "overflowPx375": 0,
     "reducedMotionFigures": [
      {
       "src": "F1_vocT_cliff_vs_spike.png",
+      "visible": "1"
+     },
+     {
+      "src": "F2_identifiability.png",
       "visible": "1"
      },
      {
@@ -63,6 +84,22 @@
     "errors": [],
     "failed": [],
     "overflowPx1440": 0,
+    "scenes": {
+     "vocT": "live",
+     "cliff": "live",
+     "valley": "live",
+     "fluct": "live",
+     "zno": "live",
+     "design": "live",
+     "solvers": "live",
+     "znse": "live"
+    },
+    "tableRows": {
+     "znoTable": 5,
+     "lightTable": 6,
+     "swBody": 4,
+     "gateTable": 3
+    },
     "scenesBuilt": [
      "vocT:2",
      "cliff:2",
@@ -73,13 +110,17 @@
      "znse:1",
      "valley:2"
     ],
-    "transferBytes": 614643,
+    "transferBytes": 709740,
     "mobileErrors": [],
     "mobileFailed": [],
     "overflowPx375": 0,
     "reducedMotionFigures": [
      {
       "src": "F1_vocT_cliff_vs_spike.png",
+      "visible": "1"
+     },
+     {
+      "src": "F2_identifiability.png",
       "visible": "1"
      },
      {

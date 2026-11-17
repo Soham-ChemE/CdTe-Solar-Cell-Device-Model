@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Renders and QA for the live page (Playwright for Python, headless Chromium).
 
-  python docs/page_qa.py [--hero] [--qa] [--static] [--lighthouse]
+  python docs/page_qa.py [--hero] [--qa] [--static] [--lighthouse] [--engine chromium|webkit|firefox]
 
   --hero        assets/hero_dark.webp and assets/hero_light.webp: the hero canvas alone at its final keyframe (the cliff), the
                 static image shown when WebGL is missing or software-rendered; docs/build_assets.py embeds the dark one in
@@ -9,6 +9,7 @@
   --qa          screenshots in both themes at 1440 px (hero at three scroll positions and every body scene) and 375 px (hero and
                 three scenes) into qa/<theme>/, plus console errors, failed requests and horizontal overflow, to qa/qa.json
   --static      the reduced-motion path in both themes: every scene must show its static figure (F1-F7), to qa/<theme>/
+  --engine      browser engine (default chromium); other engines write to qa/<engine>/
   --lighthouse  desktop Lighthouse run (needs the lighthouse CLI on PATH), report to qa/lighthouse.report.{html,json}
 
 Serves docs/ on a local port and loads it with software WebGL and window.__forceGL set, so the live scenes render rather
@@ -30,6 +31,7 @@ from pathlib import Path
 ap = argparse.ArgumentParser()
 for f in ("--hero", "--qa", "--static", "--lighthouse"):
     ap.add_argument(f, action="store_true")
+ap.add_argument("--engine", default="chromium", choices=["chromium", "webkit", "firefox"])
 A = ap.parse_args()
 DOCS = Path(__file__).resolve().parent
 
@@ -50,8 +52,9 @@ BASE = f"http://127.0.0.1:{PORT}/index.html"
 
 from playwright.sync_api import sync_playwright  # noqa: E402
 
-QA = DOCS / "qa"
-report = {"pages": {"index.html": {}}}
+QA0 = DOCS / "qa"
+QA = QA0 / A.engine if A.engine != "chromium" else QA0
+report = {"engine": A.engine, "pages": {"index.html": {}}}
 SCENES = ["vocT", "cliff", "valley", "fluct", "zno", "design", "solvers", "znse"]
 
 
@@ -65,7 +68,7 @@ def open_page(browser, theme, w, h, reduced=False, force=True):
     page.on("pageerror", lambda e: errors.append(str(e)))
     page.on("requestfailed", lambda r: failed.append(r.url))
     page.on("response", lambda r: failed.append(f"{r.status} {r.url}") if r.status >= 400 else None)
-    page.goto(BASE, wait_until="networkidle")
+    page.goto(BASE, wait_until="load", timeout=90000)
     page.wait_for_function("() => window.SITE && window.SITE.ready")
     time.sleep(2.0)
     return ctx, page, errors, failed
@@ -87,7 +90,7 @@ def scene_to(page, name):
 
 
 with sync_playwright() as pw:
-    browser = pw.chromium.launch(args=["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
+    browser = pw.chromium.launch(args=["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]) if A.engine == "chromium" else getattr(pw, A.engine).launch()
     if A.hero:
         for theme in ("dark", "light"):
             ctx, page, errors, _ = open_page(browser, theme, 1600, 900)
@@ -113,9 +116,13 @@ with sync_playwright() as pw:
             for T in (0, .3, 1):
                 hero_to(page, T)
                 page.screenshot(path=str(qd / f"index-hero-t{int(T * 100):03d}.png"), timeout=180000)
+            scenes = {}
             for k, name in enumerate(SCENES, 1):
                 scene_to(page, name)
                 page.screenshot(path=str(qd / f"index-scene{k}-{name}.png"), timeout=180000)
+                scenes[name] = page.evaluate("""n => { const el = document.querySelector(`[data-viz="${n}"]`), v = window.__viz && window.__viz.views.find(x => x.name === n);
+                  return v && v.built && !v.failed ? 'live' : el.classList.contains('viz-failed') || document.documentElement.classList.contains('viz-static') ? 'static figure' : 'BLANK'; }""", name)
+            tables = page.evaluate("() => Object.fromEntries(['znoTable', 'lightTable', 'swBody', 'gateTable'].map(id => [id, document.getElementById(id).children.length]))")
             over = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
             built = page.evaluate("() => window.__viz ? window.__viz.views.map(v => v.name + ':' + (v.builds || 0)) : []")
             nbytes = page.evaluate("() => performance.getEntriesByType('resource').reduce((a, r) => a + (r.transferSize || r.encodedBodySize || 0), 0) + (performance.getEntriesByType('navigation')[0]?.transferSize || 0)")
@@ -129,7 +136,7 @@ with sync_playwright() as pw:
                 mpage.screenshot(path=str(qd / f"index-mobile-375-{name}.png"), timeout=180000)
             mover = mpage.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
             mctx.close()
-            report["pages"]["index.html"][theme] = {"errors": errors, "failed": failed, "overflowPx1440": over, "scenesBuilt": built,
+            report["pages"]["index.html"][theme] = {"errors": errors, "failed": failed, "overflowPx1440": over, "scenes": scenes, "tableRows": tables, "scenesBuilt": built,
                                                     "transferBytes": nbytes, "mobileErrors": merr, "mobileFailed": mfail, "overflowPx375": mover}
             print("qa", theme, json.dumps(report["pages"]["index.html"][theme]))
     if A.static:
@@ -161,7 +168,7 @@ with sync_playwright() as pw:
     browser.close()
 
 if A.qa or A.static:
-    QA.mkdir(exist_ok=True)
+    QA.mkdir(parents=True, exist_ok=True)
     try:  # store the screenshots as WebP
         from PIL import Image
         for p in QA.glob("*/*.png"):
